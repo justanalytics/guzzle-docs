@@ -1,0 +1,293 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>Guzzle on Azure Marketplace Gen 1 · Guzzle</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="## Overview"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="Guzzle on Azure Marketplace Gen 1 · Guzzle"/><meta property="og:type" content="website"/><meta property="og:url" content="https://justanalytics.github.io/guzzle-docs/"/><meta property="og:description" content="## Overview"/><meta property="og:image" content="https://justanalytics.github.io/guzzle-docs/img/undraw_online.svg"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://justanalytics.github.io/guzzle-docs/img/undraw_tweetstorm.svg"/><link rel="shortcut icon" href="/guzzle-docs/img/favicon.webp"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><link rel="alternate" type="application/atom+xml" href="https://justanalytics.github.io/guzzle-docs/blog/atom.xml" title="Guzzle Blog ATOM Feed"/><link rel="alternate" type="application/rss+xml" href="https://justanalytics.github.io/guzzle-docs/blog/feed.xml" title="Guzzle Blog RSS Feed"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script src="/guzzle-docs/js/scrollSpy.js"></script><link rel="stylesheet" href="/guzzle-docs/css/main.css"/><script src="/guzzle-docs/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/guzzle-docs/"><img class="logo" src="/guzzle-docs/img/just-analytics-logo-new.png" alt="Guzzle"/><h2 class="headerTitleWithLogo">Guzzle</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class="siteNavGroupActive"><a href="/guzzle-docs/docs/doc1" target="_self">Docs</a></li><li class=""><a href="/guzzle-docs/docs/doc4" target="_self">API</a></li><li class=""><a href="/guzzle-docs/help" target="_self">Help</a></li><li class=""><a href="/guzzle-docs/blog/" target="_self">Blog</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="docsNavContainer" id="docsNav"><nav class="toc"><div class="toggleNav"><section class="navWrapper wrapper"><div class="navBreadcrumb wrapper"><div class="navToggle" id="navToggler"><div class="hamburger-menu"><div class="line1"></div><div class="line2"></div><div class="line3"></div></div></div><h2><i>›</i><span>Guzzle on Azure</span></h2><div class="tocToggler" id="tocToggler"><i class="icon-toc"></i></div></div><div class="navGroups"><div class="navGroup"><h3 class="navGroupCategoryTitle">Guzzle Fundamentals</h3><ul class=""><li class="navListItem"><a class="navItem" href="/guzzle-docs/docs/doc1">Introduction to Guzzle</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Developers Guide</h3><ul class=""><li class="navListItem"><a class="navItem" href="/guzzle-docs/docs/core/concepts">Concepts</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Guzzle on Azure</h3><ul class=""><li class="navListItem navListItemActive"><a class="navItem" href="/guzzle-docs/docs/azure/azure_marketplace_gen1">Guzzle on Azure Marketplace</a></li></ul></div></div></section></div><script>
+            var coll = document.getElementsByClassName('collapsible');
+            var checkActiveCategory = true;
+            for (var i = 0; i < coll.length; i++) {
+              var links = coll[i].nextElementSibling.getElementsByTagName('*');
+              if (checkActiveCategory){
+                for (var j = 0; j < links.length; j++) {
+                  if (links[j].classList.contains('navListItemActive')){
+                    coll[i].nextElementSibling.classList.toggle('hide');
+                    coll[i].childNodes[1].classList.toggle('rotate');
+                    checkActiveCategory = false;
+                    break;
+                  }
+                }
+              }
+
+              coll[i].addEventListener('click', function() {
+                var arrow = this.childNodes[1];
+                arrow.classList.toggle('rotate');
+                var content = this.nextElementSibling;
+                content.classList.toggle('hide');
+              });
+            }
+
+            document.addEventListener('DOMContentLoaded', function() {
+              createToggler('#navToggler', '#docsNav', 'docsSliderActive');
+              createToggler('#tocToggler', 'body', 'tocActive');
+
+              var headings = document.querySelector('.toc-headings');
+              headings && headings.addEventListener('click', function(event) {
+                var el = event.target;
+                while(el !== headings){
+                  if (el.tagName === 'A') {
+                    document.body.classList.remove('tocActive');
+                    break;
+                  } else{
+                    el = el.parentNode;
+                  }
+                }
+              }, false);
+
+              function createToggler(togglerSelector, targetSelector, className) {
+                var toggler = document.querySelector(togglerSelector);
+                var target = document.querySelector(targetSelector);
+
+                if (!toggler) {
+                  return;
+                }
+
+                toggler.onclick = function(event) {
+                  event.preventDefault();
+
+                  target.classList.toggle(className);
+                };
+              }
+            });
+        </script></nav></div><div class="container mainContainer docsContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 id="__docusaurus" class="postHeaderTitle">Guzzle on Azure Marketplace Gen 1</h1></header><article><div><span><h2><a class="anchor" aria-hidden="true" id="overview"></a><a href="#overview" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Overview</h2>
+<ol>
+<li>Guzzle is available on Azure Marketplace at <a href="https://azuremarketplace.microsoft.com/en-us/marketplace/apps/justanalytics.guzzle-databricks?tab=Overview">https://azuremarketplace.microsoft.com/en-us/marketplace/apps/justanalytics.guzzle-databricks?tab=Overview</a></li>
+</ol>
+<h2><a class="anchor" aria-hidden="true" id="network-architecture-for-guzzle-on-azure"></a><a href="#network-architecture-for-guzzle-on-azure" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Network Architecture for Guzzle on Azure</h2>
+<p><img src="/guzzle-docs/img/docs/guzzle_network_architecture.png" alt="image"></p>
+<h2><a class="anchor" aria-hidden="true" id="pre-requisites"></a><a href="#pre-requisites" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Pre-requisites</h2>
+<p>Ensure you have following resource
+The list is also captured at: <a href="https://gitlab.ja.sg/guzzle/docs/-/wikis/Design/Azure-Marketplace-Offering-Gen-1#solution-template">https://gitlab.ja.sg/guzzle/docs/-/wikis/Design/Azure-Marketplace-Offering-Gen-1#solution-template</a></p>
+<ol>
+<li>Empty Resource group created in one of your existing subscription. This subscription is treated as primary subscription</li>
+<li>Managed identity created in the Tenant (Azure Active Directory)</li>
+<li>Storage account and container  - This has to be blob storage (and not ADLS/Hierarchy namespace). Also the Managed Identity in step 2 should have full owner permission to this storage account (not just the container). Also the blobstorage is open to
+<img src="/guzzle-docs/img/docs/guzzle_marketplace_pre_req.png" alt="image"></li>
+<li>SQL Server database to host Guzzle repository. Only native/local accounts are supported  (Azure AD accounts are not supported)</li>
+<li>Separate SQL Server database to host databricks metastore . Only native/local accounts are supported  (Azure AD accounts are not supported).</li>
+<li>Both SQL server databases can be in same of different server</li>
+<li>Databricks workspace name, region, organization id and  Access token</li>
+<li>Service Principle /Application registration to support single sing-on : <a href="https://docs.microsoft.com/en-us/azure/active-directory/develop/quickstart-register-app">https://docs.microsoft.com/en-us/azure/active-directory/develop/quickstart-register-app</a> (this involves step in Azure AD to update the redirect URL)
+**Note: ** If you don't have the &quot;Service Principle /Application registration&quot;, just put any xxx (or some arbitrary string) for clientid and client secrete. You can always update this latter with correct value for SSO to work</li>
+</ol>
+<h2><a class="anchor" aria-hidden="true" id="must-to-know"></a><a href="#must-to-know" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Must to know</h2>
+<ol>
+<li>Don't have special character in the passwords - specially $ and |</li>
+<li>Ensure Azure SQL server Database is firewall rules allows all Azure resources to connect to it (Azure SQL Server connections shall happen from Databricks and Guzzle VM)
+<img src="uploads/5e0dd3b310b74abfa03554ec698f04fe/image.png" alt="image"></li>
+<li>Guzzle Storage Account and Guzzle VM should be in same subscription (the setup script takes the VM's subscription and uses that to mount blob storage)</li>
+<li>Password for External metastore for databricks is stored as plain text in Guzzle configs. its recommended to switch to internal metastore once Guzzle marketplace offer is up and running</li>
+</ol>
+<h2><a class="anchor" aria-hidden="true" id="deployment-steps"></a><a href="#deployment-steps" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Deployment Steps</h2>
+<h3><a class="anchor" aria-hidden="true" id="basic-info"></a><a href="#basic-info" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Basic Info</h3>
+<p><img src="uploads/d3a07b209a955d50bafb95319456c8a7/image.png" alt="image"></p>
+<h3><a class="anchor" aria-hidden="true" id="vm-details-and-managed-identity"></a><a href="#vm-details-and-managed-identity" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>VM Details and Managed Identity</h3>
+<p><img src="uploads/8f02175133d001d0d02c1823ea5cd7a5/image.png" alt="image"></p>
+<h3><a class="anchor" aria-hidden="true" id="guzzle-settings"></a><a href="#guzzle-settings" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Guzzle Settings</h3>
+<p><img src="uploads/32106ee10cbe74d98b92920e5b719499/image.png" alt="image"></p>
+<h3><a class="anchor" aria-hidden="true" id="databricks-settings"></a><a href="#databricks-settings" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Databricks Settings</h3>
+<p><img src="uploads/05b4047c544a41fb3651c25d7dad69d2/image.png" alt="image"></p>
+<h3><a class="anchor" aria-hidden="true" id="review-and-create"></a><a href="#review-and-create" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Review and Create</h3>
+<p><img src="uploads/ec0a21021b3024e87a4dce08f6a25c60/image.png" alt="image"></p>
+<h3><a class="anchor" aria-hidden="true" id="upon-completion-of-deployment"></a><a href="#upon-completion-of-deployment" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Upon completion of Deployment</h3>
+<p><img src="uploads/4716e45f4c727e08ec51279672a02592/image.png" alt="image"></p>
+<h2><a class="anchor" aria-hidden="true" id="what-will-you-see-when-its-deploying-marketplace-offer"></a><a href="#what-will-you-see-when-its-deploying-marketplace-offer" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>What will you see when its deploying Marketplace offer</h2>
+<h3><a class="anchor" aria-hidden="true" id="in-guzzle-vm"></a><a href="#in-guzzle-vm" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>In Guzzle VM</h3>
+<ol>
+<li>The deployment is progressing. The setup script can take upto 10 minutes as it copies 500MB+ of files over to blob store</li>
+<li>You see the setup script for python  running
+<img src="uploads/a195dce4834df25f67b867c5190dfabd/image.png" alt="image"></li>
+<li>All the logs goes in this folder: /var/lib/waagent/custom-script/download/0/ in VM. stderr and stdout has all the key information</li>
+</ol>
+<pre><code class="hljs css language-shell">demoadmin@guzzlemp2vm:~$ sudo bash
+root@guzzlemp2vm:~# cd /var/lib/waagent/custom-script/download/0/
+root@guzzlemp2vm:/var/lib/waagent/custom-script/download/0# ls -ltrh
+total 28K
+drwxr-xr-x 2 root root 4.0K Apr 10 07:41 scripts
+drwxr-xr-x 2 root root 4.0K Apr 10 07:42 logs
+-rw------- 1 root root 3.7K Apr 10 07:42 stderr
+-rw------- 1 root root  16K Apr 10 07:46 stdout
+root@guzzlemp2vm:/var/lib/waagent/custom-script/download/0# date
+Fri Apr 10 07:51:56 UTC 2020
+root@guzzlemp2vm:/var/lib/waagent/custom-script/download/0#
+</code></pre>
+<ol>
+<li>Finally once setup is complete you should see following processes running in Guzzle VM ( There are the ones which may be missing and can be ignored : sudo --preserve-env=PATH -HEu demoadmin )</li>
+<li>bloufuse to mount Guzzle home blobg container to VM</li>
+<li>Elastic search used by Atlas</li>
+<li>Node server (web server of Guzzle)</li>
+<li>Elastic search by Guzzle</li>
+<li>Atlas Java process</li>
+<li>Guzzle API process</li>
+</ol>
+<pre><code class="hljs css language-shell">oot@guzzlemp2vm:/guzzle/logs# ps -ef | grep "[g]uzzle\|[n]ode\|[e]lastic\|[a]tlas"
+root       1323      1  1 04:10 ?        00:03:20 blobfuse /guzzle --tmp-path=/mnt/blobfusetmp -o allow_other --config-file=/root/fuse_connection.cfg -o attr_timeout=240 -o entry_timeout=240 -o negative_timeout=120 --file-cache-timeout-in-seconds=10
+root       1326      1  0 04:10 ?        00:00:00 sudo --preserve-env=PATH -HEu demoadmin bash -c /opt/elasticsearch-6.2.4/bin/elasticsearch
+root       1473      1  0 04:10 ?        00:00:00 sudo --preserve-env=PATH -HEu demoadmin bash -c java -Dloader.path=/guzzle/api/libs -jar api-0.0.1-SNAPSHOT.jar
+demoadm+   1478   1473  0 04:10 ?        00:02:02 java -Dloader.path=/guzzle/api/libs -jar api-0.0.1-SNAPSHOT.jar
+demoadm+   1543   1326  0 04:10 ?        00:01:49 /usr/lib/jvm/java-8-openjdk-amd64/bin/java -Xms1g -Xmx1g -XX:+UseConcMarkSweepGC -XX:CMSInitiatingOccupancyFraction=75 -XX:+UseCMSInitiatingOccupancyOnly -XX:+AlwaysPreTouch -Xss1m -Djava.awt.headless=true -Dfile.encoding=UTF-8 -Djna.nosys=true -XX:-OmitStackTraceInFastThrow -Dio.netty.noUnsafe=true -Dio.netty.noKeySetOptimization=true -Dio.netty.recycler.maxCapacityPerThread=0 -Dlog4j.shutdownHookEnabled=false -Dlog4j2.disable.jmx=true -Djava.io.tmpdir=/tmp/elasticsearch.1UkoCBcT -XX:+HeapDumpOnOutOfMemoryError -XX:+PrintGCDetails -XX:+PrintGCDateStamps -XX:+PrintTenuringDistribution -XX:+PrintGCApplicationStoppedTime -Xloggc:logs/gc.log -XX:+UseGCLogFileRotation -XX:NumberOfGCLogFiles=32 -XX:GCLogFileSize=64m -Des.path.home=/opt/elasticsearch-6.2.4 -Des.path.conf=/opt/elasticsearch-6.2.4/config -cp /opt/elasticsearch-6.2.4/lib/* org.elasticsearch.bootstrap.Elasticsearch
+root       1776      1  0 04:10 ?        00:00:00 node /opt/node-v6.14.2-linux-x64/bin/http-server -p 8082 --push-state --ssl --cert /certs/cert.pem --key /certs/privatekey_new.pem .
+demoadm+   1944      1  0 04:10 ?        00:00:00 bash /opt/apache-atlas-2.0.0/hbase/bin/hbase-daemon.sh --config /opt/apache-atlas-2.0.0/hbase/conf foreground_start master
+demoadm+   1961   1944  0 04:10 ?        00:01:36 /usr/lib/jvm/java-8-openjdk-amd64/bin/java -Dproc_master -XX:OnOutOfMemoryError=kill -9 %p -XX:+UseConcMarkSweepGC -Dhbase.log.dir=/opt/apache-atlas-2.0.0/hbase/bin/../logs -Dhbase.log.file=hbase-demoadmin-master-guzzlemp2vm.log -Dhbase.home.dir=/opt/apache-atlas-2.0.0/hbase/bin/.. -Dhbase.id.str=demoadmin -Dhbase.root.logger=INFO,RFA -Dhbase.security.logger=INFO,RFAS org.apache.hadoop.hbase.master.HMaster start
+demoadm+   2092      1  0 04:10 ?        00:00:43 /usr/lib/jvm/java-8-openjdk-amd64/bin/java -server -Xms512m -Xmx512m -XX:NewRatio=3 -XX:SurvivorRatio=4 -XX:TargetSurvivorRatio=90 -XX:MaxTenuringThreshold=8 -XX:+UseConcMarkSweepGC -XX:ConcGCThreads=4 -XX:ParallelGCThreads=4 -XX:+CMSScavengeBeforeRemark -XX:PretenureSizeThreshold=64m -XX:+UseCMSInitiatingOccupancyOnly -XX:CMSInitiatingOccupancyFraction=50 -XX:CMSMaxAbortablePrecleanTime=6000 -XX:+CMSParallelRemarkEnabled -XX:+ParallelRefProcEnabled -XX:-OmitStackTraceInFastThrow -verbose:gc -XX:+PrintHeapAtGC -XX:+PrintGCDetails -XX:+PrintGCDateStamps -XX:+PrintGCTimeStamps -XX:+PrintTenuringDistribution -XX:+PrintGCApplicationStoppedTime -Xloggc:/opt/apache-atlas-2.0.0/solr/server/logs/solr_gc.log -XX:+UseGCLogFileRotation -XX:NumberOfGCLogFiles=9 -XX:GCLogFileSize=20M -DzkClientTimeout=15000 -DzkHost=localhost:2181 -Dsolr.log.dir=/opt/apache-atlas-2.0.0/solr/server/logs -Djetty.port=9838 -DSTOP.PORT=8838 -DSTOP.KEY=solrrocks -Duser.timezone=UTC -Djetty.home=/opt/apache-atlas-2.0.0/solr/server -Dsolr.solr.home=/opt/apache-atlas-2.0.0/solr/server/solr -Dsolr.data.home= -Dsolr.install.dir=/opt/apache-atlas-2.0.0/solr -Dsolr.default.confdir=/opt/apache-atlas-2.0.0/solr/server/solr/configsets/_default/conf -Xss256k -Dsolr.jetty.https.port=9838 -Dsolr.log.muteconsole -XX:OnOutOfMemoryError=/opt/apache-atlas-2.0.0/solr/bin/oom_solr.sh 9838 /opt/apache-atlas-2.0.0/solr/server/logs -jar start.jar --module=http
+demoadm+   3029      1  1 04:11 ?        00:03:36 /usr/lib/jvm/java-8-openjdk-amd64/bin/java -Datlas.log.dir=/opt/apache-atlas-2.0.0/logs -Datlas.log.file=application.log -Datlas.home=/opt/apache-atlas-2.0.0 -Datlas.conf=/opt/apache-atlas-2.0.0/conf -Xmx1024m -Dlog4j.configuration=atlas-log4j.xml -Djava.net.preferIPv4Stack=true -server -classpath /opt/apache-atlas-2.0.0/conf:/opt/apache-atlas-2.0.0/server/webapp/atlas/WEB-INF/classes:/opt/apache-atlas-2.0.0/server/webapp/atlas/WEB-INF/lib/*:/opt/apache-atlas-2.0.0/libext/*:/opt/apache-atlas-2.0.0/hbase/conf org.apache.atlas.Atlas -app /opt/apache-atlas-2.0.0/server/webapp/atlas
+
+
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="in-databricks"></a><a href="#in-databricks" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>In Databricks</h3>
+<ol>
+<li>In Databricks workspace you will see new analytics cluster called guzzle-config created (if there is existing one, that continues to remain - as cluster has unique id underneath and they don't go by name)
+<img src="uploads/23184538762184b5671729e1dea65c66/image.png" alt="image"></li>
+<li>Also you would notice that Guzzle Home will have got mounted in Databricks workspace (mounts in Databricks are at workspace level and NOT at cluster level)
+On Databricks workspace you can create sample notebook and run it against guzzle-config or any anlaytics cluster) and ensure you see the Guzzle home mounted:
+<img src="uploads/ab5b896fc14570317e0c498fe11c32ca/image.png" alt="image"></li>
+</ol>
+<h3><a class="anchor" aria-hidden="true" id="in-storage-account"></a><a href="#in-storage-account" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>In Storage Account</h3>
+<ol>
+<li>In storage account you will see new files added up  in container which hosts Guzzle Home
+<img src="uploads/3f1007a74baa20e3060f2e53756f6204/image.png" alt="image"></li>
+</ol>
+<h3><a class="anchor" aria-hidden="true" id="in-sql-server-databases"></a><a href="#in-sql-server-databases" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>In SQL Server databases</h3>
+<ol>
+<li>The Guzzle repository and Guzzle API table should show up in Guzzle repository database. The below ones will show up first as Guzzle Repo gets initialized
+<img src="uploads/98c9211e6db789764a0b7efe740e0640/image.png" alt="image">
+And below highlighted ones shows up when API comes up:
+<img src="uploads/f5bbe762040d63013a641737966a6160/image.png" alt="image"></li>
+<li>Hive metastore tables should show up in External metastore
+Before when there are no tables in this databaes
+After the job starts (steps to run the jobs before :
+<img src="uploads/f2b04dc2b095f260782885f03a607114/image.png" alt="image"></li>
+</ol>
+<h2><a class="anchor" aria-hidden="true" id="once-everything-is-set"></a><a href="#once-everything-is-set" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Once everything is set</h2>
+<ol>
+<li>Launch the Guzzle URL
+<img src="uploads/f36f0033cbfdcc1350b5dd9c9f902424/image.png" alt="image"></li>
+<li>And then login
+<img src="uploads/88ec9107544c6fac33b77831fe3489c5/image.png" alt="image"></li>
+<li>Run the sample job from here
+<img src="uploads/a1a7965c1968b7c8899426acf3d5937e/image.png" alt="image"></li>
+<li>This brings up Job Cluster. This also initializes hivemetastore as the first job runs using the external meastore
+!<img src="uploads/618549d45bf4e5c7e9f98cde10b7e234/image.png" alt="image"></li>
+<li>On successful completion the job should show up
+<img src="uploads/123435505606ccac3adc52d89e32be0a/image.png" alt="image">
+<img src="uploads/2129d81239fc7f12a7d8f382c57c1d74/image.png" alt="image"></li>
+</ol>
+<h2><a class="anchor" aria-hidden="true" id="what-happens-when-we-redo-marketplace-deployment-using-same-azure-resources-multiple-times"></a><a href="#what-happens-when-we-redo-marketplace-deployment-using-same-azure-resources-multiple-times" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>What happens when we redo Marketplace deployment using same Azure resources multiple times</h2>
+<ol>
+<li>If the blobstorage container, contains existing Guzzle files, it will simply overwrite them when doing a fresh marketplace deploy.</li>
+<li>If databricks workspace is already containing the guzzle-config cluster, its ignored and fresh one is created. Any existing mount of guzzle blotstorage container on /mnt/guzzle in that workspace is unmounted. A new mount is done pointing to the details given in marketplace wizard</li>
+<li>Guzzle repository database tables if present in the same Azure SQL database, the deployment of Guzzle repository gets skipped (no cleanup is required - unless the database contains tables from older version of Guzzle deployment)</li>
+<li>Hive metastore tables if present in the same Azure SQL database for External metastore database for Databricks, the step of deploying fresh metastore tables is skipped  (you don't need any cleanup)</li>
+</ol>
+<h2><a class="anchor" aria-hidden="true" id="atlas-issues"></a><a href="#atlas-issues" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Atlas Issues</h2>
+<p>Following are the fixes of issues in Apache Atlas</p>
+<ol>
+<li>By default marketplace starts Atlas using the root. We need to modify Guzzle startup script to change this to non-root account. We can use the account used during the VM creation (demoadmin or appropriate user). Once this is chagnd, restart Guzzle VM</li>
+</ol>
+<p><img src="uploads/e297c3a9f0606975b14b054a5f5c162f/image.png" alt="image"></p>
+<pre><code class="hljs css language-shell">sudo bash
+chown demoadmin:demoadmin -R /opt/apache-atlas-2.0.0
+vi /opt/guzzlescript/guzzle-startup-script.sh
+<span class="hljs-meta">
+#</span><span class="bash"> Update the Atlas startup <span class="hljs-built_in">command</span> as per below</span>
+ nohup sudo --preserve-env=PATH -HEu demoadmin bash -c  "/opt/apache-atlas-2.0.0/bin/atlas_start.py" &gt; /guzzle/logs/atlas.out &amp;
+
+</code></pre>
+<p><img src="uploads/21fe1f01969534e029738399735dd9b5/image.png" alt="image"></p>
+<ol start="2">
+<li>Edit the /guzzle/conf/atlas.yml file to remove the below entirely</li>
+</ol>
+<pre><code class="hljs css language-yml"><span class="hljs-attr">hive:</span>
+  <span class="hljs-attr">jdbc_url:</span> <span class="hljs-string">jdbc:spark:....</span>
+</code></pre>
+<p>The revised file should look as per below:</p>
+<p><img src="uploads/423af0cd94f0929d72d7a085515bdb0e/image.png" alt="image">
+Restart the Guzzle VM from Azure Portal and wait for 10 minutes for all the services to come up</p>
+<ol start="3">
+<li>Atlas sync only supported for Local file system</li>
+</ol>
+<ul>
+<li>Atlas sync is currently only supported local file system, Hive, Delta and JDBC sources. It does not support all the cloud file system</li>
+<li>In databricks guzzle home mounted under /dbfs/mnt/guzzle while in Guzzle VM its mounted under /guzzle.</li>
+<li>When referring to the guzzle home and source file there in one has to use /dbfs/mnt/guzzle</li>
+<li>Create symbolic link in Guzzle VM that points to the same LFS (local file system) path as Databricks run below command (first command is to switch to root)</li>
+</ul>
+<pre><code class="hljs css language-shell">demoadmin@guzzlemp2vm:/guzzle/test-data$ sudo bash
+root@guzzlemp2vm:/guzzle/test-data# mkdir -p /dbfs/mnt/guzzle
+root@guzzlemp2vm:/guzzle/test-data# cd /dbfs/mnt/guzzle/
+root@guzzlemp2vm:/dbfs/mnt/guzzle# ln -s /guzzle/test-data
+</code></pre>
+<p><strong>Note:</strong> This step is not required if the blob storage where source files are present in same directory on Guzzle VM and Databricks.</p>
+<ol start="4">
+<li>Wild card (multiple files are not supported when retrieving the column list for Atlas sync)</li>
+</ol>
+<ul>
+<li>In the job config use specific file names like users2.csv instead of user*.csv</li>
+</ul>
+<ol start="5">
+<li>Update the user and password for ph_hive (or appropriate hive or delta physical connection with username as &quot;token&quot; and password as API access token retrieved from Databricks workspace)</li>
+</ol>
+<p><img src="uploads/657bde12882da810b426c8363d64aefc/image.png" alt="image"></p>
+<ol start="6">
+<li>Run the scrip to create Guzzle metadata type (this is only if when you don't see guzzle metatypes like guzzle_dataset , guzzle_process etc in Atlas)</li>
+</ol>
+<pre><code class="hljs css language-shell">sudo bash
+/opt/guzzlescript/create-atlas-types.sh
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="using-adlsv2-as-storage-for-delta-and-hive-tables-and-usage-of-databricks-secrets"></a><a href="#using-adlsv2-as-storage-for-delta-and-hive-tables-and-usage-of-databricks-secrets" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Using ADLSv2 as Storage for Delta and Hive tables and usage of Databricks Secrets</h2>
+<ol>
+<li>Create ADLS storage account and file system</li>
+<li>Grant the Blob storage contributor permission to one of the Service Principal (you can use existing service principal that is being used for Azure AD SSO)</li>
+<li>Create Azure key vaults to store the secrets (in this case the Service principal client id and client secret) (follow the link here: <a href="https://docs.microsoft.com/en-us/azure/key-vault/quick-create-portal">https://docs.microsoft.com/en-us/azure/key-vault/quick-create-portal</a> ) or video</li>
+<li>Create Databricks secret scope backed by Azurekey vault (follow Video) or this link: <a href="https://docs.microsoft.com/en-us/azure/databricks/security/secrets/secret-scopes#--create-an-azure-key-vault-backed-secret-scope">https://docs.microsoft.com/en-us/azure/databricks/security/secrets/secret-scopes#--create-an-azure-key-vault-backed-secret-scope</a></li>
+<li>Mount this storage account on Databricks workspace under /mnt/data  - we will use plain notebook to specify the secrets of Service principal. I have used Python notebook to do it. Notice that I have used Databricks secrete backed by</li>
+</ol>
+<pre><code class="hljs css language-python">configs = {<span class="hljs-string">"fs.azure.account.auth.type"</span>: <span class="hljs-string">"OAuth"</span>,
+           <span class="hljs-string">"fs.azure.account.oauth.provider.type"</span>: <span class="hljs-string">"org.apache.hadoop.fs.azurebfs.oauth2.ClientCredsTokenProvider"</span>,
+           <span class="hljs-string">"fs.azure.account.oauth2.client.id"</span>: dbutils.secrets.get(scope = <span class="hljs-string">"guzzlevm2scope"</span>, key = <span class="hljs-string">"guzzlemv2spclient"</span>),
+           <span class="hljs-string">"fs.azure.account.oauth2.client.secret"</span>: dbutils.secrets.get(scope = <span class="hljs-string">"guzzlevm2scope"</span>, key = <span class="hljs-string">"guzzlemv2spclientsec"</span>),
+           <span class="hljs-string">"fs.azure.account.oauth2.client.endpoint"</span>: <span class="hljs-string">"https://login.microsoftonline.com/bc5c7327-b12e-48db-a856-175591ecd2f0/oauth2/token"</span>}
+
+dbutils.fs.mount(
+  source = <span class="hljs-string">"abfss://datalake1@adlsv2guzzlecommon.dfs.core.windows.net/data"</span>,
+  mount_point = <span class="hljs-string">"/mnt/data"</span>,
+  extra_configs = configs)
+</code></pre>
+<ol>
+<li>Create a database &quot;test&quot; in Databricks and point to the /mnt/data/test as the location (do take note that folder test if not present then Databricks will  create when creating database) . With this all the tables in database &quot;test&quot; shall go into the folder /mnt/data/test in DBFS which in turn then goes into datalake1 container (aka filesystem) in the ADLSgen2 storage account: adlsv2guzzlecommon</li>
+</ol>
+<pre><code class="hljs css language-sql"><span class="hljs-keyword">create</span> <span class="hljs-keyword">database</span> <span class="hljs-keyword">test</span> location <span class="hljs-string">'/mnt/data/test'</span>;
+</code></pre>
+<ol>
+<li>Go to Guzzle and define new logical and physical end point pointing to the hive database &quot;test&quot;. You can create both Hive and Delta endpoints against the same database &quot;test&quot; and the tables will be stored as delta or hive tables based on which end point is used or target</li>
+</ol>
+<h2><a class="anchor" aria-hidden="true" id="securing-guzzle-deployment"></a><a href="#securing-guzzle-deployment" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Securing Guzzle Deployment</h2>
+<h3><a class="anchor" aria-hidden="true" id="vm-and-sso"></a><a href="#vm-and-sso" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>VM and SSO</h3>
+<ol>
+<li>Enable azure SSO for Guzzle</li>
+</ol>
+<ul>
+<li>Add your Azure AD account to as Admin</li>
+<li>Delete the Native Admin account from Guzzle repository</li>
+</ul>
+<ol start="2">
+<li>Enable Firewalls for Guzzle VM</li>
+</ol>
+<ul>
+<li>Guzzle VM : Only open selected ports for external traffic : 9090,  8082, 21000 and 22)</li>
+<li>You can also restrict outbound traffic from Guzzle VM to only connect to specific subnet where Databricks is running</li>
+</ul>
+<ol start="3">
+<li>Enable Network security for PAAS services - Azure SQL Server</li>
+<li>Enable Network security for PAAS services - Storage accounts (blob and ADLS if you are using that)</li>
+</ol>
+<h3><a class="anchor" aria-hidden="true" id="azure-databricks-security"></a><a href="#azure-databricks-security" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Azure Databricks security</h3>
+<ol>
+<li>Working with Databricks Secrets</li>
+</ol>
+</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/guzzle-docs/docs/core/concepts"><span class="arrow-prev">← </span><span>Concepts</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#overview">Overview</a></li><li><a href="#network-architecture-for-guzzle-on-azure">Network Architecture for Guzzle on Azure</a></li><li><a href="#pre-requisites">Pre-requisites</a></li><li><a href="#must-to-know">Must to know</a></li><li><a href="#deployment-steps">Deployment Steps</a><ul class="toc-headings"><li><a href="#basic-info">Basic Info</a></li><li><a href="#vm-details-and-managed-identity">VM Details and Managed Identity</a></li><li><a href="#guzzle-settings">Guzzle Settings</a></li><li><a href="#databricks-settings">Databricks Settings</a></li><li><a href="#review-and-create">Review and Create</a></li><li><a href="#upon-completion-of-deployment">Upon completion of Deployment</a></li></ul></li><li><a href="#what-will-you-see-when-its-deploying-marketplace-offer">What will you see when its deploying Marketplace offer</a><ul class="toc-headings"><li><a href="#in-guzzle-vm">In Guzzle VM</a></li><li><a href="#in-databricks">In Databricks</a></li><li><a href="#in-storage-account">In Storage Account</a></li><li><a href="#in-sql-server-databases">In SQL Server databases</a></li></ul></li><li><a href="#once-everything-is-set">Once everything is set</a></li><li><a href="#what-happens-when-we-redo-marketplace-deployment-using-same-azure-resources-multiple-times">What happens when we redo Marketplace deployment using same Azure resources multiple times</a></li><li><a href="#atlas-issues">Atlas Issues</a></li><li><a href="#using-adlsv2-as-storage-for-delta-and-hive-tables-and-usage-of-databricks-secrets">Using ADLSv2 as Storage for Delta and Hive tables and usage of Databricks Secrets</a></li><li><a href="#securing-guzzle-deployment">Securing Guzzle Deployment</a><ul class="toc-headings"><li><a href="#vm-and-sso">VM and SSO</a></li><li><a href="#azure-databricks-security">Azure Databricks security</a></li></ul></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/guzzle-docs/" class="nav-home"><img src="/guzzle-docs/img/favicon.webp" alt="Guzzle" width="66" height="58"/></a><div><h5>Docs</h5><a href="/guzzle-docs/docs/en/doc1.html">Getting Started (or other categories)</a><a href="/guzzle-docs/docs/en/doc2.html">Guides (or other categories)</a><a href="/guzzle-docs/docs/en/doc3.html">API Reference (or other categories)</a></div><div><h5>Community</h5><a href="/guzzle-docs/en/users.html">User Showcase</a><a href="https://stackoverflow.com/questions/tagged/" target="_blank" rel="noreferrer noopener">Stack Overflow</a><a href="https://discordapp.com/">Project Chat</a><a href="https://twitter.com/" target="_blank" rel="noreferrer noopener">Twitter</a></div><div><h5>More</h5><a href="/guzzle-docs/blog">Blog</a><a href="https://github.com/">GitHub</a><a class="github-button" data-icon="octicon-star" data-count-href="/facebook/docusaurus/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></div></section><a href="https://opensource.facebook.com/" target="_blank" rel="noreferrer noopener" class="fbOpenSource"><img src="/guzzle-docs/img/oss_logo.png" alt="Facebook Open Source" width="170" height="45"/></a><section class="copyright">Copyright © 2020 Just Analytics</section></footer></div></body></html>
