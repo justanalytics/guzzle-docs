@@ -226,7 +226,6 @@ Required resources for guzzle installation are as follows:
         echo "test" > a.log
         ```
 
-<div class="page"/>
 
 3. Extract files:
     ```sh
@@ -313,8 +312,7 @@ Required resources for guzzle installation are as follows:
     1. Go to the Guzzle VM resource on Azure and configure the DNS name. After configuration it will look like this. Save the DNS somewhere for further use <a name="guzzle_vm_dns"></a>:
         
         >![dns name](/guzzle-docs/img/docs/azure-manual/DNSName.png)
-    
-    
+ 
     2. Open **/guzzle/conf/instance/spark/spark_azure_databricks.yml** and edit as follows:
         - Replace following values with the values saved earlier during databricks creation.
             + *&lt;databricks-url&gt;* Look [here](#databricks_url)
