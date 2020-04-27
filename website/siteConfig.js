@@ -23,7 +23,7 @@ const users = [
 const siteConfig = {
   title: 'Guzzle', // Title for your website.
   tagline: 'Guzzle Documentation',
-  url: 'https://pranavshukla-org.github.io', // Your website URL
+  url: 'https://justanalytics.github.io', // Your website URL
   baseUrl: '/guzzle-docs/', // Base URL for your project */
   // For github.io type URLs, you would set the url and baseUrl like:
   //   url: 'https://facebook.github.io',
@@ -31,7 +31,7 @@ const siteConfig = {
 
   // Used for publishing and more
   projectName: 'guzzle-docs',
-  organizationName: 'pranavshukla-org',
+  organizationName: 'justanalytics',
   // For top-level user or org sites, the organization is still the same.
   // e.g., for the https://JoelMarcey.github.io site, it would be set like...
   //   organizationName: 'JoelMarcey'
