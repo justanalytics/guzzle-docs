@@ -4,6 +4,7 @@ title: Installing Guzzle on Azure with Databricks
 sidebar_label: Installing on Azure Manually
 ---
 
+
 ## Guzzle Setup Step By Step Guide
 
 ### Index
@@ -225,7 +226,6 @@ Required resources for guzzle installation are as follows:
         echo "test" > a.log
         ```
 
-<div class="page"/>
 
 3. Extract files:
     ```sh
@@ -312,8 +312,7 @@ Required resources for guzzle installation are as follows:
     1. Go to the Guzzle VM resource on Azure and configure the DNS name. After configuration it will look like this. Save the DNS somewhere for further use <a name="guzzle_vm_dns"></a>:
         
         >![dns name](/guzzle-docs/img/docs/azure-manual/DNSName.png)
-    
-    
+ 
     2. Open **/guzzle/conf/instance/spark/spark_azure_databricks.yml** and edit as follows:
         - Replace following values with the values saved earlier during databricks creation.
             + *&lt;databricks-url&gt;* Look [here](#databricks_url)
@@ -434,4 +433,4 @@ Required resources for guzzle installation are as follows:
 
 Notes:
 >1. If **spark-hive-connector.jar** isn't there in $GUZZLE_HOME/bin, copy and paste it from $GUZZLE_HOME/hive-connector.
->2. make sure **$GUZZLE_HOME/conf/default/file-template** does **exist**, create an empty one otherwise, with that name.
+>2. make sure **$GUZZLE_HOME/conf/default/file-template** does **exist**, create an empty one otherwise, wi
