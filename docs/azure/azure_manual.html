@@ -268,7 +268,6 @@ chmod 777 /home/&lt;user&gt;/fuse_connection.cfg
 </blockquote></li>
 </ol></li>
 </ol>
-<div class="page"/>
 <ol start="3">
 <li><p>Extract files:</p>
 <pre><code class="hljs css language-sh"><span class="hljs-built_in">cd</span> ~
@@ -349,91 +348,91 @@ sudo apt-get install mysql-server -y
 </ol>
 <div class="page"/>
 <ol start="8">
-<li>Configure guzzle:
+<li><p>Configure guzzle:</p>
 <ol>
 <li><p>Go to the Guzzle VM resource on Azure and configure the DNS name. After configuration it will look like this. Save the DNS somewhere for further use <a name="guzzle_vm_dns"></a>:</p>
 <blockquote>
 <p><img src="/guzzle-docs/img/docs/azure-manual/DNSName.png" alt="dns name"></p>
 </blockquote></li>
-</ol></li>
+<li><p>Open <strong>/guzzle/conf/instance/spark/spark_azure_databricks.yml</strong> and edit as follows:</p>
+<ul>
+<li>Replace following values with the values saved earlier during databricks creation.
+<ul>
+<li><em>&lt;databricks-url&gt;</em> Look <a href="#databricks_url">here</a></li>
+<li><em>&lt;access-token&gt;</em> Look <a href="#databricks_token">here</a></li>
+<li><em>&lt;cluster-id&gt;</em> Look <a href="#databricks_cluster_id">here</a></li>
+</ul></li>
+</ul>
+<pre><code class="hljs css language-yaml"><span class="hljs-attr">version:</span> <span class="hljs-number">1</span>
+<span class="hljs-attr">run_mode:</span> <span class="hljs-string">"azure-databricks"</span>
+<span class="hljs-attr">properties:</span>
+  <span class="hljs-attr">api_url:</span> <span class="hljs-string">"&lt;databricks-url&gt;"</span>
+  <span class="hljs-attr">auth_token:</span> <span class="hljs-string">"&lt;access-token&gt;"</span>
+  <span class="hljs-attr">cluster_id:</span> <span class="hljs-string">"&lt;cluster-id&gt;"</span>
+  <span class="hljs-attr">type:</span> <span class="hljs-string">"existing-cluster"</span>
+  <span class="hljs-attr">dbfs_guzzle_dir:</span> <span class="hljs-string">"dbfs:/mnt/guzzle"</span>
+</code></pre></li>
 </ol>
-<pre><code class="hljs">2. Open **/guzzle/conf/instance/spark/spark_azure_databricks.yml** and edit as follows:
-    - Replace following values with the values saved earlier during databricks creation.
-        + *&amp;lt;databricks-url&amp;gt;* Look [here](#databricks_url)
-        + *&amp;lt;access-token&amp;gt;* Look [here](#databricks_token)
-        + *&amp;lt;cluster-id&amp;gt;* Look [here](#databricks_cluster_id)
-
-    ```yaml
-    version: 1
-    run_mode: &quot;azure-databricks&quot;
-    properties:
-      api_url: &quot;&lt;databricks-url&gt;&quot;
-      auth_token: &quot;&lt;access-token&gt;&quot;
-      cluster_id: &quot;&lt;cluster-id&gt;&quot;
-      type: &quot;existing-cluster&quot;
-      dbfs_guzzle_dir: &quot;dbfs:/mnt/guzzle&quot;
-    ```
-
-&lt;div class=&quot;page&quot;/&gt;
-
-3. Update **GUZZLE_HOME/conf/guzzle.yml**. It should look similar to the one given below. 
-    &gt;Make sure to change the mysql password and **DNS_name** ([here](#guzzle_vm_dns)) in jdbc_url:
-
-    ```yaml
-    version: 1
-    database:
-      type: jdbc
-      properties:
-        jdbc_url: jdbc:mysql://&lt;DNS_name&gt;:3306/guzzle?autoReconnect=true
-        username: guzzle
-        password: &lt;your-password&gt;
-    context_columns: [system, location]
-    stages: [STG, FND, SNP, CALC, REP, OUT]
-    default_spark: spark_azure_databricks
-    java:
-      classpath: &quot;.:/usr/hdp/current/hive-client/lib/hive-metastore.jar:/usr/hdp/current/hive-client/lib/hive-service.jar:/usr/hdp/current/hive-client/lib/hive-exec.jar:/usr/hdp/current/hive-client/lib/hive-jdbc.jar:/usr/hdp/current/hadoop-hdfs-client/hadoop-hdfs.jar:/usr/hdp/current/hadoop-client/hadoop-common.jar&quot;
-    guzzle:
-      hive:
-        storage_format: ORC
-      log:
-        dir: /guzzle/logs
-    api:
-      url: http://localhost:9090
-    ```
-
-&lt;div class=&quot;page&quot;/&gt;
-
-4. Update **GUZLE_PRODUCT_HOME/api/guzzle-api.yml**. It should look similar to the one give below:
-    &gt;Make sure to change the mysql password and DNSName ([here](#guzzle_vm_dns)):
-    
-    ```yaml
-    application:
-      authentication:
-        type: database
-    server:
-      port: 9090
-    database:
-      type: &quot;jdbc&quot;
-      properties:
-        jdbc_url: &quot;jdbc:mysql://&lt;DNS_name&gt;:3306/guzzle?autoReconnect=true&quot;
-        username: &quot;guzzle&quot;
-        password: &quot;&lt;your-password&gt;&quot;
-    context_columns: [system, location]
-    stages: [STG, FND, SNP, CALC, REP, OUT]
-    ```
-
-5. Update following variables in **script** tag inside **GUZLE_PRODUCT_HOME/web/index.html** as follows. Replace &amp;lt;DNS_name&amp;gt; with the DNS of the Guzzle VM saved earlier ([here](#guzzle_vm_dns)):
-    - **window.API_URL**: &quot;http://&amp;lt;DNS_name&amp;gt;:9090&quot;
-    - **window.API_DOMAIN**: &quot;&amp;lt;DNS_name&amp;gt;&quot;
-</code></pre>
-<ol start="9">
-<li>Initialize Guzzle Database in MySQL:
+<p><div class="page"/></p>
+<ol start="3">
+<li><p>Update <strong>GUZZLE_HOME/conf/guzzle.yml</strong>. It should look similar to the one given below.</p>
+<blockquote>
+<p>Make sure to change the mysql password and <strong>DNS_name</strong> (<a href="#guzzle_vm_dns">here</a>) in jdbc_url:</p>
+</blockquote>
+<pre><code class="hljs css language-yaml"><span class="hljs-attr">version:</span> <span class="hljs-number">1</span>
+<span class="hljs-attr">database:</span>
+  <span class="hljs-attr">type:</span> <span class="hljs-string">jdbc</span>
+  <span class="hljs-attr">properties:</span>
+    <span class="hljs-attr">jdbc_url:</span> <span class="hljs-string">jdbc:mysql://&lt;DNS_name&gt;:3306/guzzle?autoReconnect=true</span>
+    <span class="hljs-attr">username:</span> <span class="hljs-string">guzzle</span>
+    <span class="hljs-attr">password:</span> <span class="hljs-string">&lt;your-password&gt;</span>
+<span class="hljs-attr">context_columns:</span> <span class="hljs-string">[system,</span> <span class="hljs-string">location]</span>
+<span class="hljs-attr">stages:</span> <span class="hljs-string">[STG,</span> <span class="hljs-string">FND,</span> <span class="hljs-string">SNP,</span> <span class="hljs-string">CALC,</span> <span class="hljs-string">REP,</span> <span class="hljs-string">OUT]</span>
+<span class="hljs-attr">default_spark:</span> <span class="hljs-string">spark_azure_databricks</span>
+<span class="hljs-attr">java:</span>
+  <span class="hljs-attr">classpath:</span> <span class="hljs-string">".:/usr/hdp/current/hive-client/lib/hive-metastore.jar:/usr/hdp/current/hive-client/lib/hive-service.jar:/usr/hdp/current/hive-client/lib/hive-exec.jar:/usr/hdp/current/hive-client/lib/hive-jdbc.jar:/usr/hdp/current/hadoop-hdfs-client/hadoop-hdfs.jar:/usr/hdp/current/hadoop-client/hadoop-common.jar"</span>
+<span class="hljs-attr">guzzle:</span>
+  <span class="hljs-attr">hive:</span>
+    <span class="hljs-attr">storage_format:</span> <span class="hljs-string">ORC</span>
+  <span class="hljs-attr">log:</span>
+    <span class="hljs-attr">dir:</span> <span class="hljs-string">/guzzle/logs</span>
+<span class="hljs-attr">api:</span>
+  <span class="hljs-attr">url:</span> <span class="hljs-string">http://localhost:9090</span>
+</code></pre></li>
+</ol>
+<p><div class="page"/></p>
+<ol start="4">
+<li><p>Update <strong>GUZLE_PRODUCT_HOME/api/guzzle-api.yml</strong>. It should look similar to the one give below:</p>
+<blockquote>
+<p>Make sure to change the mysql password and DNSName (<a href="#guzzle_vm_dns">here</a>):</p>
+</blockquote>
+<pre><code class="hljs css language-yaml"><span class="hljs-attr">application:</span>
+  <span class="hljs-attr">authentication:</span>
+    <span class="hljs-attr">type:</span> <span class="hljs-string">database</span>
+<span class="hljs-attr">server:</span>
+  <span class="hljs-attr">port:</span> <span class="hljs-number">9090</span>
+<span class="hljs-attr">database:</span>
+  <span class="hljs-attr">type:</span> <span class="hljs-string">"jdbc"</span>
+  <span class="hljs-attr">properties:</span>
+    <span class="hljs-attr">jdbc_url:</span> <span class="hljs-string">"jdbc:mysql://&lt;DNS_name&gt;:3306/guzzle?autoReconnect=true"</span>
+    <span class="hljs-attr">username:</span> <span class="hljs-string">"guzzle"</span>
+    <span class="hljs-attr">password:</span> <span class="hljs-string">"&lt;your-password&gt;"</span>
+<span class="hljs-attr">context_columns:</span> <span class="hljs-string">[system,</span> <span class="hljs-string">location]</span>
+<span class="hljs-attr">stages:</span> <span class="hljs-string">[STG,</span> <span class="hljs-string">FND,</span> <span class="hljs-string">SNP,</span> <span class="hljs-string">CALC,</span> <span class="hljs-string">REP,</span> <span class="hljs-string">OUT]</span>
+</code></pre></li>
+<li><p>Update following variables in <strong>script</strong> tag inside <strong>GUZLE_PRODUCT_HOME/web/index.html</strong> as follows. Replace &lt;DNS_name&gt; with the DNS of the Guzzle VM saved earlier (<a href="#guzzle_vm_dns">here</a>):</p>
+<ul>
+<li><strong>window.API_URL</strong>: &quot;http://&lt;DNS_name&gt;:9090&quot;</li>
+<li><strong>window.API_DOMAIN</strong>: &quot;&lt;DNS_name&gt;&quot;</li>
+</ul></li>
+</ol></li>
+<li><p>Initialize Guzzle Database in MySQL:</p>
 <ul>
 <li>Run following command to initialize the database:
 <pre><code class="hljs css language-sh">java -cp <span class="hljs-variable">$GUZZLE_HOME</span>/libs/*:<span class="hljs-variable">$GUZZLE_HOME</span>/libs:<span class="hljs-variable">$GUZZLE_HOME</span>/bin/* com.justanalytics.guzzle.common.DatabaseInitializer
 </code></pre></li>
 </ul>
-<div class="page"/></li>
+<p><div class="page"/></p></li>
 </ol>
 <hr>
 <div class="page"/>
