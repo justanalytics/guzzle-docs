@@ -1,0 +1,481 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>Installing Guzzle on Azure with Databricks · Guzzle</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="## Guzzle Setup Step By Step Guide"/><meta name="docsearch:version" content="next"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="Installing Guzzle on Azure with Databricks · Guzzle"/><meta property="og:type" content="website"/><meta property="og:url" content="https://justanalytics.github.io/guzzle-docs/"/><meta property="og:description" content="## Guzzle Setup Step By Step Guide"/><meta property="og:image" content="https://justanalytics.github.io/guzzle-docs/img/undraw_online.svg"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://justanalytics.github.io/guzzle-docs/img/undraw_tweetstorm.svg"/><link rel="shortcut icon" href="/guzzle-docs/img/favicon.webp"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><link rel="alternate" type="application/atom+xml" href="https://justanalytics.github.io/guzzle-docs/blog/atom.xml" title="Guzzle Blog ATOM Feed"/><link rel="alternate" type="application/rss+xml" href="https://justanalytics.github.io/guzzle-docs/blog/feed.xml" title="Guzzle Blog RSS Feed"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script src="/guzzle-docs/js/scrollSpy.js"></script><link rel="stylesheet" href="/guzzle-docs/css/main.css"/><script src="/guzzle-docs/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/guzzle-docs/"><img class="logo" src="/guzzle-docs/img/just-analytics-logo-new.png" alt="Guzzle"/><h2 class="headerTitleWithLogo">Guzzle</h2></a><a href="/guzzle-docs/versions"><h3>next</h3></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class="siteNavGroupActive"><a href="/guzzle-docs/docs/next/docshome" target="_self">Docs</a></li><li class=""><a href="/guzzle-docs/docs/next/doc4" target="_self">API</a></li><li class=""><a href="/guzzle-docs/help" target="_self">Help</a></li><li class=""><a href="/guzzle-docs/blog/" target="_self">Blog</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="docsNavContainer" id="docsNav"><nav class="toc"><div class="toggleNav"><section class="navWrapper wrapper"><div class="navBreadcrumb wrapper"><div class="navToggle" id="navToggler"><div class="hamburger-menu"><div class="line1"></div><div class="line2"></div><div class="line3"></div></div></div><h2><i>›</i><span>Installing Guzzle</span></h2><div class="tocToggler" id="tocToggler"><i class="icon-toc"></i></div></div><div class="navGroups"><div class="navGroup"><h3 class="navGroupCategoryTitle">Guzzle Fundamentals</h3><ul class=""><li class="navListItem"><a class="navItem" href="/guzzle-docs/docs/next/docshome">Introduction to Guzzle</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Developers Guide</h3><ul class=""><li class="navListItem"><a class="navItem" href="/guzzle-docs/docs/next/core/concepts">Concepts</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Installing Guzzle</h3><ul class=""><li class="navListItem"><a class="navItem" href="/guzzle-docs/docs/next/azure/marketplace">Installing on Azure Marketplace</a></li><li class="navListItem navListItemActive"><a class="navItem" href="/guzzle-docs/docs/next/azure/azure_manual">Installing on Azure Manually</a></li></ul></div></div></section></div><script>
+            var coll = document.getElementsByClassName('collapsible');
+            var checkActiveCategory = true;
+            for (var i = 0; i < coll.length; i++) {
+              var links = coll[i].nextElementSibling.getElementsByTagName('*');
+              if (checkActiveCategory){
+                for (var j = 0; j < links.length; j++) {
+                  if (links[j].classList.contains('navListItemActive')){
+                    coll[i].nextElementSibling.classList.toggle('hide');
+                    coll[i].childNodes[1].classList.toggle('rotate');
+                    checkActiveCategory = false;
+                    break;
+                  }
+                }
+              }
+
+              coll[i].addEventListener('click', function() {
+                var arrow = this.childNodes[1];
+                arrow.classList.toggle('rotate');
+                var content = this.nextElementSibling;
+                content.classList.toggle('hide');
+              });
+            }
+
+            document.addEventListener('DOMContentLoaded', function() {
+              createToggler('#navToggler', '#docsNav', 'docsSliderActive');
+              createToggler('#tocToggler', 'body', 'tocActive');
+
+              var headings = document.querySelector('.toc-headings');
+              headings && headings.addEventListener('click', function(event) {
+                var el = event.target;
+                while(el !== headings){
+                  if (el.tagName === 'A') {
+                    document.body.classList.remove('tocActive');
+                    break;
+                  } else{
+                    el = el.parentNode;
+                  }
+                }
+              }, false);
+
+              function createToggler(togglerSelector, targetSelector, className) {
+                var toggler = document.querySelector(togglerSelector);
+                var target = document.querySelector(targetSelector);
+
+                if (!toggler) {
+                  return;
+                }
+
+                toggler.onclick = function(event) {
+                  event.preventDefault();
+
+                  target.classList.toggle(className);
+                };
+              }
+            });
+        </script></nav></div><div class="container mainContainer docsContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 id="__docusaurus" class="postHeaderTitle">Installing Guzzle on Azure with Databricks</h1></header><article><div><span><h2><a class="anchor" aria-hidden="true" id="guzzle-setup-step-by-step-guide"></a><a href="#guzzle-setup-step-by-step-guide" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Guzzle Setup Step By Step Guide</h2>
+<h3><a class="anchor" aria-hidden="true" id="index"></a><a href="#index" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Index</h3>
+<hr>
+<ol>
+<li><a href="#step1">STEP 1: Create Resources</a>
+<ol>
+<li><a href="#step1.1">Blob Storage</a></li>
+<li><a href="#step1.2">Databricks</a></li>
+<li><a href="#step1.3">SQL Server</a></li>
+<li><a href="#step1.4">SQL Database</a></li>
+<li><a href="#step1.5">Linux VM</a></li>
+</ol></li>
+<li><a href="#step2">STEP 2: Databricks configuration</a></li>
+<li><a href="#step3">STEP 3: Guzzle VM configuration</a></li>
+<li><a href="#step4">STEP 4: Start Guzzle</a></li>
+<li><a href="#step5">STEP 5: Final steps</a></li>
+</ol>
+<hr>
+<div class="page"/>
+<p><a name="step1"></a></p>
+<h3><a class="anchor" aria-hidden="true" id="step-1-create-resources"></a><a href="#step-1-create-resources" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>STEP 1: Create Resources</h3>
+<p>Required resources for guzzle installation are as follows:</p>
+<blockquote>
+<p>Please create Guzzle related resources in same region.</p>
+</blockquote>
+<ol>
+<li><strong>Blob Storage</strong>: For storing Guzzle binaries</li>
+<li><strong>Databricks</strong>: Guzzle uses Databricks Spark cluster for running jobs</li>
+<li><strong>SQL Server and Database</strong>: For storing Guzzle jobs and api related data</li>
+<li><strong>Linux VM</strong>: For Guzzle API and UI installation</li>
+</ol>
+<p><strong>Create each resources with appropriate details as follows:</strong>
+<a name="step1.1"></a></p>
+<h4><a class="anchor" aria-hidden="true" id="1-blob-storage"></a><a href="#1-blob-storage" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>1. Blob Storage</h4>
+<ul>
+<li><p>Select appropriate <strong>Subscription</strong> &amp; <strong>Resource group</strong></p></li>
+<li><p><strong>Storage account name</strong>: [preferred name]</p></li>
+<li><p><strong>Location</strong>: [preferred location]</p></li>
+<li><p><strong>Performance</strong>: Standard</p></li>
+<li><p><strong>Account kind</strong>: StorageV2 (general purpose v2)</p></li>
+<li><p><strong>Replication</strong>: Locally-redundant storage (LRS)</p></li>
+<li><p><strong>Access tier</strong>: Hot</p></li>
+<li><p><strong>Create a container</strong>, named &lt;container_name&gt;</p></li>
+<li><p>Save container name, storage account name and account keys from <strong>Access keys</strong> section somewhere for further use.<a name="blob_storage_info"></a></p>
+<blockquote>
+<p><img src="/guzzle-docs/img/docs/azure-manual/storageaccesskeys.png" alt="storage keys"></p>
+</blockquote></li>
+</ul>
+<div class="page"/>
+<p><a name="step1.2"></a></p>
+<h4><a class="anchor" aria-hidden="true" id="2-databricks"></a><a href="#2-databricks" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>2. Databricks</h4>
+<ul>
+<li><p><strong>Workspace name</strong>:[preferred-name]</p></li>
+<li><p>Select appropriate <strong>Subscription</strong> &amp; <strong>Resource group</strong></p></li>
+<li><p><strong>Location</strong>: [preferred-location]</p></li>
+<li><p><strong>Pricing Tier</strong>: Premium</p></li>
+<li><p>Go to Databricks resources and save the Url somewhere for further use.<a name="databricks_url"></a></p>
+<blockquote>
+<p><img src="/guzzle-docs/img/docs/azure-manual/databricks.png" alt="databricks_url"></p>
+</blockquote></li>
+<li><p>Create a cluster with in Databricks workspace with following configurations:</p>
+<ul>
+<li><strong>Databricks runtime version</strong>: 5.4 (includes Apache Spark 2.4.3, Scala 2.11)</li>
+<li><strong>Python version</strong>: 3</li>
+<li><strong>Enable Autoscaling</strong>: false</li>
+<li>Terminate after <strong>60</strong> minutes of inactivity</li>
+<li><strong>Worker Type</strong>: [as per requirements]</li>
+<li><strong>Driver Type</strong>: Same as worker</li>
+</ul></li>
+<li><p>Once the cluster is created, click on the cluster and then save the cluster-id from the url somewhere for further use.<a name="databricks_cluster_id"></a></p>
+<blockquote>
+<p><img src="/guzzle-docs/img/docs/azure-manual/clusters.png" alt="cluster-id"></p>
+</blockquote></li>
+</ul>
+<div class="page"/>
+<ul>
+<li>Create access token:
+<ol>
+<li><p>Select User settings</p>
+<blockquote>
+<p><img src="/guzzle-docs/img/docs/azure-manual/databricks_access_token.png" alt="user settings"></p>
+</blockquote></li>
+<li><p>Click on Generate Token and provide comment and lifetime for access token. Click on Generate.</p>
+<blockquote>
+<p><img src="/guzzle-docs/img/docs/azure-manual/generate_token.png" alt="generate token"></p>
+</blockquote></li>
+<li><p>Copy the token somewhere as it will not be accessible after clicking Done. Click Done<a name="databricks_token"></a>.</p>
+<blockquote>
+<p><img src="/guzzle-docs/img/docs/azure-manual/copy_token.png" alt="copy token"></p>
+</blockquote></li>
+</ol></li>
+</ul>
+<div class="page"/>
+<p><a name="step1.3"></a></p>
+<h4><a class="anchor" aria-hidden="true" id="3-sql-server"></a><a href="#3-sql-server" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>3. SQL Server</h4>
+<ul>
+<li>Select appropriate <strong>Subscription</strong> &amp; <strong>Resource group</strong></li>
+<li><strong>Server name</strong>: [preferred name]</li>
+<li><strong>Location</strong>: [preferred location]</li>
+<li><strong>Server admin login</strong>: [username]</li>
+<li><strong>Password</strong>: [password]</li>
+</ul>
+<p><a name="step1.4"></a></p>
+<h4><a class="anchor" aria-hidden="true" id="4-sql-database"></a><a href="#4-sql-database" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>4. SQL Database</h4>
+<ul>
+<li>Select appropriate <strong>Subscription</strong> &amp; <strong>Resource group</strong></li>
+<li><strong>Database name</strong>: [preferred name]</li>
+<li><strong>Server</strong>: Select the already created SQL server from drop down</li>
+<li><strong>Want to use SQL elastic pool?</strong>: No</li>
+<li><strong>Compute + storage</strong>: As per the requirement</li>
+</ul>
+<p><a name="step1.5"></a></p>
+<h4><a class="anchor" aria-hidden="true" id="5-linux-vm"></a><a href="#5-linux-vm" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>5. Linux VM</h4>
+<ul>
+<li>Select appropriate <strong>Subscription</strong> &amp; <strong>Resource group</strong></li>
+<li><strong>Virtual machine name</strong>: Guzzle</li>
+<li><strong>Region</strong>: Southeast Asia</li>
+<li><strong>Availability options</strong>: keep default</li>
+<li><strong>Image</strong>: Ubuntu Server 18.04 LTS</li>
+<li><strong>Size</strong>: B2s</li>
+<li><strong>Authentication type</strong>: Password</li>
+<li><strong>Username</strong>: guzzle</li>
+<li><strong>Password</strong>: [preferred password]</li>
+<li><strong>Public inbound ports</strong>: Allow selected ports</li>
+<li><strong>Select inbound ports</strong>: HTTP, HTTPS, SSH</li>
+</ul>
+<hr>
+<div class="page"/>
+<p><a name="step2"></a></p>
+<h3><a class="anchor" aria-hidden="true" id="step-2-databricks-configuration"></a><a href="#step-2-databricks-configuration" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>STEP 2: Databricks configuration</h3>
+<ol>
+<li><p>Launch the databricks workspace.</p></li>
+<li><p>Inside Workspace&gt;shared create Guzzle folder.</p>
+<blockquote>
+<p><img src="/guzzle-docs/img/docs/azure-manual/guzzle_folder.jpg" alt="Guzzle folder"></p>
+</blockquote></li>
+<li><p>Create notbook names guzzle init and create cells as follows:</p>
+<ol>
+<li>Replace placeholders with appropriate values saved earlier. Look <a href="#blob_storage_info">here</a>
+<pre><code class="hljs css language-scala">dbutils.fs.mount(source = <span class="hljs-string">"wasbs://&lt;container-name&gt;@&lt;storage-name&gt;.blob.core.windows.net/"</span>,
+mountPoint = <span class="hljs-string">"/mnt/guzzle"</span>,
+extraConfigs = <span class="hljs-type">Map</span>(<span class="hljs-string">"fs.azure.account.key.&lt;storage-name&gt;.blob.core.windows.net"</span> -&gt; <span class="hljs-string">"&lt;storage-key&gt;"</span>))
+</code></pre></li>
+<li>Check if successfully mounted.
+<pre><code class="hljs css language-sh">%sh
+ls -ltrh /dbfs/mnt/guzzle
+</code></pre></li>
+</ol>
+<p><div class="page"/></p>
+<ol start="3">
+<li>Create init script.
+<pre><code class="hljs css language-sh">%sh
+<span class="hljs-built_in">echo</span> <span class="hljs-string">"log4j.appender.RollingAppender=org.apache.log4j.DailyRollingFileAppender
+log4j.appender.RollingAppender.layout=org.apache.log4j.PatternLayout
+log4j.appender.RollingAppender.DatePattern='.'yyyy-MM-dd
+log4j.appender.RollingAppender.layout.ConversionPattern=[%p] %d %c %M - %m%n
+log4j.logger.com.justanalytics=INFO, RollingAppender
+"</span> &gt; /dbfs/guzzle-log4j.properties
+
+mkdir -p /dbfs/databricks/initscript
+<span class="hljs-built_in">echo</span> <span class="hljs-string">"#!/bin/bash
+cat /dbfs/guzzle-log4j.properties &gt;&gt; /databricks/spark/dbconf/log4j/driver/log4j.properties
+cat /dbfs/guzzle-log4j.properties &gt;&gt; /databricks/spark/dbconf/log4j/executor/log4j.properties
+"</span> &gt; /dbfs/databricks/initscript/init.sh
+</code></pre></li>
+</ol></li>
+<li><p>Go to the cluster and click on <strong>Edit</strong>.</p></li>
+<li><p>Click on <strong>Advanced Options</strong> and add following line in <strong>Environment Variables</strong></p>
+<pre><code class="hljs">GUZZLE_HOME=<span class="hljs-regexp">/dbfs/m</span>nt<span class="hljs-regexp">/guzzle/gu</span>zzle
+</code></pre>
+<blockquote>
+<p>Above GUZZLE_HOME is as per default directory structure. Azure Databricks clusters supposed to have only GUZZLE_HOME environment variable which points to guzzle configs,jars etc. and not required GUZZLE_PRODUCT_HOME which points to api and web modules.</p>
+</blockquote></li>
+<li><p>Go to <strong>Init Scripts</strong> tab and add <code>databricks/initscript/init.sh</code>.</p>
+<blockquote>
+<p><img src="/guzzle-docs/img/docs/azure-manual/initscript.png" alt="initscript"></p>
+</blockquote></li>
+<li><p>Restart the cluster.</p></li>
+</ol>
+<hr>
+<div class="page"/>
+<p><a name="step3"></a></p>
+<h3><a class="anchor" aria-hidden="true" id="step-3-guzzle-vm-configuration"></a><a href="#step-3-guzzle-vm-configuration" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>STEP 3: Guzzle VM configuration</h3>
+<ol>
+<li>Upload guzzle(tar.gz), tools(tar.gz) and neccesary jdbc connector provided with this document.</li>
+<li>Mount Blob Container:
+<ol>
+<li>Install blob fuse by running following commands:
+<pre><code class="hljs css language-sh">wget https://packages.microsoft.com/config/ubuntu/18.04/packages-microsoft-prod.deb
+sudo dpkg -i packages-microsoft-prod.deb
+sudo apt-get update
+sudo apt-get install blobfuse fuse -y
+<span class="hljs-built_in">echo</span> <span class="hljs-string">"user_allow_other"</span> | sudo tee -a /etc/fuse.conf
+</code></pre></li>
+<li>Create dir /mnt/blobfusetmp and provide permissions:
+<pre><code class="hljs css language-sh">sudo mkdir /mnt/blobfusetmp
+sudo chown guzzle /mnt/blobfusetmp
+</code></pre></li>
+<li>Create fuse_connection.cfg file. Replace placeholders with appropriate values. Look <a href="#blob_storage_info">here</a>:
+<pre><code class="hljs css language-sh"><span class="hljs-built_in">echo</span> <span class="hljs-string">"accountName &lt;storage name&gt;
+accountKey &lt;storage-key&gt;
+containerName &lt;container-nameguzzlehome&gt;"</span> &gt; /home/&lt;user&gt;/fuse_connection.cfg
+
+chmod 777 /home/&lt;user&gt;/fuse_connection.cfg
+</code></pre></li>
+<li>Create guzzle directory to mount the blob storage:
+<blockquote>
+<p>Some codes does not get copied exactly as shown. Make sure to check before running it.
+<code>sh sudo mkdir -m 777 /guzzle sudo -H -u &lt;user&gt; bash -c &quot;blobfuse /guzzle --tmp-path=/mnt/blobfusetmp -o allow_other --config-file=/home/&lt;user&gt;/fuse_connection.cfg -o attr_timeout=240 -o entry_timeout=240 -o negative_timeout=120 --file-cache-timeout-in-seconds=10&quot;</code>
+5. Run below code and check in blob storage if the file <strong>a.log</strong> was created:
+<code>sh cd /guzzle echo &quot;test&quot; &gt; a.log</code></p>
+</blockquote></li>
+</ol></li>
+</ol>
+<div class="page"/>
+<ol start="3">
+<li><p>Extract files:</p>
+<pre><code class="hljs css language-sh"><span class="hljs-built_in">cd</span> ~
+tar xzf guzzle-&lt;version&gt;.tar.gz -C /guzzle/ --strip-components=1
+</code></pre></li>
+<li><p>Install Java by running following commands:</p>
+<pre><code class="hljs css language-sh">sudo apt install openjdk-8-jre-headless -y
+sudo apt install openjdk-8-jdk-headless -y
+</code></pre></li>
+<li><p>Set environment variables.</p>
+<blockquote>
+<p>Replace &lt;version&gt; with appropriate version</p>
+</blockquote>
+<pre><code class="hljs css language-sh"><span class="hljs-built_in">cd</span> ~
+<span class="hljs-built_in">echo</span> <span class="hljs-string">"export GUZZLE_HOME=/guzzle/guzzle"</span> &gt;&gt; .bashrc
+<span class="hljs-built_in">echo</span> <span class="hljs-string">"export GUZZLE_PRODUCT_HOME=/guzzle"</span> &gt;&gt; .bashrc
+<span class="hljs-built_in">echo</span> <span class="hljs-string">"export JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk-amd64/"</span>
+<span class="hljs-built_in">source</span> .bashrc
+</code></pre>
+<p>Run <code>echo $GUZZLE_HOME</code> to check if the variable was set successfully.
+Environment variable GUZZLE_HOME &amp; GUZZLE_PRODUCT_HOME supposed to point to guzzle core and guzzle api modules respectively.</p>
+<p>GUZZLE_HOME should contain following directories from guzzle setup. However, directory like 'logs' can be moved afterwards with admin settings using guzzle app or directly updating related property in guzzle.yml.</p>
+<pre><code class="hljs"> - bin
+ - conf
+ - hive-connectors
+ - libs
+ - logs
+ - scripts
+</code></pre>
+<p>GUZZLE_PRODUCT_HOME must contain following directories from guzzle setup.</p>
+<pre><code class="hljs"> - api
+ - web
+</code></pre></li>
+<li><p>Install MySQL</p>
+<blockquote>
+<p>Run following commands to install mysql:</p>
+</blockquote>
+<pre><code class="hljs css language-sh">sudo apt-get update
+sudo apt-get install mysql-server -y
+</code></pre></li>
+</ol>
+<div class="page"/>
+<ol start="7">
+<li>Configure MySQL
+<ol>
+<li><p>Run <code>sudo mysql_secure_installation</code> and follow these steps:</p>
+<ul>
+<li>Enter <strong>Y</strong> for using VALIDATE PASSWORD plugin.</li>
+<li>Select <strong>1</strong> for MEDIUM or <strong>2</strong> for STRONG.</li>
+<li>Enter your password and confirm it.</li>
+<li>Enter <strong>Y</strong> to continue with provided password.</li>
+<li>Enter <strong>Y</strong> to remove anonymous users.</li>
+<li>Enter <strong>N</strong> to allow remote login.</li>
+<li>Enter <strong>Y</strong> to remove test database.</li>
+<li>Enter <strong>Y</strong> to reload privilege table.</li>
+</ul></li>
+<li><p>Login to mysql by simply running <code>sudo mysql</code> and execute following commands one by one.</p>
+<blockquote>
+<p>Make sure you change the password in <strong>ALTER USER &amp; CREATE USER</strong> queries.</p>
+</blockquote>
+<pre><code class="hljs css language-sql"><span class="hljs-keyword">ALTER</span> <span class="hljs-keyword">USER</span> <span class="hljs-string">'root'</span>@<span class="hljs-string">'localhost'</span> <span class="hljs-keyword">IDENTIFIED</span> <span class="hljs-keyword">WITH</span> mysql_native_password <span class="hljs-keyword">BY</span> <span class="hljs-string">'&lt;password given in the above configuration&gt;'</span>;
+<span class="hljs-keyword">FLUSH</span> <span class="hljs-keyword">PRIVILEGES</span>
+<span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">USER</span> <span class="hljs-string">'guzzle'</span>@<span class="hljs-string">'%'</span> <span class="hljs-keyword">IDENTIFIED</span> <span class="hljs-keyword">BY</span> <span class="hljs-string">'&lt;your-password&gt;'</span>;
+<span class="hljs-keyword">GRANT</span> <span class="hljs-keyword">ALL</span> <span class="hljs-keyword">PRIVILEGES</span> <span class="hljs-keyword">ON</span> *.* <span class="hljs-keyword">TO</span> <span class="hljs-string">'guzzle'</span>@<span class="hljs-string">'%'</span> <span class="hljs-keyword">WITH</span> <span class="hljs-keyword">GRANT</span> <span class="hljs-keyword">OPTION</span>;
+<span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">DATABASE</span> guzzle;
+</code></pre>
+<blockquote>
+<p>Run <code>SELECT user,authentication_string,plugin,host FROM mysql.user;</code> in mysql to look at the user details.</p>
+</blockquote></li>
+<li><p>More configurations:</p>
+<ul>
+<li>Run <code>sudo systemctl enable mysql</code> to start mysql automatically whenever the VM is rebooted.</li>
+<li>Run <code>sudo ufw allow mysql</code> to make it accessible from outside the VM and run <code>sudo service ufw restart</code> to apply the changes.</li>
+<li>Open <strong>/etc/mysql/mysql.conf.d/mysqld.cnf</strong> file and comment the line starting with <strong>bind-address</strong>.</li>
+<li>Finally restart mysql by running <code>sudo service mysql restart</code>.</li>
+</ul></li>
+</ol></li>
+</ol>
+<div class="page"/>
+<ol start="8">
+<li>Configure guzzle:
+<ol>
+<li><p>Go to the Guzzle VM resource on Azure and configure the DNS name. After configuration it will look like this. Save the DNS somewhere for further use <a name="guzzle_vm_dns"></a>:</p>
+<blockquote>
+<p><img src="/guzzle-docs/img/docs/azure-manual/DNSName.png" alt="dns name"></p>
+</blockquote></li>
+</ol></li>
+</ol>
+<pre><code class="hljs">2. Open **/guzzle/conf/instance/spark/spark_azure_databricks.yml** and edit as follows:
+    - Replace following values with the values saved earlier during databricks creation.
+        + *&amp;lt;databricks-url&amp;gt;* Look [here](#databricks_url)
+        + *&amp;lt;access-token&amp;gt;* Look [here](#databricks_token)
+        + *&amp;lt;cluster-id&amp;gt;* Look [here](#databricks_cluster_id)
+
+    ```yaml
+    version: 1
+    run_mode: &quot;azure-databricks&quot;
+    properties:
+      api_url: &quot;&lt;databricks-url&gt;&quot;
+      auth_token: &quot;&lt;access-token&gt;&quot;
+      cluster_id: &quot;&lt;cluster-id&gt;&quot;
+      type: &quot;existing-cluster&quot;
+      dbfs_guzzle_dir: &quot;dbfs:/mnt/guzzle&quot;
+    ```
+
+&lt;div class=&quot;page&quot;/&gt;
+
+3. Update **GUZZLE_HOME/conf/guzzle.yml**. It should look similar to the one given below. 
+    &gt;Make sure to change the mysql password and **DNS_name** ([here](#guzzle_vm_dns)) in jdbc_url:
+
+    ```yaml
+    version: 1
+    database:
+      type: jdbc
+      properties:
+        jdbc_url: jdbc:mysql://&lt;DNS_name&gt;:3306/guzzle?autoReconnect=true
+        username: guzzle
+        password: &lt;your-password&gt;
+    context_columns: [system, location]
+    stages: [STG, FND, SNP, CALC, REP, OUT]
+    default_spark: spark_azure_databricks
+    java:
+      classpath: &quot;.:/usr/hdp/current/hive-client/lib/hive-metastore.jar:/usr/hdp/current/hive-client/lib/hive-service.jar:/usr/hdp/current/hive-client/lib/hive-exec.jar:/usr/hdp/current/hive-client/lib/hive-jdbc.jar:/usr/hdp/current/hadoop-hdfs-client/hadoop-hdfs.jar:/usr/hdp/current/hadoop-client/hadoop-common.jar&quot;
+    guzzle:
+      hive:
+        storage_format: ORC
+      log:
+        dir: /guzzle/logs
+    api:
+      url: http://localhost:9090
+    ```
+
+&lt;div class=&quot;page&quot;/&gt;
+
+4. Update **GUZLE_PRODUCT_HOME/api/guzzle-api.yml**. It should look similar to the one give below:
+    &gt;Make sure to change the mysql password and DNSName ([here](#guzzle_vm_dns)):
+    
+    ```yaml
+    application:
+      authentication:
+        type: database
+    server:
+      port: 9090
+    database:
+      type: &quot;jdbc&quot;
+      properties:
+        jdbc_url: &quot;jdbc:mysql://&lt;DNS_name&gt;:3306/guzzle?autoReconnect=true&quot;
+        username: &quot;guzzle&quot;
+        password: &quot;&lt;your-password&gt;&quot;
+    context_columns: [system, location]
+    stages: [STG, FND, SNP, CALC, REP, OUT]
+    ```
+
+5. Update following variables in **script** tag inside **GUZLE_PRODUCT_HOME/web/index.html** as follows. Replace &amp;lt;DNS_name&amp;gt; with the DNS of the Guzzle VM saved earlier ([here](#guzzle_vm_dns)):
+    - **window.API_URL**: &quot;http://&amp;lt;DNS_name&amp;gt;:9090&quot;
+    - **window.API_DOMAIN**: &quot;&amp;lt;DNS_name&amp;gt;&quot;
+</code></pre>
+<ol start="9">
+<li>Initialize Guzzle Database in MySQL:
+<ul>
+<li>Run following command to initialize the database:
+<pre><code class="hljs css language-sh">java -cp <span class="hljs-variable">$GUZZLE_HOME</span>/libs/*:<span class="hljs-variable">$GUZZLE_HOME</span>/libs:<span class="hljs-variable">$GUZZLE_HOME</span>/bin/* com.justanalytics.guzzle.common.DatabaseInitializer
+</code></pre></li>
+</ul>
+<div class="page"/></li>
+</ol>
+<hr>
+<div class="page"/>
+<p><a name="step4"></a></p>
+<h3><a class="anchor" aria-hidden="true" id="step-4-start-guzzle"></a><a href="#step-4-start-guzzle" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>STEP 4: Start Guzzle</h3>
+<ol>
+<li><p>Start Guzzle API:</p>
+<pre><code class="hljs css language-sh"><span class="hljs-built_in">cd</span> <span class="hljs-variable">$GUZZLE_PRODUCT_HOME</span>/api
+nohup java -jar api-0.0.1-SNAPSHOT.jar &amp;
+</code></pre></li>
+<li><p>Start Guzzle UI:</p>
+<p>Install nodejs, npm &amp; serve to run the react app</p>
+<pre><code class="hljs css language-sh">sudo apt-get install nodejs &amp;&amp; sudo apt-get install npm &amp;&amp; sudo npm install -g serve
+</code></pre>
+<pre><code class="hljs css language-sh"><span class="hljs-built_in">cd</span> <span class="hljs-variable">$GUZZLE_PRODUCT_HOME</span>/web
+nohup serve -p 8082 -s . &amp;
+nohup http-server -p 8082 --push-state --ssl --cert /guzzle/certs/cert.pem --key /guzzle/certs/privatekey_new.pem &amp;
+</code></pre>
+<blockquote>
+<p>NOTES:</p>
+</blockquote>
+<blockquote>
+<p>To look at the output of nohup <code>tail -f nohup.out</code> can be used if filename is not explicitly specified. Use &lt;filename&gt;.out instead.<br/><br/>
+To look at the running java programs like elasticsearch or guzzle, use <code>jps -lvm</code>. To kill a program use <code>sudo kill -9 &lt;process-id&gt;</code>.</p>
+</blockquote></li>
+</ol>
+<hr>
+<div class="page"/>
+<p><a name="step5"></a></p>
+<h3><a class="anchor" aria-hidden="true" id="step-5-final-steps"></a><a href="#step-5-final-steps" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>STEP 5: Final steps</h3>
+<ol>
+<li><p>Go to the Guzzle VM resource&gt;Networking and add <strong>8082, 9090, 3306</strong> in the inbound rules as shown here.</p>
+<blockquote>
+<p><img src="/guzzle-docs/img/docs/azure-manual/guzzle_vm_networking.png" alt="inbound port"></p>
+</blockquote></li>
+<li><p>Now you should be able to access the guzzle ui through <strong>http://&lt;DNS_name&gt;:8082</strong></p></li>
+</ol>
+<p>Notes:</p>
+<blockquote>
+<ol>
+<li>If <strong>spark-hive-connector.jar</strong> isn't there in $GUZZLE_HOME/bin, copy and paste it from $GUZZLE_HOME/hive-connector.</li>
+<li>make sure <strong>$GUZZLE_HOME/conf/default/file-template</strong> does <strong>exist</strong>, create an empty one otherwise, with that name.</li>
+</ol>
+</blockquote>
+</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/guzzle-docs/docs/next/azure/marketplace"><span class="arrow-prev">← </span><span>Installing on Azure Marketplace</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#guzzle-setup-step-by-step-guide">Guzzle Setup Step By Step Guide</a><ul class="toc-headings"><li><a href="#index">Index</a></li><li><a href="#step-1-create-resources">STEP 1: Create Resources</a></li><li><a href="#step-2-databricks-configuration">STEP 2: Databricks configuration</a></li><li><a href="#step-3-guzzle-vm-configuration">STEP 3: Guzzle VM configuration</a></li><li><a href="#step-4-start-guzzle">STEP 4: Start Guzzle</a></li><li><a href="#step-5-final-steps">STEP 5: Final steps</a></li></ul></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/guzzle-docs/" class="nav-home"><img src="/guzzle-docs/img/favicon.webp" alt="Guzzle" width="66" height="58"/></a><div><h5>Docs</h5><a href="/guzzle-docs/docs/en/docshome.html">Getting Started (or other categories)</a><a href="/guzzle-docs/docs/en/doc2.html">Guides (or other categories)</a><a href="/guzzle-docs/docs/en/doc3.html">API Reference (or other categories)</a></div><div><h5>Community</h5><a href="/guzzle-docs/en/users.html">User Showcase</a><a href="https://stackoverflow.com/questions/tagged/" target="_blank" rel="noreferrer noopener">Stack Overflow</a><a href="https://discordapp.com/">Project Chat</a><a href="https://twitter.com/" target="_blank" rel="noreferrer noopener">Twitter</a></div><div><h5>More</h5><a href="/guzzle-docs/blog">Blog</a><a href="https://github.com/">GitHub</a><a class="github-button" data-icon="octicon-star" data-count-href="/facebook/docusaurus/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></div></section><a href="https://opensource.facebook.com/" target="_blank" rel="noreferrer noopener" class="fbOpenSource"><img src="/guzzle-docs/img/oss_logo.png" alt="Facebook Open Source" width="170" height="45"/></a><section class="copyright">Copyright © 2020 Just Analytics</section></footer></div></body></html>
