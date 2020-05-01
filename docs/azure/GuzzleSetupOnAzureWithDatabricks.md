@@ -215,7 +215,7 @@ Required resources for guzzle installation are as follows:
         chmod 777 /home/<user>/fuse_connection.cfg
         ```
     4. Create guzzle directory to mount the blob storage:
-        > Some codes does not get copied exactly as shown. Make sure to check before running it.
+
         ```sh
         sudo mkdir -m 777 /guzzle
         sudo -H -u <user> bash -c "blobfuse /guzzle --tmp-path=/mnt/blobfusetmp -o allow_other --config-file=/home/<user>/fuse_connection.cfg -o attr_timeout=240 -o entry_timeout=240 -o negative_timeout=120 --file-cache-timeout-in-seconds=10"
@@ -246,7 +246,7 @@ Required resources for guzzle installation are as follows:
     cd ~
     echo "export GUZZLE_HOME=/guzzle/guzzle" >> .bashrc
     echo "export GUZZLE_PRODUCT_HOME=/guzzle" >> .bashrc
-    echo "export JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk-amd64/"
+    echo "export JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk-amd64/" >> .bashrc
     source .bashrc
     ```
     Run `echo $GUZZLE_HOME` to check if the variable was set successfully.
