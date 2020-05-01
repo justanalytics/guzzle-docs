@@ -241,31 +241,32 @@ cat /dbfs/guzzle-log4j.properties &gt;&gt; /databricks/spark/dbconf/log4j/execut
 <li>Upload guzzle(tar.gz), tools(tar.gz) and neccesary jdbc connector provided with this document.</li>
 <li>Mount Blob Container:
 <ol>
-<li>Install blob fuse by running following commands:
+<li><p>Install blob fuse by running following commands:</p>
 <pre><code class="hljs css language-sh">wget https://packages.microsoft.com/config/ubuntu/18.04/packages-microsoft-prod.deb
 sudo dpkg -i packages-microsoft-prod.deb
 sudo apt-get update
 sudo apt-get install blobfuse fuse -y
 <span class="hljs-built_in">echo</span> <span class="hljs-string">"user_allow_other"</span> | sudo tee -a /etc/fuse.conf
 </code></pre></li>
-<li>Create dir /mnt/blobfusetmp and provide permissions:
+<li><p>Create dir /mnt/blobfusetmp and provide permissions:</p>
 <pre><code class="hljs css language-sh">sudo mkdir /mnt/blobfusetmp
 sudo chown guzzle /mnt/blobfusetmp
 </code></pre></li>
-<li>Create fuse_connection.cfg file. Replace placeholders with appropriate values. Look <a href="#blob_storage_info">here</a>:
+<li><p>Create fuse_connection.cfg file. Replace placeholders with appropriate values. Look <a href="#blob_storage_info">here</a>:</p>
 <pre><code class="hljs css language-sh"><span class="hljs-built_in">echo</span> <span class="hljs-string">"accountName &lt;storage name&gt;
 accountKey &lt;storage-key&gt;
 containerName &lt;container-nameguzzlehome&gt;"</span> &gt; /home/&lt;user&gt;/fuse_connection.cfg
 
 chmod 777 /home/&lt;user&gt;/fuse_connection.cfg
 </code></pre></li>
-<li>Create guzzle directory to mount the blob storage:
-<blockquote>
-<p>Some codes does not get copied exactly as shown. Make sure to check before running it.
-<code>sh sudo mkdir -m 777 /guzzle sudo -H -u &lt;user&gt; bash -c &quot;blobfuse /guzzle --tmp-path=/mnt/blobfusetmp -o allow_other --config-file=/home/&lt;user&gt;/fuse_connection.cfg -o attr_timeout=240 -o entry_timeout=240 -o negative_timeout=120 --file-cache-timeout-in-seconds=10&quot;</code>
-5. Run below code and check in blob storage if the file <strong>a.log</strong> was created:
-<code>sh cd /guzzle echo &quot;test&quot; &gt; a.log</code></p>
-</blockquote></li>
+<li><p>Create guzzle directory to mount the blob storage:</p>
+<pre><code class="hljs css language-sh">sudo mkdir -m 777 /guzzle
+sudo -H -u &lt;user&gt; bash -c <span class="hljs-string">"blobfuse /guzzle --tmp-path=/mnt/blobfusetmp -o allow_other --config-file=/home/&lt;user&gt;/fuse_connection.cfg -o attr_timeout=240 -o entry_timeout=240 -o negative_timeout=120 --file-cache-timeout-in-seconds=10"</span>
+</code></pre></li>
+<li><p>Run below code and check in blob storage if the file <strong>a.log</strong> was created:</p>
+<pre><code class="hljs css language-sh"><span class="hljs-built_in">cd</span> /guzzle
+<span class="hljs-built_in">echo</span> <span class="hljs-string">"test"</span> &gt; a.log
+</code></pre></li>
 </ol></li>
 </ol>
 <ol start="3">
@@ -284,7 +285,7 @@ sudo apt install openjdk-8-jdk-headless -y
 <pre><code class="hljs css language-sh"><span class="hljs-built_in">cd</span> ~
 <span class="hljs-built_in">echo</span> <span class="hljs-string">"export GUZZLE_HOME=/guzzle/guzzle"</span> &gt;&gt; .bashrc
 <span class="hljs-built_in">echo</span> <span class="hljs-string">"export GUZZLE_PRODUCT_HOME=/guzzle"</span> &gt;&gt; .bashrc
-<span class="hljs-built_in">echo</span> <span class="hljs-string">"export JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk-amd64/"</span>
+<span class="hljs-built_in">echo</span> <span class="hljs-string">"export JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk-amd64/"</span> &gt;&gt; .bashrc
 <span class="hljs-built_in">source</span> .bashrc
 </code></pre>
 <p>Run <code>echo $GUZZLE_HOME</code> to check if the variable was set successfully.
