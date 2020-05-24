@@ -77,19 +77,19 @@ There are few recommendations to be followed for building complete lineage and t
       * `SQL` - Specify custom SQL to be executed on source datastore. For example, you may want to use column alias to match source column names with target column names or want to apply some basic transformation rules. Please note that, it is not recommended to perform complex joins or data transformation as part of the ingestion module job. Once data is ingested from source to target platform, processing module jobs are best suited for performing those activities.
    * `Pre SQL` - Specify any Pre-SQL you may want to execute before reading source table or executing source custom SQL. For example, refresh index, collect stats etc.
    * `Post SQL` - Specify any Post-SQL you may want to execute after reading source table or executing source custom SQL. For example, drop table, delete file etc.
-   * `Configure Watermark` - **\<<Add contents here\>>**
+   * `Configure Watermark` - 
       * `Partition Column Name`
       * `Watermark Columns`
       * `Watermark Filter`
    * `Configure Columns Restriction`
       * `Include Columns` - Specify what all source columns you want to map to target table. If columns to be included is less than columns to be excluded list.
       * `Exclude Columns` - Specify what all source columns you don't want to map to target table. If columns to be excluded is less than columns to be included list.
-   * `Configure Table Dependency` - **\<<Add contents here\>>**
+   * `Configure Table Dependency` - 
 
 ### Validation And Transformation
 This section will have properties as below,
-- `Strict Datatype Check` - **\<<Add contents here\>>**
-- `Inherit Columns and Datatype` -  **\<<Add contents here\>>**
+- `Strict Datatype Check` - 
+- `Inherit Columns and Datatype` -  
 - `Global Discard` - Specify, if you want to route the records failed validation into reject table and stop them from loading into target. If enabled, then records which failed validation rule won't be loaded into target table and such records would be routed and loaded into reject table specified under reject section. If not enabled, records which failed validation gets loaded into target table as well as reject table.
 - `Columns` - Specify column validation or transformation rules under this section. You can define primary key check, not null check, data type check and custom validation SQL for each source column under this section. You can also define column transformation SQL under this section.
 
