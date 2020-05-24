@@ -18,6 +18,13 @@
 1. Commits the changes to the branch, pushes the branch and creates a pull-request to merge that branch into the `master` branch.
 
 
+### Adding a new page
+
+1. Create the new markdown file that you want to add under /docs/ folder. 
+1. It is advisable to follow some naming convention to manage growing number of markdown files immediately under /docs/ folder. One way to keep the files manageable is by prefixing the file names with it's top-level sidebar menu item. For example, all pages that belong to "Guzzle Fundamentals" could be prefixed with *fundamentals_* fundamentals_<sub_topic>.md
+1. In the newly created md file, define a unique "id" which should be unique among all documentation pages. It could use similar convention as the filename. Id doesn't allow spaces. Choose appropriate label that will appear in the sidebar for this page.
+1. Next thing to do is actually put this newly created md page under an appropriate top-level sidebar menu. For this, update the /website/sidebars.json file and add the *id* of the page to the list of the top-level item.
+
 
 ## Publishing 
 
