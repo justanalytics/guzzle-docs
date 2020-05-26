@@ -1,6 +1,7 @@
 {
   "docs": {
     "Guzzle Fundamentals": ["docshome", "fundamentals_ingestion"],
+    "Guzzle – Architecture and Services": ["arch_arch_and_services", "arch_core"],
     "Developers Guide": ["core/concepts"],
     "Installing Guzzle": ["azure/marketplace", "azure/azure_manual"]
   },
