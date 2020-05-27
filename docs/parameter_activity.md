@@ -18,14 +18,14 @@ In Guzzle, there are 6 modules to define your Activities (formerly known as Job 
 
 Please refer below wikipages to read more details about each of the Guzzle job module,
 
-   1. [ Ingestion ](https://gitlab.ja.sg/guzzle/docs/-/wikis/Guzzle-Activity-Type-(formerly-Job-Config)-%E2%80%93-Ingestion)
+   1. [ Ingestion ](parameter_ingestion.md)
 
-   1. [ Processing ](https://gitlab.ja.sg/guzzle/docs/-/wikis/Guzzle-Activity-Type-(formerly-Job-Config)-%E2%80%93-Processing)
+   1. [ Processing ](parameter_processing.md)
 
-   1. [ Recon ](https://gitlab.ja.sg/guzzle/docs/-/wikis/Guzzle-Activity-Type-(formerly-Job-Config)-%E2%80%93-Recon)
+   1. [ Recon ](parameter_recon.md)
 
-   1. [ Constraint Checks ](https://gitlab.ja.sg/guzzle/docs/-/wikis/Guzzle-Activity-Type-(formerly-Job-Config)-%E2%80%93-Constraint-Checks)
+   1. [ Constraint Checks ](parameter_constraint.md)
 
-   1. [ Housekeeping ](https://gitlab.ja.sg/guzzle/docs/-/wikis/Guzzle-Activity-Type-(formerly-Job-Config)-%E2%80%93-Housekeeping)
+   1. [ Housekeeping ](parameter_housekeeping.md)
 
-   1. [ External ](https://gitlab.ja.sg/guzzle/docs/-/wikis/Guzzle-Activity-Type-(formerly-Job-Config)-%E2%80%93-External)
+   1. [ External ](parameter_external.md)
