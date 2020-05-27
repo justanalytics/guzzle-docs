@@ -1,6 +1,8 @@
 {
   "docs": {
     "Guzzle Fundamentals": ["docshome", "fundamentals_ingestion"],
+    "Guzzle Architecture and Services":["Guzzle_Arch_Service","Arch_Guzzle_Core","Arch_Guzzle_Client"],
+    "Guzzle Parameters":["Guzzle_Parameters","parameter_groovy","parameter_physical_endpoints","parameter_logical_endpoints","parameter_activity","parameter_ingestion","parameter_processing","parameter_recon","parameter_constraint","parameter_housekeeping","parameter_external","parameter_batch","parameter_datafactory","parameter_orchestration"],
     "Developers Guide": ["core/concepts"],
     "Installing Guzzle": ["azure/marketplace", "azure/azure_manual"]
   },
