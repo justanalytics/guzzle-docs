@@ -4,7 +4,7 @@ title: Guzzle – Architecture and Services
 sidebar_label: Guzzle – Architecture and Services
 ---
 
-Guzzle is build as combination of Core services and Client services which come together to provide integrated set of accelerators which can achieve [ Guzzle's goal of RACE OIL ](https://gitlab.ja.sg/guzzle/docs/-/wikis/Guzzle-Goals-RACE-OIL)
+Guzzle is build as combination of Core services and Client services which come together to provide integrated set of accelerators which can achieve [ Guzzle's goal of RACE OIL ](goal_race_oil.md)
 
 **Guzzle Core** is made up of,
 * Job Definition Store which is basically YML based store for Guzzle job configs.
@@ -49,6 +49,6 @@ For **integration** layer, it co-exists with other tools in open source ecosyste
 1. Leverages best of breed open source components​
 
 
-**For Guzzle Clients**, refer more details [ Guzzle Client ](https://gitlab.ja.sg/guzzle/docs/-/wikis/Guzzle-Client)
+**For Guzzle Clients**, refer more details [ Guzzle Client ](Arch_Guzzle_Client.md)
 
-**For Guzzle Core services**, refer more details [ Guzzle Core ](https://gitlab.ja.sg/guzzle/docs/-/wikis/Guzzle-Core)
+**For Guzzle Core services**, refer more details [ Guzzle Core ](Arch_Guzzle_Core.md)

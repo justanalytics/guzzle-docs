@@ -4,9 +4,6 @@ title: Guzzle Client
 sidebar_label: Guzzle Client
 ---
 
-[[_TOC_]]
-
-# Guzzle Client
 There are 3 Guzzle client services for interacting with Guzzle core services.
 1. Guzzle UI
 1. Guzzle API
@@ -29,7 +26,7 @@ Guzzle Web UI is very user friendly web interface to author, execute and monitor
 
 ## Guzzle API
 
-You with deal with Guzzle API call mostly if it is Guzzle cloud setup. There is detailed step by step guid available on how to integrate Guzzle API with Azure Data Factory (ADF) in Azure Cloud setup. Please refer wikipage here at - [ Call Guzzle from Azure Data Factory ](https://gitlab.ja.sg/guzzle/docs/-/wikis/Documentation/Call-Guzzle-from-Azure-Data-Factory)
+You with deal with Guzzle API call mostly if it is Guzzle cloud setup. There is detailed step by step guid available on how to integrate Guzzle API with Azure Data Factory (ADF) in Azure Cloud setup. Please refer wikipage here at - [ Call Guzzle from Azure Data Factory ](parameter_datafactory.md)
 
 For various Guzzle API call, quick reference to syntaxes to be used are as follows,
 

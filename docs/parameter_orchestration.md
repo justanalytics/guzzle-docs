@@ -29,12 +29,12 @@ Guzzle batch is a deep concept and below is just a brief description for compone
 * A **pipeline** is logical grouping of one or more activities.
 * An **activity** is the one where you implement your business rules. It contains actual task definitions which could be of type ingestion, processing, housekeeping, external etc.
 
-For more details, please refer wiki-page [ Guzzle Batch ](https://gitlab.ja.sg/guzzle/docs/-/wikis/Guzzle-Batch-(formerly-Contexts))
+For more details, please refer wiki-page [ Guzzle Batch ](parameter_batch.md)
 
 ## Invoke Guzzle batch from ADF using Guzzle API
 
 Now once you develop the Guzzle batches - how do you trigger it from ADF by making a call to Guzzle API? What are the configuration steps to be followed? To answer those questions, there is a separate wiki page to cover this topic in details. Hence please refer 
-[ Call Guzzle from Azure Data Factory ](https://gitlab.ja.sg/guzzle/docs/-/wikis/Documentation/Call-Guzzle-from-Azure-Data-Factory)
+[ Call Guzzle from Azure Data Factory ](parameter_datafactory.md)
 
 ## Guzzle API Base URL to configure in ADF HTTP linked service
 
@@ -142,8 +142,8 @@ You should always maintain some standard set of context column (as applicable) a
     `w_location`          string
 ```
 
-* For more details refer wiki page [ context columns ](https://gitlab.ja.sg/guzzle/docs/-/wikis/Context-Columns)
-* For more details refer wiki page [ audit/control columns ](https://gitlab.ja.sg/guzzle/docs/-/wikis/Audit-Columns)
+* For more details refer wiki page [ context columns ](context_column.md)
+* For more details refer wiki page [ audit/control columns ](audit_column.md)
 
 ## Time based vs Event based scheduling
 
@@ -198,7 +198,7 @@ Now lets go through the real life project use case where we used ADF + Guzzle to
 * ADF can be configured to extract data into parquet file format (refer \# 2 in above ADF pipeline screen capture) and Guzzle also supports Parquet format for ingestion job type.
 * Major advantage of extracting data into parquet format is - it can enforce schema on the extracted data which is big plus to avoid common issues while consuming data from delimited text files. There are other formats also to enforce data type like ORC, Avro etc.
 * If you have very specific requirement to extract data into delimited text files or have to consume data from manual files then you should consider enforcing few standards beforehand, so that, extracted delimited files or manual files can be standardized for downstream consumption to avoid certain issues.
-* Refer the wiki page for recommended practices while consuming [ delimited or manual file extract ](https://gitlab.ja.sg/guzzle/docs/-/wikis/File-Extraction).
+* Refer the wiki page for recommended practices while consuming [ delimited or manual file extract ](file_extraction.md).
 
 ## Load extracted data files from blob storage to Databricks delta staging layer tables using Guzzle context
 
@@ -290,4 +290,4 @@ order by job_info.job_instance_id desc
    * Click **Use this template**
    * All pipeline components would be imported into your ADF environment, click **Publish all** to save changes
 
-  Refer attached for exported template [PrepareRequestBodyAndInvokeGuzzleBatch.zip](uploads/fe99a47be8fcd052865539ded3967381/PrepareRequestBodyAndInvokeGuzzleBatch.zip)
+  Refer attached for exported template [PrepareRequestBodyAndInvokeGuzzleBatch.zip](/guzzle-docs/img/docs/PrepareRequestBodyAndInvokeGuzzleBatch.zip)
