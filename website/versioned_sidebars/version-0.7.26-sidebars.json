@@ -1,0 +1,20 @@
+{
+  "version-0.7.26-docs": {
+    "Guzzle Fundamentals": [
+      "version-0.7.26-docshome"
+    ],
+    "Developers Guide": [
+      "version-0.7.26-core/concepts"
+    ],
+    "Installing Guzzle": [
+      "version-0.7.26-azure/marketplace",
+      "version-0.7.26-azure/azure_manual"
+    ]
+  },
+  "version-0.7.26-docs-other": {
+    "First Category": [
+      "version-0.7.26-doc4",
+      "version-0.7.26-doc5"
+    ]
+  }
+}
