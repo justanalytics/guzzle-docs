@@ -1,12 +1,27 @@
 {
   "docs": {
     "Guzzle Fundamentals": ["docshome", "fundamentals_ingestion"],
-<<<<<<< HEAD
     "Guzzle Architecture and Services":["Guzzle_Arch_Service","Arch_Guzzle_Core","Arch_Guzzle_Client"],
     "Guzzle Parameters":["Guzzle_Parameters","parameter_groovy","parameter_physical_endpoints","parameter_logical_endpoints","parameter_activity","parameter_ingestion","parameter_processing","parameter_recon","parameter_constraint","parameter_housekeeping","parameter_external","parameter_batch","parameter_datafactory","parameter_orchestration"],
-=======
-    "Guzzle – Architecture and Services": ["arch_arch_and_services", "arch_core"],
->>>>>>> added architecture and services page & guzzle core page
+    "Guzzle – Versioning (Git Settings)": ["versioning_versioning_git_setting"],
+    "Guzzle – Lineage (Apache Atlas)": ["lineage_lineage_apache_atlas"],
+    "DW Design and Development Best Practices with Use Cases": [
+    	"dw_dw_design_and_devlopment_with_use_cases",
+    	"dw_dw_design_and_devlopment_use_cases_source_image_layer",
+    	"dw_dw_design_and_devlopment_use_cases_reusable_layer",
+    	"dw_dw_design_and_devlopment_use_cases_use_case_layer",
+    	"dw_dw_design_and_devlopment_use_cases_reporting_cache",
+    	"dw_dw_design_and_devlopment_with_use_cases_surrogate_keys",
+    	"dw_dw_design_and_devlopment_with_use_cases_audit_columns",
+    	"dw_dw_design_and_devlopment_with_use_cases_context_columns",
+    	"dw_dw_design_and_devlopment_with_use_cases_etl_vs_elt",
+    	"dw_dw_design_and_devlopment_with_use_cases_file_extracts"
+    ],
+    "Guzzle Scheduler" :["guzzle_schedular"],
+    "Recorded Training Sessions": ["recorded_training_sessions"],
+    "JA Sandbox Practice Environments": ["ja_sandbbox_environments"],
+    "Contacts" : ["contact_info_for_guzzle_support"],
+    
     "Developers Guide": ["core/concepts"],
     "Installing Guzzle": ["azure/marketplace", "azure/azure_manual"]
   },
