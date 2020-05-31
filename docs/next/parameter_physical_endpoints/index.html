@@ -1,0 +1,105 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>Physical Endpoints · Guzzle</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="**Physical Endpoint** in Guzzle is physical host connection details stored to communicate with various Source or Target Systems."/><meta name="docsearch:version" content="next"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="Physical Endpoints · Guzzle"/><meta property="og:type" content="website"/><meta property="og:url" content="https://justanalytics.github.io/guzzle-docs/"/><meta property="og:description" content="**Physical Endpoint** in Guzzle is physical host connection details stored to communicate with various Source or Target Systems."/><meta property="og:image" content="https://justanalytics.github.io/guzzle-docs/img/undraw_online.svg"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://justanalytics.github.io/guzzle-docs/img/undraw_tweetstorm.svg"/><link rel="shortcut icon" href="/guzzle-docs/img/favicon.webp"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><link rel="alternate" type="application/atom+xml" href="https://justanalytics.github.io/guzzle-docs/blog/atom.xml" title="Guzzle Blog ATOM Feed"/><link rel="alternate" type="application/rss+xml" href="https://justanalytics.github.io/guzzle-docs/blog/feed.xml" title="Guzzle Blog RSS Feed"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script src="/guzzle-docs/js/scrollSpy.js"></script><link rel="stylesheet" href="/guzzle-docs/css/main.css"/><script src="/guzzle-docs/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/guzzle-docs/"><img class="logo" src="/guzzle-docs/img/just-analytics-logo-new.png" alt="Guzzle"/><h2 class="headerTitleWithLogo">Guzzle</h2></a><a href="/guzzle-docs/versions"><h3>next</h3></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class="siteNavGroupActive"><a href="/guzzle-docs/docs/next/docshome" target="_self">Docs</a></li><li class=""><a href="/guzzle-docs/docs/next/doc4" target="_self">API</a></li><li class=""><a href="/guzzle-docs/help" target="_self">Help</a></li><li class=""><a href="/guzzle-docs/blog/" target="_self">Blog</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="docsNavContainer" id="docsNav"><nav class="toc"><div class="toggleNav"><section class="navWrapper wrapper"><div class="navBreadcrumb wrapper"><div class="navToggle" id="navToggler"><div class="hamburger-menu"><div class="line1"></div><div class="line2"></div><div class="line3"></div></div></div><h2><i>›</i><span>Guzzle Parameters</span></h2><div class="tocToggler" id="tocToggler"><i class="icon-toc"></i></div></div><div class="navGroups"><div class="navGroup"><h3 class="navGroupCategoryTitle">Guzzle Fundamentals</h3><ul class=""><li class="navListItem"><a class="navItem" href="/guzzle-docs/docs/next/docshome">Introduction to Guzzle</a></li><li class="navListItem"><a class="navItem" href="/guzzle-docs/docs/next/fundamentals_ingestion">Guzzle Module - Ingestion</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Guzzle Architecture and Services</h3><ul class=""><li class="navListItem"><a class="navItem" href="/guzzle-docs/docs/next/Guzzle_Arch_Service">Guzzle – Architecture and Services</a></li><li class="navListItem"><a class="navItem" href="/guzzle-docs/docs/next/Arch_Guzzle_Core">Guzzle Core</a></li><li class="navListItem"><a class="navItem" href="/guzzle-docs/docs/next/Arch_Guzzle_Client">Guzzle Client</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Guzzle Parameters</h3><ul class=""><li class="navListItem"><a class="navItem" href="/guzzle-docs/docs/next/Guzzle_Parameters">Guzzle Parameters</a></li><li class="navListItem"><a class="navItem" href="/guzzle-docs/docs/next/parameter_groovy">Groovy expression to manipulate Guzzle Parameters</a></li><li class="navListItem navListItemActive"><a class="navItem" href="/guzzle-docs/docs/next/parameter_physical_endpoints">Physical Endpoints</a></li><li class="navListItem"><a class="navItem" href="/guzzle-docs/docs/next/parameter_logical_endpoints">Logical Endpoints</a></li><li class="navListItem"><a class="navItem" href="/guzzle-docs/docs/next/parameter_activity">Guzzle Activity (formerly Job Configs) Overview</a></li><li class="navListItem"><a class="navItem" href="/guzzle-docs/docs/next/parameter_ingestion">Guzzle Activity Type (formerly Job Config) – Ingestion</a></li><li class="navListItem"><a class="navItem" href="/guzzle-docs/docs/next/parameter_processing">Guzzle Activity Type (formerly Job Config) – Processing</a></li><li class="navListItem"><a class="navItem" href="/guzzle-docs/docs/next/parameter_recon">Guzzle Activity Type (formerly Job Config) – Recon</a></li><li class="navListItem"><a class="navItem" href="/guzzle-docs/docs/next/parameter_constraint">Guzzle Activity Type (formerly Job Config) – Constraint Checks</a></li><li class="navListItem"><a class="navItem" href="/guzzle-docs/docs/next/parameter_housekeeping">Guzzle Activity Type (formerly Job Config) – Housekeeping</a></li><li class="navListItem"><a class="navItem" href="/guzzle-docs/docs/next/parameter_external">Guzzle Activity Type (formerly Job Config) – External</a></li><li class="navListItem"><a class="navItem" href="/guzzle-docs/docs/next/parameter_batch">Guzzle Batch (formerly Contexts)</a></li><li class="navListItem"><a class="navItem" href="/guzzle-docs/docs/next/parameter_datafactory">Call Guzzle from Azure Data Factory</a></li><li class="navListItem"><a class="navItem" href="/guzzle-docs/docs/next/parameter_orchestration">Orchestration of ADF pipeline with Guzzle and Non Guzzle Jobs</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Guzzle – Versioning (Git Settings)</h3><ul class=""><li class="navListItem"><a class="navItem" href="/guzzle-docs/docs/next/versioning_versioning_git_setting">Guzzle – Versioning (Git Settings)</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Guzzle – Lineage (Apache Atlas)</h3><ul class=""><li class="navListItem"><a class="navItem" href="/guzzle-docs/docs/next/lineage_lineage_apache_atlas">Guzzle – Lineage (Apache Atlas)</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">DW Design and Development Best Practices with Use Cases</h3><ul class=""><li class="navListItem"><a class="navItem" href="/guzzle-docs/docs/next/dw_dw_design_and_devlopment_with_use_cases">DW Design and Development Best Practices with Use Cases</a></li><li class="navListItem"><a class="navItem" href="/guzzle-docs/docs/next/dw_dw_design_and_devlopment_use_cases_source_image_layer">Source Image Layer</a></li><li class="navListItem"><a class="navItem" href="/guzzle-docs/docs/next/dw_dw_design_and_devlopment_use_cases_use_case_layer">Use Case layer</a></li><li class="navListItem"><a class="navItem" href="/guzzle-docs/docs/next/dw_dw_design_and_devlopment_use_cases_reporting_cache">Reporting Cache</a></li><li class="navListItem"><a class="navItem" href="/guzzle-docs/docs/next/dw_dw_design_and_devlopment_with_use_cases_surrogate_keys">Surrogate Keys</a></li><li class="navListItem"><a class="navItem" href="/guzzle-docs/docs/next/dw_dw_design_and_devlopment_with_use_cases_audit_columns">Audit Columns</a></li><li class="navListItem"><a class="navItem" href="/guzzle-docs/docs/next/dw_dw_design_and_devlopment_with_use_cases_context_columns">Context Columns</a></li><li class="navListItem"><a class="navItem" href="/guzzle-docs/docs/next/dw_dw_design_and_devlopment_with_use_cases_etl_vs_elt">ETL vs ELT</a></li><li class="navListItem"><a class="navItem" href="/guzzle-docs/docs/next/dw_dw_design_and_devlopment_with_use_cases_file_extracts">File Extracts</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Guzzle Scheduler</h3><ul class=""><li class="navListItem"><a class="navItem" href="/guzzle-docs/docs/next/guzzle_schedular">Guzzle Scheduler</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Recorded Training Sessions</h3><ul class=""><li class="navListItem"><a class="navItem" href="/guzzle-docs/docs/next/recorded_training_sessions">Recorded Training Sessions</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">JA Sandbox Practice Environments</h3><ul class=""><li class="navListItem"><a class="navItem" href="/guzzle-docs/docs/next/ja_sandbbox_environments">JA Sandbox Practice Environments</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Contacts</h3><ul class=""><li class="navListItem"><a class="navItem" href="/guzzle-docs/docs/next/contact_info_for_guzzle_support">Contacts</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Developers Guide</h3><ul class=""><li class="navListItem"><a class="navItem" href="/guzzle-docs/docs/next/core/concepts">Concepts</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Installing Guzzle</h3><ul class=""><li class="navListItem"><a class="navItem" href="/guzzle-docs/docs/next/azure/marketplace">Installing on Azure Marketplace</a></li><li class="navListItem"><a class="navItem" href="/guzzle-docs/docs/next/azure/azure_manual">Installing on Azure Manually</a></li></ul></div></div></section></div><script>
+            var coll = document.getElementsByClassName('collapsible');
+            var checkActiveCategory = true;
+            for (var i = 0; i < coll.length; i++) {
+              var links = coll[i].nextElementSibling.getElementsByTagName('*');
+              if (checkActiveCategory){
+                for (var j = 0; j < links.length; j++) {
+                  if (links[j].classList.contains('navListItemActive')){
+                    coll[i].nextElementSibling.classList.toggle('hide');
+                    coll[i].childNodes[1].classList.toggle('rotate');
+                    checkActiveCategory = false;
+                    break;
+                  }
+                }
+              }
+
+              coll[i].addEventListener('click', function() {
+                var arrow = this.childNodes[1];
+                arrow.classList.toggle('rotate');
+                var content = this.nextElementSibling;
+                content.classList.toggle('hide');
+              });
+            }
+
+            document.addEventListener('DOMContentLoaded', function() {
+              createToggler('#navToggler', '#docsNav', 'docsSliderActive');
+              createToggler('#tocToggler', 'body', 'tocActive');
+
+              var headings = document.querySelector('.toc-headings');
+              headings && headings.addEventListener('click', function(event) {
+                var el = event.target;
+                while(el !== headings){
+                  if (el.tagName === 'A') {
+                    document.body.classList.remove('tocActive');
+                    break;
+                  } else{
+                    el = el.parentNode;
+                  }
+                }
+              }, false);
+
+              function createToggler(togglerSelector, targetSelector, className) {
+                var toggler = document.querySelector(togglerSelector);
+                var target = document.querySelector(targetSelector);
+
+                if (!toggler) {
+                  return;
+                }
+
+                toggler.onclick = function(event) {
+                  event.preventDefault();
+
+                  target.classList.toggle(className);
+                };
+              }
+            });
+        </script></nav></div><div class="container mainContainer docsContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 id="__docusaurus" class="postHeaderTitle">Physical Endpoints</h1></header><article><div><span><p><strong>Physical Endpoint</strong> in Guzzle is physical host connection details stored to communicate with various Source or Target Systems.</p>
+<p><strong>Currently supported</strong> list of Guzzle physical endpoints are,</p>
+<ul>
+<li>Delta</li>
+<li>File
+<ul>
+<li>Amazon S3</li>
+<li>Azure Data Lake Storage</li>
+<li>DBFS</li>
+<li>HDFS</li>
+<li>LFS (Local File System)</li>
+</ul></li>
+<li>Google Analytics</li>
+<li>Hive</li>
+<li>JDBC
+<ul>
+<li>MySQL</li>
+<li>Oracle</li>
+<li>PostgreSQL</li>
+<li>SQL Server</li>
+<li>Manually Setup additonal JDBC</li>
+</ul></li>
+<li>Kafka</li>
+<li>Phoenix</li>
+<li>Rest</li>
+<li>Salesforce</li>
+<li>Shell</li>
+</ul>
+<p><strong>Key considerations</strong> while creating physical endpoints in Guzzle,</p>
+<ol>
+<li>Decide the physical endpoints correctly as this is crucial on how you see grouping of Guzzle datasets in lineage. Ideally treat each data schema / or db name in hive/ schema in SQL server/ as separate physical endpoint even tough they are from same database and user for this endpoint is same. Likewise for files have separate endpoint for each container or directory which logically groups one data domain (example one system) - avoid using top level directory as that will force you to put sub-dir in file name pattern as hard-coded or via param - and such sub-dir might be env specific making job config either not portable across env or adds a additional param to be provided at run-time</li>
+<li>Avoid relying on schema prefix as much possible when specifying source, target or SQL - this will ensure the jobs are portable across environments.</li>
+<li>Having said that, you may still consider defining common endpoint if there are too many databases/schemas in your project and if it would be difficult to manage separate endpoint for each database/schema. Like for example, if tables are segregated using separate databases/schemas created for each data-mart where there would be multiple data-marts to support business reporting needs. In this scenario, database name can also be defined as Environment Parameter and this parameter name can be prefixed with table name in Guzzle Job Configuration without affecting job portability across environments.</li>
+</ol>
+<p><strong>Naming Conventions</strong></p>
+<ul>
+<li><p>Prefix each physical endpoint with ph_</p></li>
+<li><p>Followed by technology for endpoint</p></li>
+<li><p>Followed by type/vendor for endpoint applicable for FILE/JDBC endpoits</p></li>
+<li><p>Followed by database instance or schema name or description</p>
+<p><code>ph_&lt;technology&gt;_&lt;type/vendor&gt;_&lt;database&gt;</code></p></li>
+</ul>
+<p>For example,</p>
+<ol>
+<li>ph_jdbc_oracle_dwhxxx</li>
+<li>ph_file_hdfs_landing</li>
+<li>ph_delta_dwhxxx</li>
+</ol>
+</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/guzzle-docs/docs/next/parameter_groovy"><span class="arrow-prev">← </span><span>Groovy expression to manipulate Guzzle Parameters</span></a><a class="docs-next button" href="/guzzle-docs/docs/next/parameter_logical_endpoints"><span>Logical Endpoints</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/guzzle-docs/" class="nav-home"><img src="/guzzle-docs/img/favicon.webp" alt="Guzzle" width="66" height="58"/></a><div><h5>Docs</h5><a href="/guzzle-docs/docs/en/docshome.html">Getting Started (or other categories)</a><a href="/guzzle-docs/docs/en/doc2.html">Guides (or other categories)</a><a href="/guzzle-docs/docs/en/doc3.html">API Reference (or other categories)</a></div><div><h5>Community</h5><a href="/guzzle-docs/en/users.html">User Showcase</a><a href="https://stackoverflow.com/questions/tagged/" target="_blank" rel="noreferrer noopener">Stack Overflow</a><a href="https://discordapp.com/">Project Chat</a><a href="https://twitter.com/" target="_blank" rel="noreferrer noopener">Twitter</a></div><div><h5>More</h5><a href="/guzzle-docs/blog">Blog</a><a href="https://github.com/">GitHub</a><a class="github-button" data-icon="octicon-star" data-count-href="/facebook/docusaurus/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></div></section><a href="https://opensource.facebook.com/" target="_blank" rel="noreferrer noopener" class="fbOpenSource"><img src="/guzzle-docs/img/oss_logo.png" alt="Facebook Open Source" width="170" height="45"/></a><section class="copyright">Copyright © 2020 Just Analytics</section></footer></div></body></html>

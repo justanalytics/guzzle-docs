@@ -1,0 +1,309 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>Orchestration of ADF pipeline with Guzzle and Non Guzzle Jobs · Guzzle</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="[[_TOC_]]"/><meta name="docsearch:version" content="next"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="Orchestration of ADF pipeline with Guzzle and Non Guzzle Jobs · Guzzle"/><meta property="og:type" content="website"/><meta property="og:url" content="https://justanalytics.github.io/guzzle-docs/"/><meta property="og:description" content="[[_TOC_]]"/><meta property="og:image" content="https://justanalytics.github.io/guzzle-docs/img/undraw_online.svg"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://justanalytics.github.io/guzzle-docs/img/undraw_tweetstorm.svg"/><link rel="shortcut icon" href="/guzzle-docs/img/favicon.webp"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><link rel="alternate" type="application/atom+xml" href="https://justanalytics.github.io/guzzle-docs/blog/atom.xml" title="Guzzle Blog ATOM Feed"/><link rel="alternate" type="application/rss+xml" href="https://justanalytics.github.io/guzzle-docs/blog/feed.xml" title="Guzzle Blog RSS Feed"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script src="/guzzle-docs/js/scrollSpy.js"></script><link rel="stylesheet" href="/guzzle-docs/css/main.css"/><script src="/guzzle-docs/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/guzzle-docs/"><img class="logo" src="/guzzle-docs/img/just-analytics-logo-new.png" alt="Guzzle"/><h2 class="headerTitleWithLogo">Guzzle</h2></a><a href="/guzzle-docs/versions"><h3>next</h3></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class="siteNavGroupActive"><a href="/guzzle-docs/docs/next/docshome" target="_self">Docs</a></li><li class=""><a href="/guzzle-docs/docs/next/doc4" target="_self">API</a></li><li class=""><a href="/guzzle-docs/help" target="_self">Help</a></li><li class=""><a href="/guzzle-docs/blog/" target="_self">Blog</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="docsNavContainer" id="docsNav"><nav class="toc"><div class="toggleNav"><section class="navWrapper wrapper"><div class="navBreadcrumb wrapper"><div class="navToggle" id="navToggler"><div class="hamburger-menu"><div class="line1"></div><div class="line2"></div><div class="line3"></div></div></div><h2><i>›</i><span>Guzzle Parameters</span></h2><div class="tocToggler" id="tocToggler"><i class="icon-toc"></i></div></div><div class="navGroups"><div class="navGroup"><h3 class="navGroupCategoryTitle">Guzzle Fundamentals</h3><ul class=""><li class="navListItem"><a class="navItem" href="/guzzle-docs/docs/next/docshome">Introduction to Guzzle</a></li><li class="navListItem"><a class="navItem" href="/guzzle-docs/docs/next/fundamentals_ingestion">Guzzle Module - Ingestion</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Guzzle Architecture and Services</h3><ul class=""><li class="navListItem"><a class="navItem" href="/guzzle-docs/docs/next/Guzzle_Arch_Service">Guzzle – Architecture and Services</a></li><li class="navListItem"><a class="navItem" href="/guzzle-docs/docs/next/Arch_Guzzle_Core">Guzzle Core</a></li><li class="navListItem"><a class="navItem" href="/guzzle-docs/docs/next/Arch_Guzzle_Client">Guzzle Client</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Guzzle Parameters</h3><ul class=""><li class="navListItem"><a class="navItem" href="/guzzle-docs/docs/next/Guzzle_Parameters">Guzzle Parameters</a></li><li class="navListItem"><a class="navItem" href="/guzzle-docs/docs/next/parameter_groovy">Groovy expression to manipulate Guzzle Parameters</a></li><li class="navListItem"><a class="navItem" href="/guzzle-docs/docs/next/parameter_physical_endpoints">Physical Endpoints</a></li><li class="navListItem"><a class="navItem" href="/guzzle-docs/docs/next/parameter_logical_endpoints">Logical Endpoints</a></li><li class="navListItem"><a class="navItem" href="/guzzle-docs/docs/next/parameter_activity">Guzzle Activity (formerly Job Configs) Overview</a></li><li class="navListItem"><a class="navItem" href="/guzzle-docs/docs/next/parameter_ingestion">Guzzle Activity Type (formerly Job Config) – Ingestion</a></li><li class="navListItem"><a class="navItem" href="/guzzle-docs/docs/next/parameter_processing">Guzzle Activity Type (formerly Job Config) – Processing</a></li><li class="navListItem"><a class="navItem" href="/guzzle-docs/docs/next/parameter_recon">Guzzle Activity Type (formerly Job Config) – Recon</a></li><li class="navListItem"><a class="navItem" href="/guzzle-docs/docs/next/parameter_constraint">Guzzle Activity Type (formerly Job Config) – Constraint Checks</a></li><li class="navListItem"><a class="navItem" href="/guzzle-docs/docs/next/parameter_housekeeping">Guzzle Activity Type (formerly Job Config) – Housekeeping</a></li><li class="navListItem"><a class="navItem" href="/guzzle-docs/docs/next/parameter_external">Guzzle Activity Type (formerly Job Config) – External</a></li><li class="navListItem"><a class="navItem" href="/guzzle-docs/docs/next/parameter_batch">Guzzle Batch (formerly Contexts)</a></li><li class="navListItem"><a class="navItem" href="/guzzle-docs/docs/next/parameter_datafactory">Call Guzzle from Azure Data Factory</a></li><li class="navListItem navListItemActive"><a class="navItem" href="/guzzle-docs/docs/next/parameter_orchestration">Orchestration of ADF pipeline with Guzzle and Non Guzzle Jobs</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Guzzle – Versioning (Git Settings)</h3><ul class=""><li class="navListItem"><a class="navItem" href="/guzzle-docs/docs/next/versioning_versioning_git_setting">Guzzle – Versioning (Git Settings)</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Guzzle – Lineage (Apache Atlas)</h3><ul class=""><li class="navListItem"><a class="navItem" href="/guzzle-docs/docs/next/lineage_lineage_apache_atlas">Guzzle – Lineage (Apache Atlas)</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">DW Design and Development Best Practices with Use Cases</h3><ul class=""><li class="navListItem"><a class="navItem" href="/guzzle-docs/docs/next/dw_dw_design_and_devlopment_with_use_cases">DW Design and Development Best Practices with Use Cases</a></li><li class="navListItem"><a class="navItem" href="/guzzle-docs/docs/next/dw_dw_design_and_devlopment_use_cases_source_image_layer">Source Image Layer</a></li><li class="navListItem"><a class="navItem" href="/guzzle-docs/docs/next/dw_dw_design_and_devlopment_use_cases_use_case_layer">Use Case layer</a></li><li class="navListItem"><a class="navItem" href="/guzzle-docs/docs/next/dw_dw_design_and_devlopment_use_cases_reporting_cache">Reporting Cache</a></li><li class="navListItem"><a class="navItem" href="/guzzle-docs/docs/next/dw_dw_design_and_devlopment_with_use_cases_surrogate_keys">Surrogate Keys</a></li><li class="navListItem"><a class="navItem" href="/guzzle-docs/docs/next/dw_dw_design_and_devlopment_with_use_cases_audit_columns">Audit Columns</a></li><li class="navListItem"><a class="navItem" href="/guzzle-docs/docs/next/dw_dw_design_and_devlopment_with_use_cases_context_columns">Context Columns</a></li><li class="navListItem"><a class="navItem" href="/guzzle-docs/docs/next/dw_dw_design_and_devlopment_with_use_cases_etl_vs_elt">ETL vs ELT</a></li><li class="navListItem"><a class="navItem" href="/guzzle-docs/docs/next/dw_dw_design_and_devlopment_with_use_cases_file_extracts">File Extracts</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Guzzle Scheduler</h3><ul class=""><li class="navListItem"><a class="navItem" href="/guzzle-docs/docs/next/guzzle_schedular">Guzzle Scheduler</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Recorded Training Sessions</h3><ul class=""><li class="navListItem"><a class="navItem" href="/guzzle-docs/docs/next/recorded_training_sessions">Recorded Training Sessions</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">JA Sandbox Practice Environments</h3><ul class=""><li class="navListItem"><a class="navItem" href="/guzzle-docs/docs/next/ja_sandbbox_environments">JA Sandbox Practice Environments</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Contacts</h3><ul class=""><li class="navListItem"><a class="navItem" href="/guzzle-docs/docs/next/contact_info_for_guzzle_support">Contacts</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Developers Guide</h3><ul class=""><li class="navListItem"><a class="navItem" href="/guzzle-docs/docs/next/core/concepts">Concepts</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Installing Guzzle</h3><ul class=""><li class="navListItem"><a class="navItem" href="/guzzle-docs/docs/next/azure/marketplace">Installing on Azure Marketplace</a></li><li class="navListItem"><a class="navItem" href="/guzzle-docs/docs/next/azure/azure_manual">Installing on Azure Manually</a></li></ul></div></div></section></div><script>
+            var coll = document.getElementsByClassName('collapsible');
+            var checkActiveCategory = true;
+            for (var i = 0; i < coll.length; i++) {
+              var links = coll[i].nextElementSibling.getElementsByTagName('*');
+              if (checkActiveCategory){
+                for (var j = 0; j < links.length; j++) {
+                  if (links[j].classList.contains('navListItemActive')){
+                    coll[i].nextElementSibling.classList.toggle('hide');
+                    coll[i].childNodes[1].classList.toggle('rotate');
+                    checkActiveCategory = false;
+                    break;
+                  }
+                }
+              }
+
+              coll[i].addEventListener('click', function() {
+                var arrow = this.childNodes[1];
+                arrow.classList.toggle('rotate');
+                var content = this.nextElementSibling;
+                content.classList.toggle('hide');
+              });
+            }
+
+            document.addEventListener('DOMContentLoaded', function() {
+              createToggler('#navToggler', '#docsNav', 'docsSliderActive');
+              createToggler('#tocToggler', 'body', 'tocActive');
+
+              var headings = document.querySelector('.toc-headings');
+              headings && headings.addEventListener('click', function(event) {
+                var el = event.target;
+                while(el !== headings){
+                  if (el.tagName === 'A') {
+                    document.body.classList.remove('tocActive');
+                    break;
+                  } else{
+                    el = el.parentNode;
+                  }
+                }
+              }, false);
+
+              function createToggler(togglerSelector, targetSelector, className) {
+                var toggler = document.querySelector(togglerSelector);
+                var target = document.querySelector(targetSelector);
+
+                if (!toggler) {
+                  return;
+                }
+
+                toggler.onclick = function(event) {
+                  event.preventDefault();
+
+                  target.classList.toggle(className);
+                };
+              }
+            });
+        </script></nav></div><div class="container mainContainer docsContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 id="__docusaurus" class="postHeaderTitle">Orchestration of ADF pipeline with Guzzle and Non Guzzle Jobs</h1></header><article><div><span><p>[[<em>TOC</em>]]</p>
+<h1><a class="anchor" aria-hidden="true" id="overview"></a><a href="#overview" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Overview</h1>
+<p>In Azure cloud, there are wide range of features available for Compute, Storage, ELT/ETL Orchestration, Databricks Notebooks, Stream Analytics, ML/AI capabilities and many of them are supported by Guzzle for integration while I am writing this wiki page, and support for few of them is currently work in progress. Hence while orchestrating end-to-end ELT/ETL data flow pipeline - starting from data consumption from ultimate application data sources to the final reports/dashboards generation for the end user consumption may involve various Guzzle as well as Non-Guzzle components. So the question is - how do we possibly orchestrate this by leveraging on best of the features available in Guzzle and Azure Data Factory to build the end-to-end data pipeline in Azure cloud setup?</p>
+<p>After multiple considerations to answer that question, we decided to use Azure Data Factory (ADF) to orchestrate end-to-end data pipeline if you are using Guzzle on Azure cloud setup. ADF can integrate well and can execute mixed set of job types by calling corresponding technology specific APIs which includes - executing Guzzle batches, Databricks Notebooks, Azure Logic Apps, Azure Native Pipelines, Shell Scripts, Powershell Scripts etc. It should be noted that, Guzzle also has road-map to support integration with most of these Non-Guzzle components using Guzzle External job type in near future. This is already work in progress and feature will be available soon.</p>
+<p>Azure Date Factory supports event based and time based job execution which is at par feature to use it as a scheduler in Azure cloud platform, though it doesn't have built-in support for defining inter-dependencies across the ADF native pipelines and concept of order date snapshots supported by most specialized scheduling tools to execute all the jobs/pipelines for a specific order date.</p>
+<p>Below are few important concepts and considerations to keep in mind while orchestrating ADF + Guzzle end-to-end pipeline.</p>
+<h1><a class="anchor" aria-hidden="true" id="important-concepts-and-considerations"></a><a href="#important-concepts-and-considerations" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Important Concepts and Considerations</h1>
+<h2><a class="anchor" aria-hidden="true" id="guzzle-batch-and-its-control-flow"></a><a href="#guzzle-batch-and-its-control-flow" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Guzzle batch and its control flow</h2>
+<p><img src="/guzzle-docs/img/docs/Guzzle_Batch_Control_Flow.png" alt="Guzzle_Batch_Control_Flow"></p>
+<p>Guzzle batch is a deep concept and below is just a brief description for component you can see in above Guzzle batch control flow diagram,</p>
+<ul>
+<li>Guzzle <strong>batch</strong> comprise one or more stages. All stages run in sequence. Stage sequence you can define while defining your Guzzle batch.</li>
+<li>A <strong>stage</strong> can contain one or more pipelines. Each stage can map to ELT/ETL paradigm we typically use to ingest and process source data in a layered manner to build data warehouse. For example, data staging layer, reusable layer, use-case layer etc.</li>
+<li>A <strong>pipeline</strong> is logical grouping of one or more activities.</li>
+<li>An <strong>activity</strong> is the one where you implement your business rules. It contains actual task definitions which could be of type ingestion, processing, housekeeping, external etc.</li>
+</ul>
+<p>For more details, please refer wiki-page <a href="/guzzle-docs/docs/next/parameter_batch"> Guzzle Batch </a></p>
+<h2><a class="anchor" aria-hidden="true" id="invoke-guzzle-batch-from-adf-using-guzzle-api"></a><a href="#invoke-guzzle-batch-from-adf-using-guzzle-api" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Invoke Guzzle batch from ADF using Guzzle API</h2>
+<p>Now once you develop the Guzzle batches - how do you trigger it from ADF by making a call to Guzzle API? What are the configuration steps to be followed? To answer those questions, there is a separate wiki page to cover this topic in details. Hence please refer
+<a href="/guzzle-docs/docs/next/parameter_datafactory"> Call Guzzle from Azure Data Factory </a></p>
+<h2><a class="anchor" aria-hidden="true" id="guzzle-api-base-url-to-configure-in-adf-http-linked-service"></a><a href="#guzzle-api-base-url-to-configure-in-adf-http-linked-service" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Guzzle API Base URL to configure in ADF HTTP linked service</h2>
+<p>You can locate Guzzle API base URL to be configured in ADF HTTP linked service from <em>guzzle.yml</em> file from your Guzzle host.
+This file is available under directory <em>$GUZZLE_HOME/conf/</em></p>
+<p><img src="/guzzle-docs/img/docs/Base_API_URL.png" alt="Base_API_URL"></p>
+<h2><a class="anchor" aria-hidden="true" id="single-day-and-explicit-multiple-day-guzzle-batch-initialization"></a><a href="#single-day-and-explicit-multiple-day-guzzle-batch-initialization" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Single day and explicit multiple day Guzzle batch initialization</h2>
+<ul>
+<li><strong>Single day batch initialization</strong> creates a Guzzle batch in <code>batch_control</code> table only for the given business date during Guzzle API call. For example,</li>
+</ul>
+<p><strong>Init Batch Request Body</strong>:</p>
+<pre><code class="hljs css language-json">{
+  <span class="hljs-attr">"contextParams"</span>: {
+    <span class="hljs-attr">"system"</span>: <span class="hljs-string">"sp"</span>
+    <span class="hljs-string">"location"</span>: <span class="hljs-string">"all"</span>
+  },
+  <span class="hljs-attr">"businessDate"</span>: <span class="hljs-string">"2020-04-02 16:11:38"</span>,
+  <span class="hljs-attr">"environment"</span>: <span class="hljs-string">"test2"</span>
+}
+</code></pre>
+<p>This is mostly used for batches where data is full load and there is no specific requirement to maintain the continuous business date snapshots into the target tables. It can also be used for batches where source data is incremental in nature and target is append or merge with no snapshots maintained, and as long as source can provide collective incremental file for the days when batch loads were missed out due to system outages or planned downtime for maintenance.</p>
+<ul>
+<li><strong>Multiple day batch initialization</strong> creates the Guzzle batches in <code>batch_control</code> table for explicit range of start date, end date and period provided during Guzzle API call. For example,</li>
+</ul>
+<p><strong>Init Batch Request Body</strong>:</p>
+<pre><code class="hljs css language-json">{
+  <span class="hljs-attr">"contextParams"</span>: {
+    <span class="hljs-attr">"system"</span>: <span class="hljs-string">"sp"</span>,
+    <span class="hljs-attr">"location"</span>: <span class="hljs-string">"all"</span>
+  },
+  <span class="hljs-attr">"businessDateRange"</span>: {
+    <span class="hljs-attr">"startDate"</span>: <span class="hljs-string">"2020-04-02 16:00:00"</span>,
+    <span class="hljs-attr">"endDate"</span>: <span class="hljs-string">"2020-04-06 16:00:00"</span>
+  },
+  <span class="hljs-attr">"period"</span>: <span class="hljs-string">"1"</span>,
+  <span class="hljs-attr">"environment"</span>: <span class="hljs-string">"test2"</span>
+}
+</code></pre>
+<p>This is mostly used for batches where data is full or even incremental in nature and there is requirement to maintain the continuous business date snapshots into the target tables. In this case, if batch loads are missed out due to system outages or planned downtime for maintenance then once system is up, Guzzle should catch-up by executing batch load for missed range of dates and generate respective business date snapshots into target.</p>
+<h2><a class="anchor" aria-hidden="true" id="non-guzzle-components-in-the-middle-of-end-to-end-batch-processing"></a><a href="#non-guzzle-components-in-the-middle-of-end-to-end-batch-processing" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Non-guzzle components in the middle of end-to-end batch processing</h2>
+<p>There could be scenarios where your end-to-end batch processing has Non-Guzzle components in the middle like in below data flow example,</p>
+<p><strong>Step 1:</strong> Load data from Source to staging layer using Guzzle jobs <br>
+<strong>Step 2:</strong> Load data from staging to reusable layer using ADF native pipeline<br>
+<strong>Step 3:</strong> Load data from reusable to use-case layer using Guzzle jobs<br>
+<strong>Step 4:</strong> Copy data from use-case layer to reporting cache (if any) using Guzzle jobs</p>
+<p>In above example, since middle Step 2 is Non-Guzzle component then you will have to split the Guzzle batch possibly into two batches, 1st Guzzle batch for Step 1 and 2nd Guzzle batch for Step 3 and Step 4 combined. Here Step 2 is taken care by ADF native pipeline and this could be because of some client specific requirements. If you orchestrate and schedule the master pipeline in ADF for this end-to-end data load, first you will have Guzzle API call to 1st Guzzle batch to perform Step 1, then you will have the ADF execute pipeline activity to run ADF native pipeline for performing Step 2 and finally you will have another Guzzle API call to 2nd Guzzle batch to perform Step 3 and Step 4 to finish all data loading steps.</p>
+<p>Here note that, if Step 2 would have also been implemented using Guzzle jobs then you can possibly orchestrate this end-to-end data load using single Guzzle batch and just schedule that single batch within ADF master pipeline by giving a Guzzle API call.</p>
+<h2><a class="anchor" aria-hidden="true" id="non-guzzle-components-at-the-start-or-at-the-end-of-end-to-end-batch-processing"></a><a href="#non-guzzle-components-at-the-start-or-at-the-end-of-end-to-end-batch-processing" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Non-guzzle components at the start or at the end of end-to-end batch processing</h2>
+<p>There could be scenarios where your end-to-end batch processing has Non-Guzzle components at the start or at the end like in below data flow example,</p>
+<p><strong>Step 1:</strong> Load data from Source to staging layer using ADF native pipeline <br>
+<strong>Step 2:</strong> Load data from staging to reusable layer using Guzzle jobs<br>
+<strong>Step 3:</strong> Load data from reusable to use-case layer using Guzzle jobs<br>
+<strong>Step 4:</strong> Copy data from use-case layer to reporting cache (if any) using Guzzle jobs</p>
+<p>In above example, since Step 1 is Non-Guzzle component then you may perform other steps (excluding Step 1) using single Guzzle batch. This can be done by combining Step 2, Step 3 and Step 4 as stages in a Guzzle batch. If you orchestrate and schedule the master pipeline in ADF for this end-to-end data load, first you will have an ADF activity to execute ADF native pipeline to perform Step 1 and second activity will have Guzzle API call to Guzzle batch to perform Step 2, Step 3 and Step 4 to finish rest of data loading steps.</p>
+<h2><a class="anchor" aria-hidden="true" id="using-configuration-table-to-pass-parameter-values-to-dynamically-construct-json-format-for-guzzle-api-call"></a><a href="#using-configuration-table-to-pass-parameter-values-to-dynamically-construct-json-format-for-guzzle-api-call" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Using configuration table to pass parameter values to dynamically construct JSON format for Guzzle API call</h2>
+<p>Below is a sample for configuration table you may create to build generic ADF pipeline to call Guzzle API for executing all your batches. You can build, populate and lookup such a configuration table within your ADF pipeline to construct Guzzle API JSON format dynamically and pass this constructed dynamic JSON contents to an API call which can execute any of your Guzzle batches.</p>
+<table>
+<thead>
+<tr><th>ID</th><th>Batch_Name</th><th>Batch_Context_Params</th><th>Run_Stage</th><th>Batch_Additional_Params</th><th>Spark_Environment</th><th>Is_Multi_Day_Call</th><th>Blob_SAS_URL</th><th>Blob_SAS_Token</th></tr>
+</thead>
+<tbody>
+<tr><td>1</td><td>SRC2FND_system1</td><td>&quot;system&quot;: &quot;SRC2FND_system1&quot;,&quot;location&quot;: &quot;All&quot;</td><td>STG,FND</td><td>&quot;environment&quot;: &quot;env_uat&quot;</td><td>guzzle-data-engineering</td><td>N</td><td><a href="https://storacctdiuat.blob.core.windows.net/xxxxxxx">https://storacctdiuat.blob.core.windows.net/xxxxxxx</a></td><td>?xxxxxxx</td></tr>
+<tr><td>2</td><td>FND2PLP_system1</td><td>&quot;system&quot;: &quot;FND2PLP_system1&quot;,&quot;location&quot;: &quot;All&quot;</td><td>PLP</td><td>&quot;environment&quot;: &quot;env_uat&quot;</td><td>guzzle-data-engineering</td><td>N</td><td><a href="https://storacctdiuat.blob.core.windows.net/xxxxxxx">https://storacctdiuat.blob.core.windows.net/xxxxxxx</a></td><td>?xxxxxxx</td></tr>
+<tr><td>3</td><td>DB2SYNAPSE_system1</td><td>&quot;system&quot;: &quot;DB2SYNAPSE_system1&quot;,&quot;location&quot;: &quot;All&quot;</td><td>PLP</td><td>&quot;environment&quot;: &quot;env_uat&quot;</td><td>guzzle-data-engineering</td><td>N</td><td><a href="https://storacctdiuat.blob.core.windows.net/xxxxxxx">https://storacctdiuat.blob.core.windows.net/xxxxxxx</a></td><td>?xxxxxxx</td></tr>
+<tr><td>4</td><td>SRC2PLP_system2</td><td>&quot;system&quot;: &quot;SRC2PLP_system2&quot;,&quot;location&quot;: &quot;All&quot;</td><td>STG,FND,PLP</td><td>&quot;environment&quot;: &quot;env_uat&quot;,&quot;period&quot;: &quot;1&quot;</td><td>guzzle-data-engineering</td><td>Y</td><td><a href="https://storacctdiuat.blob.core.windows.net/xxxxxxx">https://storacctdiuat.blob.core.windows.net/xxxxxxx</a></td><td>?xxxxxxx</td></tr>
+</tbody>
+</table>
+<ul>
+<li><strong>ID:</strong> This is just unique sequence number (static) used in configuration table. It can be used as a filter in your lookup activity which would query this configuration table.</li>
+<li><strong>Batch_Name:</strong> This is a descriptive name given to each of the batch. This column is insignificant for Guzzle API call. It can also be used for logically grouping multiple batches into one to showcase end to end data load for a particular system or for a business segment or for department. Such logical grouping of batches can also be useful for creating runtime audit dashboards.</li>
+<li><strong>Batch_Context_Params:</strong> These are batch context parameters to be passed to Guzzle API call. It is comma separated key-value pair.</li>
+<li><strong>Run_Stage:</strong> These are batch stages to be passed to Guzzle API call for their execution. It is comma separated values.</li>
+<li><strong>Batch_Additional_Params:</strong> These are additional parameters you may want to pass to Guzzle API call. It is comma separated key-value pair.</li>
+<li><strong>Spark_Environment:</strong> This is Spark cluster to be passed to Guzzle API call which you might have configured in Guzzle UI under Environment section.</li>
+<li><strong>Is_Multi_Day_Call:</strong> This is flag maintained to decide weather to construct single day or multiple day init batch JSON syntax for executing given batch.</li>
+<li><strong>Blob_SAS_URL:</strong> This is blob container SAS URL which hosts Guzzle logs in your environment. It can be used to send Guzzle log location in post load email notification.</li>
+<li><strong>Blog_SAS_Token:</strong> This is blob container SAS token in your environment. It can be used to send Guzzle log location in post load email notification.</li>
+</ul>
+<p>Apart from these set of columns, you may add and maintain other additional column suitable to your project requirements within configuration table. This sample is just to give you fair understanding on - how to maintain configuration in table for constructing Guzzle API call dynamically to build generic pipeline.</p>
+<h2><a class="anchor" aria-hidden="true" id="context-columns-and-control-columns-to-be-maintained-in-tables"></a><a href="#context-columns-and-control-columns-to-be-maintained-in-tables" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Context columns and control columns to be maintained in tables</h2>
+<p>You should always maintain some standard set of context column (as applicable) and control columns in tables across staging layer, reusable layer and use-case specific layer which are very helpful for table partitioning or for troubleshooting at times.</p>
+<pre><code class="hljs css language-sql">    `w_src_file_name`     string,
+    `w_refresh_ts`        timestamp,
+    `w_job_instance_id`   bigint,
+    `w_batch_id`          bigint,
+    `w_business_dt`       date,
+    `w_system`            string,
+    `w_location`          string
+</code></pre>
+<ul>
+<li>For more details refer wiki page <a href="context_column.md"> context columns </a></li>
+<li>For more details refer wiki page <a href="audit_column.md"> audit/control columns </a></li>
+</ul>
+<h2><a class="anchor" aria-hidden="true" id="time-based-vs-event-based-scheduling"></a><a href="#time-based-vs-event-based-scheduling" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Time based vs Event based scheduling</h2>
+<p>Once pipeline is developed, you may want to schedule it at daily/weekly/monthly frequency for execution.</p>
+<p>You can schedule it either for event based trigger or time based trigger,</p>
+<p><strong>Time based trigger in ADF</strong></p>
+<ul>
+<li>Time based trigger can be configured in ADF by adding a trigger to your pipeline where you can define fixed execution schedule. For example, run daily at 08:00PM or run every Monday at 07:00AM etc.</li>
+<li>Time based trigger can also be configured in ADF by adding tumbling window trigger for pipeline execution.
+<img src="/guzzle-docs/img/docs/Time_based_trigger.png" alt="Time_based_trigger"></li>
+</ul>
+<p><strong>Event based trigger in ADF</strong></p>
+<ul>
+<li>Event based trigger can be done based on success or on failure or on completed or on skipped status of the previous activity within the pipeline.
+<img src="/guzzle-docs/img/docs/Event_based_trigger.png" alt="Event_based_trigger"></li>
+<li>Event based trigger can also be implemented by adding a file watcher event. It can also be achieved using Get Metadata activity within ADF pipeline.
+<img src="/guzzle-docs/img/docs/Event_based_trigger_2.png" alt="Event_based_trigger_2"></li>
+</ul>
+<p><strong>Hybrid trigger mechanism</strong></p>
+<ul>
+<li>As there could be scenarios where you may need to add dependencies across pipelines running at different time. Such across the pipeline event based trigger can achieved using below steps,
+<ul>
+<li>Use time based execution for your pipeline which will implement until activity to check status of upstream batches or pipelines</li>
+<li>Use combination of wait and lookup activity within until loop to query <code>batch_control</code> table or ADF runtime audit table to check if corresponding upstream batches or pipelines are already successful.
+<img src="/guzzle-docs/img/docs/Hybrid_trigger.png" alt="Hybrid_trigger"></li>
+</ul></li>
+</ul>
+<h3><a class="anchor" aria-hidden="true" id="challenges-in-pipelinebatch-design-while-consuming-data-from-multiple-time-based-sources"></a><a href="#challenges-in-pipelinebatch-design-while-consuming-data-from-multiple-time-based-sources" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Challenges in pipeline/batch design while consuming data from multiple time based sources</h3>
+<p>If there are multiple time based sources to be ingested into your staging layer and your subsequent layer loads has to wait until data from all the sources is available in staging then you should consider splitting your pipeline/batch to ingest data from each of your source system at specific time and you should implement hybrid mechanism as described above for executing your subsequent pipeline/batch to achieve continuous execution of your end to end data load without having to leave any buffer time in-between the upstream and the downstream pipeline/batch to trigger your downstream loads.</p>
+<p>For example:</p>
+<ol>
+<li>Source system A is available and ingested to staging layer daily at 07:00 PM</li>
+<li>Source system B is available and ingested to staging layer daily at 08:30 PM</li>
+<li>Source system C is available and ingested to staging layer daily at 09:00 PM</li>
+<li>Assuming all sources finishes ingestion to staging at 09:15 PM under optimal execution circumstances, your staging to subsequent layer loads can start daily immediately at 09:15 PM without leaving any buffer time in-between, if you implement the looping mechanism described above for hybrid trigger.</li>
+</ol>
+<p>This eventually reduces overall batch execution time for your end to end data load.</p>
+<hr>
+<h1><a class="anchor" aria-hidden="true" id="real-life-project-use-case"></a><a href="#real-life-project-use-case" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Real Life Project Use Case</h1>
+<p>Now lets go through the real life project use case where we used ADF + Guzzle to orchestrate the end to end pipeline which performs following activities,</p>
+<ul>
+<li>Extract the data files from application source to blob storage using ADF pipeline</li>
+<li>Load extracted data files from blob storage to Databricks delta stage tables using Guzzle context</li>
+<li>Process data from stage to reusable layer using Guzzle context</li>
+<li>Process data from reusable to use-case layer using Guzzle context</li>
+<li>Perform ML using Databricks PySpark notebook</li>
+<li>Copy data from Databricks delta tables to Azure Synapse using Guzzle context</li>
+<li>Send email notification in case of failures</li>
+</ul>
+<p><img src="/guzzle-docs/img/docs/ADF_Sample_Use_Case_Master_Pipeline.png" alt="ADF_Sample_Use_Case_Master_Pipeline"></p>
+<h2><a class="anchor" aria-hidden="true" id="extract-the-data-files-from-application-source-to-blob-storage-using-adf-pipeline"></a><a href="#extract-the-data-files-from-application-source-to-blob-storage-using-adf-pipeline" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Extract the data files from application source to blob storage using ADF pipeline</h2>
+<ul>
+<li>If you need to extract data files from application source before you could consume that data then it is recommended to extract data into Parquet file format as it enforces the data types on extracted data. This format is also recommended by Databricks as it is optimized and highly tuned to perform really well for Bigdata systems. As Parquet files uses binary formats for storing tables, the overhead is less than required to parse a CSV file. Parquet is the big data analogue to CSV as it is optimized, distributed, and more fault tolerant than CSV files.</li>
+<li>Include extraction date and time as part of extracted file name (refer # 1 in above ADF pipeline screen capture). Business date can be used to include as part of file name suffix.</li>
+<li>ADF can be configured to extract data into parquet file format (refer # 2 in above ADF pipeline screen capture) and Guzzle also supports Parquet format for ingestion job type.</li>
+<li>Major advantage of extracting data into parquet format is - it can enforce schema on the extracted data which is big plus to avoid common issues while consuming data from delimited text files. There are other formats also to enforce data type like ORC, Avro etc.</li>
+<li>If you have very specific requirement to extract data into delimited text files or have to consume data from manual files then you should consider enforcing few standards beforehand, so that, extracted delimited files or manual files can be standardized for downstream consumption to avoid certain issues.</li>
+<li>Refer the wiki page for recommended practices while consuming <a href="file_extraction.md"> delimited or manual file extract </a>.</li>
+</ul>
+<h2><a class="anchor" aria-hidden="true" id="load-extracted-data-files-from-blob-storage-to-databricks-delta-staging-layer-tables-using-guzzle-context"></a><a href="#load-extracted-data-files-from-blob-storage-to-databricks-delta-staging-layer-tables-using-guzzle-context" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Load extracted data files from blob storage to Databricks delta staging layer tables using Guzzle context</h2>
+<ul>
+<li><p>Once data is ready for consumption from extracted files, Guzzle batch can ingest it into staging layer (refer # 3 in above ADF pipeline screen capture).</p></li>
+<li><p>Here stage STG is defined under a Guzzle batch to ingest data into staging layer maintained as Databricks delta tables.</p>
+<p><strong>Note:</strong> In few scenarios data might directly be consumed from application source systems also instead of consuming it from the extracted files.</p></li>
+</ul>
+<h2><a class="anchor" aria-hidden="true" id="process-data-from-staging-layer-to-reusable-layer-using-guzzle-context"></a><a href="#process-data-from-staging-layer-to-reusable-layer-using-guzzle-context" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Process data from staging layer to reusable layer using Guzzle context</h2>
+<ul>
+<li><p>As data is ingested from files to staging layer, Guzzle batch can process it further and load into reusable layer (refer # 3 in above ADF pipeline screen capture).</p></li>
+<li><p>Here stage FND (referred as ODS in screen capture) is defined under a Guzzle batch to process and load data into reusable layer maintained as Databricks delta tables.</p>
+<p><strong>Note:</strong> Layer specific abbreviated notations may differ project to project and you may use what's defined in your project.</p></li>
+</ul>
+<h2><a class="anchor" aria-hidden="true" id="process-data-from-reusable-layer-to-use-case-layer-using-guzzle-context"></a><a href="#process-data-from-reusable-layer-to-use-case-layer-using-guzzle-context" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Process data from reusable layer to use-case layer using Guzzle context</h2>
+<ul>
+<li><p>Once data is loaded into reusable layer, a separate Guzzle batch can process it or aggregate it further to load into use-case specific layer (refer # 4 in above ADF pipeline screen capture).</p></li>
+<li><p>Here stage PLP (referred as ABT in screen capture) is defined under a Guzzle batch to process and load data into use-case layer maintained as Databricks delta tables.</p>
+<p><strong>Note:</strong> Layer specific abbreviated notations may differ project to project and you may use what's defined in your project.</p></li>
+</ul>
+<h2><a class="anchor" aria-hidden="true" id="perform-ml-using-databricks-pyspark-notebook"></a><a href="#perform-ml-using-databricks-pyspark-notebook" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Perform ML using Databricks PySpark notebook</h2>
+<ul>
+<li>Use-case layer data is used by PySpark notebook which uses Pandas libraries to perform ML and derive some projections (refer # 5.2 in above ADF pipeline screen capture).</li>
+<li>This is again Non-Guzzle component in end to end data flow and thus Databricks Notebook is directly invoked in ADF pipeline using Notebook activity. Notebook path and other runtime details can also be configured in configuration table we discussed earlier. These runtime details can be fetched using lookup activity and passed to Notebook activity as seen in # 5.1</li>
+</ul>
+<h2><a class="anchor" aria-hidden="true" id="copy-data-from-databricks-delta-tables-to-azure-synapse-using-guzzle-context"></a><a href="#copy-data-from-databricks-delta-tables-to-azure-synapse-using-guzzle-context" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Copy data from Databricks delta tables to Azure Synapse using Guzzle context</h2>
+<ul>
+<li>There is another Guzzle batch defined to copy data from Databricks delta tables to Azure Synapse Analytics.</li>
+<li>Azure Synapse Analytics is acting as a reporting cache which is eventually queried by Power BI to generate reports and dashboards.</li>
+</ul>
+<h2><a class="anchor" aria-hidden="true" id="configure-and-send-email-notification-for-batch-execution"></a><a href="#configure-and-send-email-notification-for-batch-execution" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Configure and send email notification for batch execution</h2>
+<p>You can configure email notification table as below to populate email IDs of specific team within your project or specific departments in your organisation.</p>
+<table>
+<thead>
+<tr><th>ID</th><th>Team</th><th>Email</th></tr>
+</thead>
+<tbody>
+<tr><td>1</td><td>Data Engineer</td><td><a href="mailto:john@ja.com">john@ja.com</a>; <a href="mailto:naveen@ja.com">naveen@ja.com</a>; <a href="mailto:tin@ja.com">tin@ja.com</a></td></tr>
+<tr><td>2</td><td>Data Science</td><td><a href="mailto:kelvin@ja.com">kelvin@ja.com</a>; <a href="mailto:kanika@ja.com">kanika@ja.com</a></td></tr>
+<tr><td>3</td><td>Data Analyst</td><td><a href="mailto:umesh@ja.com">umesh@ja.com</a></td></tr>
+<tr><td>4</td><td>Operations</td><td><a href="mailto:bhavana@ja.com">bhavana@ja.com</a>; <a href="mailto:fredo@ja.com">fredo@ja.com</a></td></tr>
+</tbody>
+</table>
+<p>This table can be used to lookup based on ID filter to get email ids. Email ids can be passed to web activity which calls Logic App URL to trigger email notification either on pipeline success or on failure.
+<img src="/guzzle-docs/img/docs/Email_Notification_Web_Activity.png" alt="Email_Notification_Web_Activity"></p>
+<p>You can include below sample details in email alert by using built-in ADF parameters and by querying Guzzle runtime audit tables like <code>batch_control</code>, <code>job_info</code> and <code>job_info_param</code>.</p>
+<p><strong>Sample SQL to query Guzzle runtime audit tables</strong></p>
+<pre><code class="hljs css language-sql"><span class="hljs-keyword">select</span> job_info.*,
+(<span class="hljs-keyword">select</span> parameter_value <span class="hljs-keyword">from</span> dbo.job_info_param <span class="hljs-keyword">where</span> <span class="hljs-number">1</span>=<span class="hljs-number">1</span> <span class="hljs-keyword">and</span> parameter_name = <span class="hljs-string">'job_status_url'</span> <span class="hljs-keyword">and</span> job_info_param.job_instance_id = job_info.job_instance_id) databricks_log_url,
+(<span class="hljs-keyword">select</span> <span class="hljs-keyword">concat</span>(<span class="hljs-string">'&lt;&lt;blob container URL&gt;&gt;'</span>,parameter_value,<span class="hljs-string">'&lt;&lt;blob query string&gt;&gt;'</span>) <span class="hljs-keyword">from</span> dbo.job_info_param <span class="hljs-keyword">where</span> <span class="hljs-number">1</span>=<span class="hljs-number">1</span> <span class="hljs-keyword">and</span> parameter_name = <span class="hljs-string">'log_file'</span> <span class="hljs-keyword">and</span> job_info_param.job_instance_id = job_info.job_instance_id) guzzle_log_url
+<span class="hljs-keyword">from</span> dbo.job_info
+<span class="hljs-keyword">where</span> <span class="hljs-number">1</span>=<span class="hljs-number">1</span>
+<span class="hljs-keyword">and</span> job_info.batch_id=<span class="hljs-string">'&lt;&lt;current batch id&gt;&gt;'</span>
+<span class="hljs-keyword">and</span> job_info.status <span class="hljs-keyword">in</span> (<span class="hljs-string">'FAILED'</span>,<span class="hljs-string">'ABORTED'</span>) <span class="hljs-keyword">and</span> job_info.tag <span class="hljs-keyword">not</span> <span class="hljs-keyword">in</span> (<span class="hljs-string">'workunit'</span>, <span class="hljs-string">'publish'</span>)
+<span class="hljs-keyword">order</span> <span class="hljs-keyword">by</span> job_info.job_instance_id <span class="hljs-keyword">desc</span>
+</code></pre>
+<p><strong>Sample email alert contents</strong>
+<img src="/guzzle-docs/img/docs/Email_Notification.png" alt="Email_Notification"></p>
+<h2><a class="anchor" aria-hidden="true" id="generic-adf-pipelines-template-for-guzzle-api-call"></a><a href="#generic-adf-pipelines-template-for-guzzle-api-call" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Generic ADF pipelines template for Guzzle API call</h2>
+<ol>
+<li><p>Generic pipeline to dynamically construct JSON using configuration table for Guzzle API call
+<img src="/guzzle-docs/img/docs/ADF_Guzzle_Construct_API_JSON_Pipeline.png" alt="ADF_Guzzle_Construct_API_JSON_Pipeline">
+<strong>Note:</strong> Sample for configuration table we have discussed earlier</p></li>
+<li><p>Generic pipeline for Guzzle API call for - init batch and run stage
+<img src="/guzzle-docs/img/docs/ADF_Guzzle_API_Call_Pipeline.png" alt="ADF_Guzzle_API_Call_Pipeline"></p></li>
+<li><p>Generic pipeline to wait for running batch to finish<br>
+<img src="/guzzle-docs/img/docs/ADF_Guzzle_Track_Batch_Pipeline.png" alt="ADF_Guzzle_Track_Batch_Pipeline"></p></li>
+<li><p>Generic pipeline to wait for running batch stage to finish</p></li>
+</ol>
+<pre><code class="hljs css language-sql"><span class="hljs-keyword">select</span> &lt;&lt;STG/FND/PLP&gt;&gt;_status <span class="hljs-keyword">from</span> dbo.batch_control <span class="hljs-keyword">where</span> batch_id=&lt;&lt;<span class="hljs-keyword">current</span> batch <span class="hljs-keyword">id</span>&gt;&gt;
+</code></pre>
+<p><img src="/guzzle-docs/img/docs/ADF_Guzzle_Track_Batch_Stage_Pipeline.png" alt="ADF_Guzzle_Track_Batch_Stage_Pipeline"></p>
+<ol start="5">
+<li>Generic ADF pipeline exported template (refer attachment)
+<ul>
+<li>To import in ADF, <strong>click plus (+)</strong> sign to Add new resource</li>
+<li>Choose <strong>Pipeline from template</strong></li>
+<li>Select <strong>Use local template</strong></li>
+<li>Select zip file of downloaded template from your local machine and click open to upload</li>
+<li>Configure database linked service prompts for your environment</li>
+<li>Configure HTTP server linked service prompts for your environment</li>
+<li>Click <strong>Use this template</strong></li>
+<li>All pipeline components would be imported into your ADF environment, click <strong>Publish all</strong> to save changes</li>
+</ul></li>
+</ol>
+<p>Refer attached for exported template <a href="/guzzle-docs/img/docs/PrepareRequestBodyAndInvokeGuzzleBatch.zip">PrepareRequestBodyAndInvokeGuzzleBatch.zip</a></p>
+</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/guzzle-docs/docs/next/parameter_datafactory"><span class="arrow-prev">← </span><span>Call Guzzle from Azure Data Factory</span></a><a class="docs-next button" href="/guzzle-docs/docs/next/versioning_versioning_git_setting"><span>Guzzle – Versioning (Git Settings)</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#guzzle-batch-and-its-control-flow">Guzzle batch and its control flow</a></li><li><a href="#invoke-guzzle-batch-from-adf-using-guzzle-api">Invoke Guzzle batch from ADF using Guzzle API</a></li><li><a href="#guzzle-api-base-url-to-configure-in-adf-http-linked-service">Guzzle API Base URL to configure in ADF HTTP linked service</a></li><li><a href="#single-day-and-explicit-multiple-day-guzzle-batch-initialization">Single day and explicit multiple day Guzzle batch initialization</a></li><li><a href="#non-guzzle-components-in-the-middle-of-end-to-end-batch-processing">Non-guzzle components in the middle of end-to-end batch processing</a></li><li><a href="#non-guzzle-components-at-the-start-or-at-the-end-of-end-to-end-batch-processing">Non-guzzle components at the start or at the end of end-to-end batch processing</a></li><li><a href="#using-configuration-table-to-pass-parameter-values-to-dynamically-construct-json-format-for-guzzle-api-call">Using configuration table to pass parameter values to dynamically construct JSON format for Guzzle API call</a></li><li><a href="#context-columns-and-control-columns-to-be-maintained-in-tables">Context columns and control columns to be maintained in tables</a></li><li><a href="#time-based-vs-event-based-scheduling">Time based vs Event based scheduling</a><ul class="toc-headings"><li><a href="#challenges-in-pipelinebatch-design-while-consuming-data-from-multiple-time-based-sources">Challenges in pipeline/batch design while consuming data from multiple time based sources</a></li></ul></li><li><a href="#extract-the-data-files-from-application-source-to-blob-storage-using-adf-pipeline">Extract the data files from application source to blob storage using ADF pipeline</a></li><li><a href="#load-extracted-data-files-from-blob-storage-to-databricks-delta-staging-layer-tables-using-guzzle-context">Load extracted data files from blob storage to Databricks delta staging layer tables using Guzzle context</a></li><li><a href="#process-data-from-staging-layer-to-reusable-layer-using-guzzle-context">Process data from staging layer to reusable layer using Guzzle context</a></li><li><a href="#process-data-from-reusable-layer-to-use-case-layer-using-guzzle-context">Process data from reusable layer to use-case layer using Guzzle context</a></li><li><a href="#perform-ml-using-databricks-pyspark-notebook">Perform ML using Databricks PySpark notebook</a></li><li><a href="#copy-data-from-databricks-delta-tables-to-azure-synapse-using-guzzle-context">Copy data from Databricks delta tables to Azure Synapse using Guzzle context</a></li><li><a href="#configure-and-send-email-notification-for-batch-execution">Configure and send email notification for batch execution</a></li><li><a href="#generic-adf-pipelines-template-for-guzzle-api-call">Generic ADF pipelines template for Guzzle API call</a></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/guzzle-docs/" class="nav-home"><img src="/guzzle-docs/img/favicon.webp" alt="Guzzle" width="66" height="58"/></a><div><h5>Docs</h5><a href="/guzzle-docs/docs/en/docshome.html">Getting Started (or other categories)</a><a href="/guzzle-docs/docs/en/doc2.html">Guides (or other categories)</a><a href="/guzzle-docs/docs/en/doc3.html">API Reference (or other categories)</a></div><div><h5>Community</h5><a href="/guzzle-docs/en/users.html">User Showcase</a><a href="https://stackoverflow.com/questions/tagged/" target="_blank" rel="noreferrer noopener">Stack Overflow</a><a href="https://discordapp.com/">Project Chat</a><a href="https://twitter.com/" target="_blank" rel="noreferrer noopener">Twitter</a></div><div><h5>More</h5><a href="/guzzle-docs/blog">Blog</a><a href="https://github.com/">GitHub</a><a class="github-button" data-icon="octicon-star" data-count-href="/facebook/docusaurus/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></div></section><a href="https://opensource.facebook.com/" target="_blank" rel="noreferrer noopener" class="fbOpenSource"><img src="/guzzle-docs/img/oss_logo.png" alt="Facebook Open Source" width="170" height="45"/></a><section class="copyright">Copyright © 2020 Just Analytics</section></footer></div></body></html>

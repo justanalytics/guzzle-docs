@@ -1,0 +1,283 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>Guzzle Client · Guzzle</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="There are 3 Guzzle client services for interacting with Guzzle core services."/><meta name="docsearch:version" content="next"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="Guzzle Client · Guzzle"/><meta property="og:type" content="website"/><meta property="og:url" content="https://justanalytics.github.io/guzzle-docs/"/><meta property="og:description" content="There are 3 Guzzle client services for interacting with Guzzle core services."/><meta property="og:image" content="https://justanalytics.github.io/guzzle-docs/img/undraw_online.svg"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://justanalytics.github.io/guzzle-docs/img/undraw_tweetstorm.svg"/><link rel="shortcut icon" href="/guzzle-docs/img/favicon.webp"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><link rel="alternate" type="application/atom+xml" href="https://justanalytics.github.io/guzzle-docs/blog/atom.xml" title="Guzzle Blog ATOM Feed"/><link rel="alternate" type="application/rss+xml" href="https://justanalytics.github.io/guzzle-docs/blog/feed.xml" title="Guzzle Blog RSS Feed"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script src="/guzzle-docs/js/scrollSpy.js"></script><link rel="stylesheet" href="/guzzle-docs/css/main.css"/><script src="/guzzle-docs/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/guzzle-docs/"><img class="logo" src="/guzzle-docs/img/just-analytics-logo-new.png" alt="Guzzle"/><h2 class="headerTitleWithLogo">Guzzle</h2></a><a href="/guzzle-docs/versions"><h3>next</h3></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class="siteNavGroupActive"><a href="/guzzle-docs/docs/next/docshome" target="_self">Docs</a></li><li class=""><a href="/guzzle-docs/docs/next/doc4" target="_self">API</a></li><li class=""><a href="/guzzle-docs/help" target="_self">Help</a></li><li class=""><a href="/guzzle-docs/blog/" target="_self">Blog</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="docsNavContainer" id="docsNav"><nav class="toc"><div class="toggleNav"><section class="navWrapper wrapper"><div class="navBreadcrumb wrapper"><div class="navToggle" id="navToggler"><div class="hamburger-menu"><div class="line1"></div><div class="line2"></div><div class="line3"></div></div></div><h2><i>›</i><span>Guzzle Architecture and Services</span></h2><div class="tocToggler" id="tocToggler"><i class="icon-toc"></i></div></div><div class="navGroups"><div class="navGroup"><h3 class="navGroupCategoryTitle">Guzzle Fundamentals</h3><ul class=""><li class="navListItem"><a class="navItem" href="/guzzle-docs/docs/next/docshome">Introduction to Guzzle</a></li><li class="navListItem"><a class="navItem" href="/guzzle-docs/docs/next/fundamentals_ingestion">Guzzle Module - Ingestion</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Guzzle Architecture and Services</h3><ul class=""><li class="navListItem"><a class="navItem" href="/guzzle-docs/docs/next/Guzzle_Arch_Service">Guzzle – Architecture and Services</a></li><li class="navListItem"><a class="navItem" href="/guzzle-docs/docs/next/Arch_Guzzle_Core">Guzzle Core</a></li><li class="navListItem navListItemActive"><a class="navItem" href="/guzzle-docs/docs/next/Arch_Guzzle_Client">Guzzle Client</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Guzzle Parameters</h3><ul class=""><li class="navListItem"><a class="navItem" href="/guzzle-docs/docs/next/Guzzle_Parameters">Guzzle Parameters</a></li><li class="navListItem"><a class="navItem" href="/guzzle-docs/docs/next/parameter_groovy">Groovy expression to manipulate Guzzle Parameters</a></li><li class="navListItem"><a class="navItem" href="/guzzle-docs/docs/next/parameter_physical_endpoints">Physical Endpoints</a></li><li class="navListItem"><a class="navItem" href="/guzzle-docs/docs/next/parameter_logical_endpoints">Logical Endpoints</a></li><li class="navListItem"><a class="navItem" href="/guzzle-docs/docs/next/parameter_activity">Guzzle Activity (formerly Job Configs) Overview</a></li><li class="navListItem"><a class="navItem" href="/guzzle-docs/docs/next/parameter_ingestion">Guzzle Activity Type (formerly Job Config) – Ingestion</a></li><li class="navListItem"><a class="navItem" href="/guzzle-docs/docs/next/parameter_processing">Guzzle Activity Type (formerly Job Config) – Processing</a></li><li class="navListItem"><a class="navItem" href="/guzzle-docs/docs/next/parameter_recon">Guzzle Activity Type (formerly Job Config) – Recon</a></li><li class="navListItem"><a class="navItem" href="/guzzle-docs/docs/next/parameter_constraint">Guzzle Activity Type (formerly Job Config) – Constraint Checks</a></li><li class="navListItem"><a class="navItem" href="/guzzle-docs/docs/next/parameter_housekeeping">Guzzle Activity Type (formerly Job Config) – Housekeeping</a></li><li class="navListItem"><a class="navItem" href="/guzzle-docs/docs/next/parameter_external">Guzzle Activity Type (formerly Job Config) – External</a></li><li class="navListItem"><a class="navItem" href="/guzzle-docs/docs/next/parameter_batch">Guzzle Batch (formerly Contexts)</a></li><li class="navListItem"><a class="navItem" href="/guzzle-docs/docs/next/parameter_datafactory">Call Guzzle from Azure Data Factory</a></li><li class="navListItem"><a class="navItem" href="/guzzle-docs/docs/next/parameter_orchestration">Orchestration of ADF pipeline with Guzzle and Non Guzzle Jobs</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Guzzle – Versioning (Git Settings)</h3><ul class=""><li class="navListItem"><a class="navItem" href="/guzzle-docs/docs/next/versioning_versioning_git_setting">Guzzle – Versioning (Git Settings)</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Guzzle – Lineage (Apache Atlas)</h3><ul class=""><li class="navListItem"><a class="navItem" href="/guzzle-docs/docs/next/lineage_lineage_apache_atlas">Guzzle – Lineage (Apache Atlas)</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">DW Design and Development Best Practices with Use Cases</h3><ul class=""><li class="navListItem"><a class="navItem" href="/guzzle-docs/docs/next/dw_dw_design_and_devlopment_with_use_cases">DW Design and Development Best Practices with Use Cases</a></li><li class="navListItem"><a class="navItem" href="/guzzle-docs/docs/next/dw_dw_design_and_devlopment_use_cases_source_image_layer">Source Image Layer</a></li><li class="navListItem"><a class="navItem" href="/guzzle-docs/docs/next/dw_dw_design_and_devlopment_use_cases_use_case_layer">Use Case layer</a></li><li class="navListItem"><a class="navItem" href="/guzzle-docs/docs/next/dw_dw_design_and_devlopment_use_cases_reporting_cache">Reporting Cache</a></li><li class="navListItem"><a class="navItem" href="/guzzle-docs/docs/next/dw_dw_design_and_devlopment_with_use_cases_surrogate_keys">Surrogate Keys</a></li><li class="navListItem"><a class="navItem" href="/guzzle-docs/docs/next/dw_dw_design_and_devlopment_with_use_cases_audit_columns">Audit Columns</a></li><li class="navListItem"><a class="navItem" href="/guzzle-docs/docs/next/dw_dw_design_and_devlopment_with_use_cases_context_columns">Context Columns</a></li><li class="navListItem"><a class="navItem" href="/guzzle-docs/docs/next/dw_dw_design_and_devlopment_with_use_cases_etl_vs_elt">ETL vs ELT</a></li><li class="navListItem"><a class="navItem" href="/guzzle-docs/docs/next/dw_dw_design_and_devlopment_with_use_cases_file_extracts">File Extracts</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Guzzle Scheduler</h3><ul class=""><li class="navListItem"><a class="navItem" href="/guzzle-docs/docs/next/guzzle_schedular">Guzzle Scheduler</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Recorded Training Sessions</h3><ul class=""><li class="navListItem"><a class="navItem" href="/guzzle-docs/docs/next/recorded_training_sessions">Recorded Training Sessions</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">JA Sandbox Practice Environments</h3><ul class=""><li class="navListItem"><a class="navItem" href="/guzzle-docs/docs/next/ja_sandbbox_environments">JA Sandbox Practice Environments</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Contacts</h3><ul class=""><li class="navListItem"><a class="navItem" href="/guzzle-docs/docs/next/contact_info_for_guzzle_support">Contacts</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Developers Guide</h3><ul class=""><li class="navListItem"><a class="navItem" href="/guzzle-docs/docs/next/core/concepts">Concepts</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Installing Guzzle</h3><ul class=""><li class="navListItem"><a class="navItem" href="/guzzle-docs/docs/next/azure/marketplace">Installing on Azure Marketplace</a></li><li class="navListItem"><a class="navItem" href="/guzzle-docs/docs/next/azure/azure_manual">Installing on Azure Manually</a></li></ul></div></div></section></div><script>
+            var coll = document.getElementsByClassName('collapsible');
+            var checkActiveCategory = true;
+            for (var i = 0; i < coll.length; i++) {
+              var links = coll[i].nextElementSibling.getElementsByTagName('*');
+              if (checkActiveCategory){
+                for (var j = 0; j < links.length; j++) {
+                  if (links[j].classList.contains('navListItemActive')){
+                    coll[i].nextElementSibling.classList.toggle('hide');
+                    coll[i].childNodes[1].classList.toggle('rotate');
+                    checkActiveCategory = false;
+                    break;
+                  }
+                }
+              }
+
+              coll[i].addEventListener('click', function() {
+                var arrow = this.childNodes[1];
+                arrow.classList.toggle('rotate');
+                var content = this.nextElementSibling;
+                content.classList.toggle('hide');
+              });
+            }
+
+            document.addEventListener('DOMContentLoaded', function() {
+              createToggler('#navToggler', '#docsNav', 'docsSliderActive');
+              createToggler('#tocToggler', 'body', 'tocActive');
+
+              var headings = document.querySelector('.toc-headings');
+              headings && headings.addEventListener('click', function(event) {
+                var el = event.target;
+                while(el !== headings){
+                  if (el.tagName === 'A') {
+                    document.body.classList.remove('tocActive');
+                    break;
+                  } else{
+                    el = el.parentNode;
+                  }
+                }
+              }, false);
+
+              function createToggler(togglerSelector, targetSelector, className) {
+                var toggler = document.querySelector(togglerSelector);
+                var target = document.querySelector(targetSelector);
+
+                if (!toggler) {
+                  return;
+                }
+
+                toggler.onclick = function(event) {
+                  event.preventDefault();
+
+                  target.classList.toggle(className);
+                };
+              }
+            });
+        </script></nav></div><div class="container mainContainer docsContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 id="__docusaurus" class="postHeaderTitle">Guzzle Client</h1></header><article><div><span><p>There are 3 Guzzle client services for interacting with Guzzle core services.</p>
+<ol>
+<li>Guzzle UI</li>
+<li>Guzzle API</li>
+<li>Guzzle CLI</li>
+</ol>
+<p>Let's go through each of the Guzzle client service in details below.</p>
+<h2><a class="anchor" aria-hidden="true" id="guzzle-ui"></a><a href="#guzzle-ui" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Guzzle UI</h2>
+<p>Guzzle Web UI is very user friendly web interface to author, execute and monitor Guzzle jobs. You can perform following activities using Guzzle Web UI,</p>
+<ul>
+<li>Create connections for reading/writing various technologies</li>
+<li>Configure spark compute and environments</li>
+<li>Configure GIT for code version management</li>
+<li>Create jobs configurations for ingestion, processing, recon, housekeeping, constraint checks etc.</li>
+<li>Download job metadata</li>
+<li>Sync Atlas metadata for building lineage</li>
+<li>Define, execute and monitor batches</li>
+<li>User access management using different built-in Personas for access control</li>
+<li>Define workflow for manual file uploads for data ingestion</li>
+</ul>
+<h2><a class="anchor" aria-hidden="true" id="guzzle-api"></a><a href="#guzzle-api" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Guzzle API</h2>
+<p>You with deal with Guzzle API call mostly if it is Guzzle cloud setup. There is detailed step by step guid available on how to integrate Guzzle API with Azure Data Factory (ADF) in Azure Cloud setup. Please refer wikipage here at - <a href="/guzzle-docs/docs/next/parameter_datafactory"> Call Guzzle from Azure Data Factory </a></p>
+<p>For various Guzzle API call, quick reference to syntaxes to be used are as follows,</p>
+<h3><a class="anchor" aria-hidden="true" id="call-guzzle-rest-api-which-triggers-job-group"></a><a href="#call-guzzle-rest-api-which-triggers-job-group" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Call Guzzle REST API which triggers job group:</h3>
+<p><strong>Request Body</strong>:</p>
+<pre><code class="hljs css language-json">{
+  <span class="hljs-attr">"system"</span>: <span class="hljs-string">"test"</span>,
+  <span class="hljs-attr">"location"</span>: <span class="hljs-string">"SG"</span>,
+  <span class="hljs-attr">"business_date"</span>: <span class="hljs-string">"2020-04-02 16:01:27"</span>,
+  <span class="hljs-attr">"guzzle.spark.name"</span>: <span class="hljs-string">"local1"</span>,
+  <span class="hljs-attr">"job_group"</span>: <span class="hljs-string">"USERS_INGESTION"</span>,
+  <span class="hljs-attr">"environment"</span>: <span class="hljs-string">"test2"</span>
+}
+</code></pre>
+<p>When we debug pipeline, we will get job instance id of triggered job group in response of API call (similar to job trigger API)</p>
+<h3><a class="anchor" aria-hidden="true" id="call-guzzle-rest-api-which-initializes-a-batch-record"></a><a href="#call-guzzle-rest-api-which-initializes-a-batch-record" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Call Guzzle REST API which initializes a batch record:</h3>
+<p><strong>Request Body</strong>:</p>
+<pre><code class="hljs css language-json">{
+  <span class="hljs-attr">"contextParams"</span>: {
+    <span class="hljs-attr">"system"</span>: <span class="hljs-string">"sp"</span>
+  },
+  <span class="hljs-attr">"businessDate"</span>: <span class="hljs-string">"2020-04-02 16:11:38"</span>,
+  <span class="hljs-attr">"environment"</span>: <span class="hljs-string">"test2"</span>
+}
+</code></pre>
+<p>When we debug pipeline, we will not get anything in response of the API call</p>
+<h3><a class="anchor" aria-hidden="true" id="call-guzzle-rest-api-which-initializes-batch-records-for-multiple-days"></a><a href="#call-guzzle-rest-api-which-initializes-batch-records-for-multiple-days" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Call Guzzle REST API which initializes batch records for multiple days:</h3>
+<p><strong>Request Body</strong>:</p>
+<pre><code class="hljs css language-json">{
+  <span class="hljs-attr">"contextParams"</span>: {
+    <span class="hljs-attr">"system"</span>: <span class="hljs-string">"sp"</span>,
+    <span class="hljs-attr">"location"</span>: <span class="hljs-string">"all"</span>
+  },
+  <span class="hljs-attr">"businessDateRange"</span>: {
+    <span class="hljs-attr">"startDate"</span>: <span class="hljs-string">"2020-04-02 16:00:00"</span>,
+    <span class="hljs-attr">"endDate"</span>: <span class="hljs-string">"2020-04-06 16:00:00"</span>
+  },
+  <span class="hljs-attr">"period"</span>: <span class="hljs-string">"1"</span>,
+  <span class="hljs-attr">"environment"</span>: <span class="hljs-string">"test2"</span>
+}
+</code></pre>
+<p>When we debug pipeline, we will not get anything in response of the API call</p>
+<h3><a class="anchor" aria-hidden="true" id="call-guzzle-rest-api-which-triggers-a-stage-of-the-batch"></a><a href="#call-guzzle-rest-api-which-triggers-a-stage-of-the-batch" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Call Guzzle REST API which triggers a stage of the batch:</h3>
+<p><strong>Request Body</strong>:</p>
+<pre><code class="hljs css language-json">{
+  <span class="hljs-attr">"param1"</span>: <span class="hljs-string">"value1"</span>,
+  <span class="hljs-attr">"system"</span>: <span class="hljs-string">"sp"</span>,
+  <span class="hljs-attr">"guzzle.spark.name"</span>: <span class="hljs-string">"local1"</span>,
+  <span class="hljs-attr">"stage"</span>: <span class="hljs-string">"STG"</span>,
+  <span class="hljs-attr">"environment"</span>: <span class="hljs-string">"test2"</span>
+}
+</code></pre>
+<p>When we debug pipeline, we will not get anything in response of the API call</p>
+<h3><a class="anchor" aria-hidden="true" id="call-guzzle-rest-api-which-triggers-multiple-stages-of-the-batch"></a><a href="#call-guzzle-rest-api-which-triggers-multiple-stages-of-the-batch" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Call Guzzle REST API which triggers multiple stages of the batch:</h3>
+<p><strong>Request Body</strong>:</p>
+<pre><code class="hljs css language-json">{
+  <span class="hljs-attr">"param1"</span>: <span class="hljs-string">"value1"</span>,
+  <span class="hljs-attr">"system"</span>: <span class="hljs-string">"sp"</span>,
+  <span class="hljs-attr">"guzzle.spark.name"</span>: <span class="hljs-string">"local1"</span>,
+  <span class="hljs-attr">"stage"</span>: <span class="hljs-string">"STG,FND,PLP"</span>,
+  <span class="hljs-attr">"environment"</span>: <span class="hljs-string">"test2"</span>
+}
+</code></pre>
+<p>When we debug pipeline, we will not get anything in response of the API call</p>
+<h2><a class="anchor" aria-hidden="true" id="guzzle-cli"></a><a href="#guzzle-cli" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Guzzle CLI</h2>
+<p>You can use Guzzle CLI using one of shell script <code>guzzle.sh</code> located under <code>$GUZZLE_HOME/scripts</code> directory.</p>
+<p>If you execute this script on $ prompt it will print the entire help for working with Guzzle CLI as seen below,</p>
+<pre><code class="hljs css language-sh">Usage: ./guzzle.sh [COMMAND]
+
+    <span class="hljs-built_in">where</span> COMMAND is one of:
+
+    run
+        use to run job or stages
+
+        job
+            to run adhoc guzzle job.
+            usage: ./guzzle.sh run job job_name environment [parameters] [spark_config]
+
+            ex. ./guzzle.sh run job transaction_csv_staging environment=prod <span class="hljs-string">"business_date=2019-01-01 00:00:00"</span> param1=value1 param2=value2
+                ./guzzle.sh run job transaction_csv_staging environment=prod job_instance_id=190315105226 <span class="hljs-string">"business_date=2019-01-01 00:00:00"</span> param1=value1 guzzle.spark.num_executors=1 guzzle.spark.driver_memory=512m
+
+            job_name        guzzle job name
+                            ex. transaction_csv_staging
+            environment     environment name
+                            ex. environment=prod
+            [parameters]    job parameters. it is specified <span class="hljs-keyword">in</span> key=value format.
+                            ex. job_instance_id=190315105226 location=SG system=transaction <span class="hljs-string">"business_date=2019-01-01 00:00:00"</span> ...
+            [spark_config]  used to overwrite default spark configuration. spark parameters are passed with <span class="hljs-string">"guzzle.spark"</span> prefix
+                            ex. guzzle.spark.num_executors=1 guzzle.spark.driver_memory=512m ...
+
+        stage
+            used to run stages.
+            usage: ./guzzle.sh run stage environment context_params stage [parameters]
+
+            ex. ./guzzle.sh run stage environment=prod system=transaction location=SG stage=<span class="hljs-string">"STG,FND"</span> param1=value1 param2=value2
+
+            environment     environment name
+                            ex. environment=prod
+            context_params  context parameters. it is specified <span class="hljs-keyword">in</span> key=value format.
+                            ex. system=transaction location=SG ...
+            stage           execution stages. multiple stages are separated by comma(,).
+                            ex. stage=<span class="hljs-string">"STG,FND"</span>
+            [parameters]    job parameters. it is specified <span class="hljs-keyword">in</span> key=value format.
+                            ex. location=SG system=transaction <span class="hljs-string">"business_date=2019-01-01 00:00:00"</span> ...
+
+        job_group
+            used to run job group.
+            usage: ./guzzle.sh run job_group job_group_name environment [parameters] [spark_config]
+
+            ex. ./guzzle.sh run job_group asia_region_transactions environment=prod <span class="hljs-string">"business_date=2019-01-01 00:00:00"</span> transaction_type=credit_card order_type=online guzzle.spark.name=spark_default
+
+            job_group_name  job group name
+                            ex. asia_region_transactions
+            environment     environment name
+                            ex. environment=prod
+            [parameters]    job parameters. it is specified <span class="hljs-keyword">in</span> key=value format.
+                            guzzle.job_group.resume=y is used to resume execution from last failed job group run.
+                            guzzle.job_group.partial=<span class="hljs-literal">true</span> is used to allow partially run job group.
+                            ex. <span class="hljs-string">"business_date=2019-01-01 00:00:00"</span> transaction_type=credit_card order_type=online ...
+            [spark_config]  used to provide spark configuration profile.
+                            ex. guzzle.spark.name=spark_default
+
+    init
+        use to initialize batch records or guzzle repository.
+
+        batch
+
+            used to initialize batch records <span class="hljs-keyword">for</span> provided context column and date range.
+            usage: ./guzzle.sh init batch environment context_params [[business_date] | [start_date] [end_date] [period]]
+
+            ex. ./guzzle.sh init batch environment=prod system=transaction location=SG <span class="hljs-string">"business_date=2019-01-01 00:00:00"</span>
+                ./guzzle.sh init batch environment=prod system=transaction location=SG <span class="hljs-string">"start_date=2019-01-01 00:00:00"</span> <span class="hljs-string">"end_date=2019-01-15 00:00:00"</span> period=2
+
+            environment     environment name
+                            ex. environment=prod
+            context_params  context parameters. it is specified <span class="hljs-keyword">in</span> key=value format.
+                            ex. system=transaction location=SG ...
+            [business_date] initialized batch record <span class="hljs-keyword">for</span> specific business date. <span class="hljs-keyword">do</span> not forget to add double quotes(<span class="hljs-string">""</span>)
+                            ex. <span class="hljs-string">"business_date=2019-01-01 00:00:00"</span>
+            [start_date]
+            [end_date]      initialized batch records <span class="hljs-keyword">for</span> specified date range. <span class="hljs-keyword">do</span> not forget to add double quotes(<span class="hljs-string">""</span>)
+                            ex. <span class="hljs-string">"start_date=2019-01-01 00:00:00"</span> <span class="hljs-string">"end_date=2019-01-15 00:00:00"</span>
+            [period]        used to create periodic batch records <span class="hljs-keyword">for</span> specified date range. it is used with start_date and end_date.
+                            period\<span class="hljs-string">'s value is considered in days.
+                            ex. period=2
+
+        repository
+            used to initialize guzzle repository or to generate repository script
+            usage: ./guzzle.sh init repository environment [generate]
+
+            ex. ./guzzle.sh init repository environment=prod
+                ./guzzle.sh init repository environment=prod generate
+
+            environment     environment name
+                            ex. environment=prod
+            [generate]      generate repository initialization script
+                            ex. generate
+
+    sync
+        use to synchronize guzzle data
+
+        atlas
+            used to synchronize guzzle job and environment data with atlas
+            usage: ./guzzle.sh sync atlas environment=prod
+
+            ex. ./guzzle.sh sync atlas environment=prod
+
+            environment     environment name
+                            ex. environment=prod
+
+    export
+        use to export guzzle data.
+
+        job_metadata
+            used to export job config metadata.
+            usage: ./guzzle.sh export job_metadata [job_type] [job_name] [target]
+
+            ex. ./guzzle.sh export job_metadata
+                ./guzzle.sh export job_metadata target=/home/user/guzzle_test/export
+                ./guzzle.sh export job_metadata job_type=ingestion,processing target=/home/user/guzzle_test/export
+                ./guzzle.sh export job_metadata job_name=transaction_csv_staging target=/home/user/guzzle_test/export
+
+            [job_type]      job type. multiple job types are separated by comma(,)
+                            ex. job_type=ingestion,processing
+            [job_name]      job name. multiple job names are separated by comma(,).
+                            ex. job_type=transaction_csv_staging
+            [target]        target directory path. default it exports file in current directory.
+                            ex. /home/user/guzzle_test/export
+
+        column_metadata
+            used to export column metadata.
+            usage: ./guzzle.sh export column_metadata [job_type] [job_name] [target]
+
+            ex. ./guzzle.sh export column_metadata
+                ./guzzle.sh export column_metadata target=/home/user/guzzle_test/export
+                ./guzzle.sh export column_metadata job_type=ingestion,processing target=/home/user/guzzle_test/export
+                ./guzzle.sh export column_metadata job_name=transaction_csv_staging target=/home/user/guzzle_test/export
+
+
+            [job_type]      job types. multiple job types are separated by comma(,)
+                            ex. job_type=ingestion,processing
+            [job_name]      job name. multiple job names are separated by comma(,).
+                            ex. job_type=transaction_csv_staging
+            [target]        target directory path.
+                            ex. /home/user/guzzle_test/export
+</span></code></pre>
+</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/guzzle-docs/docs/next/Arch_Guzzle_Core"><span class="arrow-prev">← </span><span>Guzzle Core</span></a><a class="docs-next button" href="/guzzle-docs/docs/next/Guzzle_Parameters"><span>Guzzle Parameters</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#guzzle-ui">Guzzle UI</a></li><li><a href="#guzzle-api">Guzzle API</a><ul class="toc-headings"><li><a href="#call-guzzle-rest-api-which-triggers-job-group">Call Guzzle REST API which triggers job group:</a></li><li><a href="#call-guzzle-rest-api-which-initializes-a-batch-record">Call Guzzle REST API which initializes a batch record:</a></li><li><a href="#call-guzzle-rest-api-which-initializes-batch-records-for-multiple-days">Call Guzzle REST API which initializes batch records for multiple days:</a></li><li><a href="#call-guzzle-rest-api-which-triggers-a-stage-of-the-batch">Call Guzzle REST API which triggers a stage of the batch:</a></li><li><a href="#call-guzzle-rest-api-which-triggers-multiple-stages-of-the-batch">Call Guzzle REST API which triggers multiple stages of the batch:</a></li></ul></li><li><a href="#guzzle-cli">Guzzle CLI</a></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/guzzle-docs/" class="nav-home"><img src="/guzzle-docs/img/favicon.webp" alt="Guzzle" width="66" height="58"/></a><div><h5>Docs</h5><a href="/guzzle-docs/docs/en/docshome.html">Getting Started (or other categories)</a><a href="/guzzle-docs/docs/en/doc2.html">Guides (or other categories)</a><a href="/guzzle-docs/docs/en/doc3.html">API Reference (or other categories)</a></div><div><h5>Community</h5><a href="/guzzle-docs/en/users.html">User Showcase</a><a href="https://stackoverflow.com/questions/tagged/" target="_blank" rel="noreferrer noopener">Stack Overflow</a><a href="https://discordapp.com/">Project Chat</a><a href="https://twitter.com/" target="_blank" rel="noreferrer noopener">Twitter</a></div><div><h5>More</h5><a href="/guzzle-docs/blog">Blog</a><a href="https://github.com/">GitHub</a><a class="github-button" data-icon="octicon-star" data-count-href="/facebook/docusaurus/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></div></section><a href="https://opensource.facebook.com/" target="_blank" rel="noreferrer noopener" class="fbOpenSource"><img src="/guzzle-docs/img/oss_logo.png" alt="Facebook Open Source" width="170" height="45"/></a><section class="copyright">Copyright © 2020 Just Analytics</section></footer></div></body></html>
