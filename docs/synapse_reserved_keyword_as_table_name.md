@@ -10,7 +10,7 @@ For example, you want to copy data from Databricks delta to Azure Synapse table 
 
 This one even fails in SSMS and you need to enclose table name within either square bracket or double quotes in SSMS.
 
-![Synapse-Reserved-Keyword](/guzzle-docs/img/docs/Synapse-Reserved-Keyword.png)
+![Synapse-Reserved-Keyword](https://github.com/justanalytics/guzzle-docs/blob/guzzle-doc-update-chandra/website/static/img/docs/Synapse-Reserved-Keyword.png)
 
 To make this particular scenario work in Guzzle, please use the escape character backslash (\\) in conjunction with double quote (") to enclose your target table name.
 
