@@ -1,7 +1,7 @@
 ---
 id: parameter_ingestion
-title: Guzzle Activity Type (formerly Job Config) – Ingestion
-sidebar_label: Guzzle Activity Type (formerly Job Config) – Ingestion
+title: Guzzle Activity – Ingestion
+sidebar_label: Guzzle Activity – Ingestion
 ---
 
 
@@ -78,14 +78,14 @@ There are few recommendations to be followed for building complete lineage and t
       * `SQL` - Specify custom SQL to be executed on source datastore. For example, you may want to use column alias to match source column names with target column names or want to apply some basic transformation rules. Please note that, it is not recommended to perform complex joins or data transformation as part of the ingestion module job. Once data is ingested from source to target platform, processing module jobs are best suited for performing those activities.
    * `Pre SQL` - Specify any Pre-SQL you may want to execute before reading source table or executing source custom SQL. For example, refresh index, collect stats etc.
    * `Post SQL` - Specify any Post-SQL you may want to execute after reading source table or executing source custom SQL. For example, drop table, delete file etc.
-   * `Configure Watermark` - **\<<Add contents here\>>**
-      * `Partition Column Name`
-      * `Watermark Columns`
-      * `Watermark Filter`
+   * `Configure Watermark` - You can check this property if you want to source data incrementally based on the watermark filters.
+      * `Partition Column Name` - Watermark identifier column
+      * `Watermark Columns` - You have to specify your watermark columns over here for which Guzzle will auto-populate repository table `watermark` with the watermark key i.e. activity name, watermark column i.e. set of watermark columns you specify under this section and watermark value i.e. max values available in the data been processed (by default) or you can specify custom user defined values also using the UI
+      * `Watermark Filter` - Provide watermark column filter to load data increamentally. You can use variable @1 or @2 for referring the watermark columns you specified under `Watermark Coulumns` section in the sequence, @1 refers to first watermark column, @2 refers to second watermark column and so on. e.g. employee_id>@1 and created_dt>=@2
    * `Configure Columns Restriction`
       * `Include Columns` - Specify what all source columns you want to map to target table. If columns to be included is less than columns to be excluded list.
       * `Exclude Columns` - Specify what all source columns you don't want to map to target table. If columns to be excluded is less than columns to be included list.
-   * `Configure Table Dependency` - **\<<Add contents here\>>**
+   * `Configure Table Dependency` - This property is used to manually specify source table dependency and to manually configure Apache Atlas lineage.
 
 ### Validation And Transformation
 This section will have properties as below,
