@@ -3,6 +3,7 @@
     "Guzzle Fundamentals": ["docshome", "fundamentals_ingestion"],
     "Guzzle Architecture and Services":["Guzzle_Arch_Service","Arch_Guzzle_Core","Arch_Guzzle_Client"],
     "Guzzle Parameters":["Guzzle_Parameters","parameter_groovy","parameter_physical_endpoints","parameter_logical_endpoints","parameter_activity","parameter_ingestion","parameter_processing","parameter_recon","parameter_constraint","parameter_housekeeping","parameter_external","parameter_batch","parameter_datafactory","parameter_orchestration"],
+    "Guzzle – Spark Runtime": ["compute_spark_runtime"],
     "Guzzle – Versioning (Git Settings)": ["versioning_versioning_git_setting"],
     "Guzzle – Lineage (Apache Atlas)": ["lineage_lineage_apache_atlas"],
     "DW Design and Development Best Practices with Use Cases": [
@@ -18,6 +19,7 @@
     	"dw_dw_design_and_devlopment_with_use_cases_file_extracts"
     ],
     "Guzzle Scheduler" :["guzzle_schedular"],
+    "How-to guides" :["guzzle_xml_file_ingestion","synapse_reserved_keyword_as_table_name"],
     "Recorded Training Sessions": ["recorded_training_sessions"],
     "JA Sandbox Practice Environments": ["ja_sandbbox_environments"],
     "Contacts" : ["contact_info_for_guzzle_support"],
