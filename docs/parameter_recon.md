@@ -1,7 +1,7 @@
 ---
 id: parameter_recon
-title: Guzzle Activity – Recon
-sidebar_label: Guzzle Activity – Recon
+title: Guzzle Activity Type (formerly Job Config) – Recon
+sidebar_label: Guzzle Activity Type (formerly Job Config) – Recon
 ---
 
 
