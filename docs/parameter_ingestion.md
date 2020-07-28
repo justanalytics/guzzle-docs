@@ -1,7 +1,7 @@
 ---
 id: parameter_ingestion
-title: Guzzle Activity – Ingestion
-sidebar_label: Guzzle Activity – Ingestion
+title: Guzzle Activity Type (formerly Job Config) – Ingestion
+sidebar_label: Guzzle Activity Type (formerly Job Config) – Ingestion
 ---
 
 
