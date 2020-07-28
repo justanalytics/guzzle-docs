@@ -66,7 +66,7 @@ There are few recommendations to be followed for building complete lineage and t
 ### Source
 This section will have properties as below,
 - `Datastore` (formerly known as Endpoint) - You can choose any of the available logical connection from drop-down (as appropriate). If connection is not available in drop-down then you have to create new.
-- `Incremental` - **\<<Add contents here\>>**
+- `Incremental` - This property is to control behavior of the framework generated column `w_current_record_flag`, in the cases where target is configured for merge operation. By default, when this property is unchecked, source is considered full dump. Hence all target records are first marked as `w_current_record_flag` is equal to N before performing the merge on target. In next step, for merge primary keys those are present in source, this flag is again updated to Y and keys those are not present in source, this flag remains N. In case you check this property, source is considered incremental. Hence all target records are not marked as N for `w_current_record_flag` column.
 - `Table`
    * `Table` - Specify source table name. You can also use parameter and pass its value during runtime. You may prefix your table name with database/schema name.
    * `Filter` - Specify record filters to be applied on source table, if any.
@@ -74,7 +74,7 @@ This section will have properties as below,
    * `SQL` - Specify custom SQL to be executed on source datastore. For example, you may want to use column alias to match source column names with target column names or want to apply transformation rules. You can perform complex joins and apply data transformation rules to derive columns within custom SQL as part of the processing module job.
 - `Pre SQL` - Specify any Pre-SQL you may want to execute before reading source table or executing source custom SQL. For example, refresh index, collect stats etc.
 - `Post SQL` - Specify any Post-SQL you may want to execute after reading source table or executing source custom SQL. For example, drop table, delete file etc.
-- `Configure Table Dependency` - **\<<Add contents here\>>**
+- `Configure Table Dependency` - This property is used to manually specify source table dependency and to manually configure Apache Atlas lineage.
 - `Additional Columns` - Specify, if you want to map any additional framework generated columns (as listed earlier on this page) or derived column to target table.
 
 ### Target
