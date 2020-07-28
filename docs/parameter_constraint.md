@@ -37,9 +37,9 @@ This section will have options to set as below,
       1. dept_id in (10,20,30,40,50,60)
       1. salary > 1000 
    * **`Constraint Data`** - Specify list of columns for which additonal data to be logged into `constraint_check_summary`, `constraint_check_detail` tables. For example,
-      1. employee_id||'~'||employee_name||'~'||
-      1. employee_id||'~'||employee_name||'~'||dept_id
-      1. employee_id||'~'||employee_name||'~'||salary
+      1. employee_id||','||employee_name||','||
+      1. employee_id||','||employee_name||','||dept_id
+      1. employee_id||','||employee_name||','||salary
 
 ### Tags
 
