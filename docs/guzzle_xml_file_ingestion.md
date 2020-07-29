@@ -62,7 +62,7 @@ Data ingestion from nested XML file is fully supported by Guzzle. Here in below 
 
 ## Nested XML File with Array
 
-Data ingestion from nested XML file with Array is also supported to an extend by Guzzle as within an Array all element values will be read comma separated and mapped to single column in target table. Here in below example, column `RoomTypeCode` would be populated like Array with comma separated values as there are two Array elements in target table since `ns0:RoomTypes` is an array of `ns0:RoomType`.
+Data ingestion from nested XML file with Array is also supported to an extent by Guzzle as within an Array all element values will be read comma separated and mapped to single column in target table. Here in below example, column `RoomTypeCode` would be populated like Array with comma separated values as there are two Array elements in target table since `ns0:RoomTypes` is an array of `ns0:RoomType`.
 
 **Sample nested XML with Array:**
 

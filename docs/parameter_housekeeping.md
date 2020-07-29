@@ -17,7 +17,7 @@ This section will have properties as below,
 - `Table` - Specify table name. You can also use parameter and pass its value during runtime. You may prefix your table name with database/schema name.
 - `Housekeeping Column` - Specify column name to be used for housekeeping the table. Mostly this is going to be partition columns of the table.
 - `Operation` - Delete, Move
-- `Configure Table Dependency` - **\<<Add contents here\>>**
+- `Configure Table Dependency` - This property is used to manually specify source table dependency and to manually configure Apache Atlas lineage.
 - `Reference Point` - Specify any of the available option in the drop-down list - `Current Time`, `Max Value`, `Value` as a reference point for applying the housekeeping rules. If selected `Current Time`, it will housekeep treating current system timestamp as a reference point to apply the housekeeping rules defined under Retention Strategies. If selected `Max Value`, it will calculate the maximum value for `Housekeeping Column` specified in above section as reference point. If selected `Value`, you can specify custom value or pass value through a runtime parameter as reference point for housekeeping.
 - `Retention Strategies` - Specify retention strategies for housekeeping your table.
    * `Partitions`

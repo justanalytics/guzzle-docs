@@ -111,10 +111,10 @@ Below is a sample for configuration table you may create to build generic ADF pi
 
 | ID | Batch_Name | Batch_Context_Params | Run_Stage | Batch_Additional_Params | Spark_Environment | Is_Multi_Day_Call | Blob_SAS_URL | Blob_SAS_Token |
 |----------|----------- |----------------------|-----------|-------------------------|-------------------|-------------------|--------------|--------------|
-| 1 | SRC2FND_system1 | "system": "SRC2FND_system1","location": "All" | STG,FND | "environment": "env_uat" | guzzle-data-engineering | N | https://storacctdiuat.blob.core.windows.net/xxxxxxx | ?xxxxxxx |
-| 2 | FND2PLP_system1 | "system": "FND2PLP_system1","location": "All" | PLP | "environment": "env_uat" | guzzle-data-engineering | N | https://storacctdiuat.blob.core.windows.net/xxxxxxx | ?xxxxxxx |
-| 3 | DB2SYNAPSE_system1 | "system": "DB2SYNAPSE_system1","location": "All" | PLP | "environment": "env_uat" | guzzle-data-engineering | N | https://storacctdiuat.blob.core.windows.net/xxxxxxx | ?xxxxxxx |
-| 4 | SRC2PLP_system2 | "system": "SRC2PLP_system2","location": "All" | STG,FND,PLP | "environment": "env_uat","period": "1" | guzzle-data-engineering | Y | https://storacctdiuat.blob.core.windows.net/xxxxxxx | ?xxxxxxx |
+| 1 | SRC2FND_system1 | "system": "SRC2FND_system1","location": "All" | STG,FND | "environment": "env_uat" | guzzle-data-engineering | N | https://storacctxxxxx.blob.core.windows.net/xxxxxxx | ?xxxxxxx |
+| 2 | FND2PLP_system1 | "system": "FND2PLP_system1","location": "All" | PLP | "environment": "env_uat" | guzzle-data-engineering | N | https://storacctxxxxx.blob.core.windows.net/xxxxxxx | ?xxxxxxx |
+| 3 | DB2SYNAPSE_system1 | "system": "DB2SYNAPSE_system1","location": "All" | PLP | "environment": "env_uat" | guzzle-data-engineering | N | https://storacctxxxxx.blob.core.windows.net/xxxxxxx | ?xxxxxxx |
+| 4 | SRC2PLP_system2 | "system": "SRC2PLP_system2","location": "All" | STG,FND,PLP | "environment": "env_uat","period": "1" | guzzle-data-engineering | Y | https://storacctxxxxx.blob.core.windows.net/xxxxxxx | ?xxxxxxx |
 
 * **ID:** This is just unique sequence number (static) used in configuration table. It can be used as a filter in your lookup activity which would query this configuration table.
 * **Batch_Name:** This is a descriptive name given to each of the batch. This column is insignificant for Guzzle API call. It can also be used for logically grouping multiple batches into one to showcase end to end data load for a particular system or for a business segment or for department. Such logical grouping of batches can also be useful for creating runtime audit dashboards.
