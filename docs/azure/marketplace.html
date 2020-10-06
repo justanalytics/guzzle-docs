@@ -251,7 +251,7 @@ root@guzzlemp2vm:/dbfs/mnt/guzzle# ln -s /guzzle/test-data
            <span class="hljs-string">"fs.azure.account.oauth.provider.type"</span>: <span class="hljs-string">"org.apache.hadoop.fs.azurebfs.oauth2.ClientCredsTokenProvider"</span>,
            <span class="hljs-string">"fs.azure.account.oauth2.client.id"</span>: dbutils.secrets.get(scope = <span class="hljs-string">"guzzlevm2scope"</span>, key = <span class="hljs-string">"guzzlemv2spclient"</span>),
            <span class="hljs-string">"fs.azure.account.oauth2.client.secret"</span>: dbutils.secrets.get(scope = <span class="hljs-string">"guzzlevm2scope"</span>, key = <span class="hljs-string">"guzzlemv2spclientsec"</span>),
-           <span class="hljs-string">"fs.azure.account.oauth2.client.endpoint"</span>: <span class="hljs-string">"https://login.microsoftonline.com/bc5c7327-b12e-48db-a856-175591ecd2f0/oauth2/token"</span>}
+           <span class="hljs-string">"fs.azure.account.oauth2.client.endpoint"</span>: <span class="hljs-string">"https://login.microsoftonline.com/bc5c7327-xxxxx-xxxx../oauth2/token"</span>}
 
 dbutils.fs.mount(
   source = <span class="hljs-string">"abfss://datalake1@adlsv2guzzlecommon.dfs.core.windows.net/data"</span>,
