@@ -204,7 +204,7 @@ configs = {"fs.azure.account.auth.type": "OAuth",
            "fs.azure.account.oauth.provider.type": "org.apache.hadoop.fs.azurebfs.oauth2.ClientCredsTokenProvider",
            "fs.azure.account.oauth2.client.id": dbutils.secrets.get(scope = "guzzlevm2scope", key = "guzzlemv2spclient"),
            "fs.azure.account.oauth2.client.secret": dbutils.secrets.get(scope = "guzzlevm2scope", key = "guzzlemv2spclientsec"),
-           "fs.azure.account.oauth2.client.endpoint": "https://login.microsoftonline.com/bc5c7327-b12e-48db-a856-175591ecd2f0/oauth2/token"}
+           "fs.azure.account.oauth2.client.endpoint": "https://login.microsoftonline.com/bc5c7327-xxxxx-xxxx.../oauth2/token"}
 
 dbutils.fs.mount(
   source = "abfss://datalake1@adlsv2guzzlecommon.dfs.core.windows.net/data",
