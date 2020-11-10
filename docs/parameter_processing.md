@@ -74,7 +74,7 @@ This section will have properties as below,
    * `SQL` - Specify custom SQL to be executed on source datastore. For example, you may want to use column alias to match source column names with target column names or want to apply transformation rules. You can perform complex joins and apply data transformation rules to derive columns within custom SQL as part of the processing module job.
 - `Pre SQL` - Specify any Pre-SQL you may want to execute before reading source table or executing source custom SQL. For example, refresh index, collect stats etc.
 - `Post SQL` - Specify any Post-SQL you may want to execute after reading source table or executing source custom SQL. For example, drop table, delete file etc.
-- `Configure Table Dependency` - This property is used to manually specify source table dependency and to manually configure Apache Atlas lineage.
+- `Configure Table Dependency` - This property is used to manually specify source table dependency and to manually configure Apache Atlas lineage. You can test this feature by go to Pipeline, enabling auto dependency, then click generate dependency graph.
 - `Additional Columns` - Specify, if you want to map any additional framework generated columns (as listed earlier on this page) or derived column to target table.
 
 ### Target

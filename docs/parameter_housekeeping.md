@@ -7,7 +7,9 @@ sidebar_label: Guzzle Activity Type (formerly Job Config) – Housekeeping
 
 ## Guzzle Module - Housekeeping
 
-You can perform very granular level housekeeping on your target tables as per your data retention policy across various data storage layers within data lake using this module.
+* You can perform very granular level housekeeping on your target tables as per your data retention policy across various data storage layers within data lake using this module.
+* How it work: delete physical partition folder
+* Important: to perform housekeeping job, table must be partitoned by at least one column with date data type
 
 ## Module Sections
 

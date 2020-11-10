@@ -70,6 +70,42 @@ There are few recommendations to be followed for building complete lineage and t
    * `Configure Control File Settings` - Specify, if you have a control file for your source file which contains row count and you want Guzzle to do row count check with control file before file can be processed.
    * `Partial Load` - Specify, if you want Guzzle to load partial set of files into target when there is more than one file matching source file pattern. For example, if there are 10 files matching source file pattern available at source file directory and 2 files fails control check validation or any other validation defined then `Partial Load` will allow job to load other 8 files into target table, if this property is enabled.
 
+- If your File Pattern match multiple files in the directory, then this is how guzzle works:
+
+  * Depend on the datastores, Guzzle will scan the matching file. If datastores = Local File System, then Guzzle use java.io.File to scan
+
+  ```scala
+  package com.justanalytics.guzzle.common.service.file
+
+  import java.io.File
+
+  class LocalFileService(override val source: Endpoint, override val spark: SparkSession) extends FileService {
+    override def listRecursiveFiles(basePath: String): List[String] = {
+      logger.info(s"fetching recursive file list from: ${new URI(parseURI(basePath))}")
+      Files.walk(Paths.get(new URI(parseURI(getPathURI(basePath))))).collect(Collectors.toList[file.Path]).asScala.toList.map(_.toString)
+    }
+  }  
+  ```
+
+  * Then Guzzle will use the following properties of the first file and apply to other files
+
+  ```scala
+      val fileList = fileService.listSourceFile()
+
+      if (fileList.isEmpty) return List.empty
+
+      var dataFrame = spark.read.option("delimiter", columnDelimiter)
+        .option("inferSchema", inferSchema)
+        .option("delimiter", columnDelimiter)
+        .option("header", header)
+        .option("charset", charset)
+        .option("quote", quote)
+        .option("multiline", multiline)
+        .option("dateFormat", dateFormat)
+        .option("timestampFormat", timestampFormat)
+        .csv(fileList.head)
+  ```
+
 - If you select relational or JDBC datastore, you will get following properties to set,
    * `Table`
       * `Table` - Specify source table name. You can also use parameter and pass its value during runtime. You may prefix your table name with database/schema name.
