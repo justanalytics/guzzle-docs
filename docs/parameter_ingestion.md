@@ -139,7 +139,8 @@ This section will have properties as below,
 - `Auto Create Table` - Specify, if you want Guzzle job to auto-create target table if table is not existing.
 - `Operation` - Specify, if you want to perform append or overwrite operation target table by selecting a given option from drop-down.
 - `Configure Truncate Partition Columns` - Specify target table partition columns and their corresponding values to truncate target table partition before target load. Truncate partition column values can also be passed as a parameter.
-
+- `Generate Single File` - if not enable, then the Guzzle will create multiple files. If enable, then Guzzle will create only 1 file with name = source + job instance id
+- `Preserve Hierarchy` - if your source directory have nested, multi-level folder structure, then if you enable this option, Guzzle will preserve that folder structure in target directory
 
 ### Reject
 This section will have properties as below,

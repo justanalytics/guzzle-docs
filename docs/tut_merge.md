@@ -35,10 +35,14 @@ target:
   properties:
     template: default
     table: tgt_merge
+    pre_sql:
+      - truncate table default.tgt_merge
   endpoint: hive
 ```
 
 ### perform merge with merged column
+
+- only column c1 will be updated
 
 ```yaml
 version: 1
@@ -68,6 +72,8 @@ target:
 ```
 
 ### perform merge without merged column
+
+- both column c1 and c2 will be updated
 
 ```yaml
 version: 1

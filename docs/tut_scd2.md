@@ -61,6 +61,12 @@ target:
 
 ### perform scd2
 
+- if specify history columns, then guzzle will only insert new row if:
+  * Any of these history columns has value in the source table = null
+  * Any of these history columns has value in the source table != value in the target table
+  * Else, guzzle will update value of non history columns
+  
+
 ```
 version: 1
 job:
